@@ -23,5 +23,6 @@ It is ideal for clinics that need a professional online presence with full contr
 - **HTML5** – Semantic and accessible markup  
 - **SCSS (Sass)** – Modular and maintainable styling  
 - **JavaScript (ES6)** – Minimal interactivity  
-- **Node.js & npm** – Build tooling for SCSS  
+- **Node.js & npm** – Build tooling for SCSS
+- **Gsap Animations** - A robust animation library for providing jaw-dropping animations
 
