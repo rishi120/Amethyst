@@ -1,0 +1,24 @@
+{
+  "name": "amethyst",
+  "version": "1.0.0",
+  "description": "A modern, responsive single-page website designed for Amethyst - a physiotherapy clinic.  \r The project emphasizes clean UI, performance, and maintainability using semantic HTML, SCSS, and modern JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass src/assets/css/main.scss src/assets/css/main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishi120/Amethyst.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishi120/Amethyst/issues"
+  },
+  "homepage": "https://github.com/rishi120/Amethyst#readme",
+  "devDependencies": {
+    "sass": "^1.97.2"
+  }
+}
