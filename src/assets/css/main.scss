@@ -1,3 +1,32 @@
+/*-----------------------------------------------------------------------------------
+
+ Project Name: Amethyst
+ Project URI: http://
+ Description: 
+ Author: Chandan Baruah
+ Author URI: https://chandanbaruah.com/
+ Version: 1.0.0
+
+/* -----------------------------------------------------------------------------------*/
+
+
+/* ----------------------------------------------------------------
+
+ == Table Of Content
+
+ Imports
+ 
+
+---------------------------------------------------------------- */
+
+/* 00. Imports */
+@use "./abstracts/variables";
+@use "./abstracts/mixins";
+@use "./base/reset";
+@use "./base/normalize";
+@use "./layouts/header";
+@use "./layouts/footer";
+
 .heading {
     font-size: 2.5rem;
     font-weight: bold;

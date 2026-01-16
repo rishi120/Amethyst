@@ -1,0 +1,102 @@
+// implementing sass map get function
+$colors: (black: #000, white: #fff, primary: #3F1E4F);
+// Black opacity colors
+$layb1: rgba(0, 0, 0, 0.1);
+// white opacity
+$layw1: rgba(255, 255, 255, 0.1);
+$layw2: rgba(255, 255, 255, 0.2);
+$layw3: rgba(255, 255, 255, 0.3);
+$layw4: rgba(255, 255, 255, 0.4);
+$layw5: rgba(255, 255, 255, 0.5);
+$layw6: rgba(255, 255, 255, 0.6);
+$layw7: rgba(255, 255, 255, 0.7);
+$layw8: rgba(255, 255, 255, 0.8);
+$layw9: rgba(255, 255, 255, 0.9);
+$layw10: rgba(255, 255, 255, 1);
+
+
+// media query
+$mq5b: "screen and (max-width: 320px)";
+$mq3b7: "screen and (max-width: 375px)";
+$mq4b: "screen and (max-width: 425px)";
+$mq5b7: "screen and (max-width: 575px)";
+$mq7b: "screen and (max-width: 767px)";
+$mobile_landscape: "screen and (max-width: 767px) and (orientation:landscape)";
+$mq9b: "screen and (max-width: 991px)";
+$mq10b: "screen and (max-width: 1023px)";
+$mq12b: "screen and (max-width: 1199px)";
+$mq5a: "screen and (min-width: 566px)";
+$mq7a: "screen and (min-width: 768px)";
+$mq9a: "screen and (min-width: 992px)";
+$mq10a: "screen and (min-width: 1024px)";
+$mq12a: "screen and (min-width: 1200px)";
+$mq16a: "screen and (min-width: 1600px)";
+$tablet: "screen and (device-width: 768px)";
+$ipad_landscape: "screen and (min-width: 768px) and (max-width: 1024px) and (orientation : landscape)";
+$ipad_pro: "screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait)";
+$tablet_orientation: "screen and (min-width: 1024px) and (max-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5)";
+$fhd: "screen and (min-width: 1920px)";
+
+
+//font attach
+@font-face {
+    font-family: "Poppins-Light";
+    src: url("../fonts/Poppins-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url("../fonts/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url("../fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url("../fonts/Inter_18pt-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter-SemiBold";
+    src: url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter-Bold";
+    src: url("../fonts/Inter_18pt-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter-Medium";
+    src: url("../fonts/Inter_18pt-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter-Light";
+    src: url("../fonts/Inter_18pt-Thin.ttf") format("truetype");
+}
+
+//font family
+$pf: "Poppins-Light";
+$lb: "Poppins-Bold";
+$ll: "Poppins-Medium";
+$lr: "Poppins-Regular";
+$lblack: "Poppins-SemiBold";
+$ir: "Inter-Regular";
+$is: "Inter-SemiBold";
+$ib: "Inter-Bold";
+$im: "Inter-Medium";
+$il: "Inter-Light";
