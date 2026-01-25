@@ -20,5 +20,8 @@
   "homepage": "https://github.com/rishi120/Amethyst#readme",
   "devDependencies": {
     "sass": "^1.97.2"
+  },
+  "dependencies": {
+    "node": "^25.4.0"
   }
 }

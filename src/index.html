@@ -23,10 +23,73 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main id="app">
-      <h1 class="heading">Welcome to Amethyst</h1>
+      <!-- header -->
+      <header class="header">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+          <div class="container">
+            <a class="navbar-brand custom-navbar-brand" href="#">Amethyst</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse custom-navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" tabindex="-1">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!--- hero section -->
+        <div class="hero">
+          <div class="container">
+            <div class="hero-content">
+              <div class="hero-text">
+                <h1>Amethyst</h1>
+                <p>Healing with Heart, Backed by Science.</p>
+                <ul class="hero-services">
+                  <li>Sports Injuries</li>
+                  <li>Back & Neck Pain</li>
+                  <li>Post-Surgery Rehab</li>
+                  <li>Chronic Pain</li>
+                </ul>
+              </div>
+            </div>
+            <div class="scroll-indicator">
+              <i class="bi bi-arrow-down"></i>
+            </div>
+          </div>
+        </div>
+      </header>
     </main>
 
     <script type="module" src="./assets/js/main.js"></script>

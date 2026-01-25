@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*-----------------------------------------------------------------------------------
 
  Project Name: Amethyst
@@ -531,10 +532,209 @@ template {
   display: none;
 }
 
-.heading {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+/*-----------------------------------------------------------------------------------
+
+ Project Name: Amethyst
+ Project URI: http://
+ Description: 
+ Author: Chandan Baruah
+ Author URI: https://chandanbaruah.com/
+ Version: 1.0.0
+
+/* -----------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------
+
+ == Table Of Content
+
+ Imports
+
+
+---------------------------------------------------------------- */
+/* 00. Imports */
+.header {
+  background-image: url("../images/Group 1265.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  position: relative;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+.header nav {
+  position: relative;
+  z-index: 2;
+  background-color: transparent !important;
+}
+.header nav .custom-navbar-brand {
+  font-family: "Inter-Bold";
+  font-size: 1.5rem;
+  color: white !important;
+}
+.header nav .custom-navbar-collapse {
+  justify-content: flex-end;
+}
+.header nav .custom-navbar-collapse ul li a {
+  font-family: "Inter-Bold";
+  font-size: 0.95rem;
+  color: white !important;
+  margin-right: 1.5rem;
+}
+.header nav .custom-navbar-collapse ul li a:hover {
+  color: #d1d1d1 !important;
+}
+.header nav .custom-navbar-collapse ul li:last-child {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.header nav .custom-navbar-collapse ul li:last-child:hover {
+  background-color: #fff !important;
+}
+.header nav .custom-navbar-collapse ul li:last-child:hover a {
+  color: #3F1E4F !important;
+}
+.header nav .custom-navbar-collapse ul li:last-child a {
+  margin-right: 0;
+}
+.header {
+  /* =========================
+     HERO SECTION
+  ========================== */
+}
+.header .hero {
+  position: relative;
+  z-index: 2;
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+.header .hero .hero-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.header .hero .hero-content .hero-text {
+  text-align: center;
+}
+.header .hero .hero-content .hero-text h1 {
+  font-family: "Poppins-Bold";
+  font-size: 6.5rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.header .hero .hero-content .hero-text p {
+  font-family: "Inter-Regular";
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.header .hero .hero-content .hero-text .hero-services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.header .hero .hero-content .hero-text .hero-services li {
+  font-family: "Inter-Regular";
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  position: relative;
+}
+.header .hero .hero-content .hero-text .hero-services li:not(:last-child)::after {
+  content: "•";
+  margin-left: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.header .hero {
+  /* =========================
+     SCROLL DOWN INDICATOR
+  ========================== */
+}
+.header .hero .scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: #fff;
+  font-size: 2rem;
+  opacity: 0.85;
+  cursor: pointer;
+}
+.header .hero .scroll-indicator i {
+  display: inline-block;
+  animation: scroll-bounce 2s infinite;
+}
+.header .hero {
+  /* Bounce animation */
+}
+@keyframes scroll-bounce {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(12px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+}
+
+html,
+body {
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  background-color: #f7f4f2;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 12px;
+}
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, #6d3d8b, #ad3133);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background-color: #383838;
+}
+html::-moz-scrollbar,
+body::-moz-scrollbar {
+  width: 8px;
+  height: 12px;
+}
+html::-moz-scrollbar-thumb,
+body::-moz-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, #6d3d8b, #ad3133);
+}
+html::-moz-scrollbar-track,
+body::-moz-scrollbar-track {
+  background-color: #383838;
 }
 
 /*# sourceMappingURL=main.css.map */
