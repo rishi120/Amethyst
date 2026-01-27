@@ -19,9 +19,13 @@
     }
 
     nav {
-        position: relative;
-        z-index: 2;
         background-color: transparent !important;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+        &.navbar-scrolled {
+            background-color: map-get(variables.$colors, primary) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
 
         .custom-navbar-brand {
             font-family: variables.$ib;
@@ -77,7 +81,7 @@
     .hero {
         position: relative;
         z-index: 2;
-        height: calc(100vh - 80px); // accounts for navbar height
+        height: 100%;
         display: flex;
         align-items: center;
 
