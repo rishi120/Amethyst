@@ -1,5 +1,8 @@
+import navbar from "../../assets/js/navbar.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.querySelector(".navbar");
+  navbar();
+  const navbarEl = document.querySelector(".navbar");
   const scrollIndicator = document.querySelector(".scroll-indicator");
   const aboutSection = document.querySelector("#about");
   const buttonScrollToTeam = document.querySelector("#button-scroll-indicator");
@@ -11,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentScrollY = window.scrollY;
 
     if (currentScrollY > 200) {
-      navbar.classList.add("navbar-scrolled");
+      navbarEl.classList.add("navbar-scrolled");
     } else {
-      navbar.classList.remove("navbar-scrolled");
+      navbarEl.classList.remove("navbar-scrolled");
     }
 
     lastScrollY = currentScrollY;

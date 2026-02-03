@@ -551,6 +551,51 @@ template {
 
 ---------------------------------------------------------------- */
 /* 00. Imports */
+nav {
+  background-color: transparent !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+nav.navbar-scrolled {
+  background-color: #3F1E4F !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+nav .custom-navbar-brand {
+  font-family: "Inter-Bold";
+  font-size: 1.5rem;
+  color: white !important;
+}
+nav .custom-navbar-collapse {
+  justify-content: flex-end;
+}
+nav .custom-navbar-collapse ul li a {
+  font-family: "Inter-Bold";
+  font-size: 0.95rem;
+  color: white !important;
+  margin-right: 1.5rem;
+}
+nav .custom-navbar-collapse ul li a:hover {
+  color: #d1d1d1 !important;
+}
+nav .custom-navbar-collapse ul li:last-child {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+nav .custom-navbar-collapse ul li:last-child:hover {
+  background-color: #fff !important;
+}
+nav .custom-navbar-collapse ul li:last-child:hover a {
+  color: #3F1E4F !important;
+}
+nav .custom-navbar-collapse ul li:last-child a {
+  margin-right: 0;
+}
+
 .header {
   background-image: url("../images/Group 1265.png");
   background-size: cover;
@@ -565,50 +610,6 @@ template {
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   z-index: 1;
-}
-.header nav {
-  background-color: transparent !important;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.header nav.navbar-scrolled {
-  background-color: #3F1E4F !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.header nav .custom-navbar-brand {
-  font-family: "Inter-Bold";
-  font-size: 1.5rem;
-  color: white !important;
-}
-.header nav .custom-navbar-collapse {
-  justify-content: flex-end;
-}
-.header nav .custom-navbar-collapse ul li a {
-  font-family: "Inter-Bold";
-  font-size: 0.95rem;
-  color: white !important;
-  margin-right: 1.5rem;
-}
-.header nav .custom-navbar-collapse ul li a:hover {
-  color: #d1d1d1 !important;
-}
-.header nav .custom-navbar-collapse ul li:last-child {
-  border: 1px solid #fff;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  padding: 0 10px;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-.header nav .custom-navbar-collapse ul li:last-child:hover {
-  background-color: #fff !important;
-}
-.header nav .custom-navbar-collapse ul li:last-child:hover a {
-  color: #3F1E4F !important;
-}
-.header nav .custom-navbar-collapse ul li:last-child a {
-  margin-right: 0;
 }
 .header {
   /* =========================
@@ -635,6 +636,12 @@ template {
   font-size: 6.5rem;
   color: #fff;
   margin-bottom: 0.5rem;
+}
+.header .hero .hero-content .hero-text h5 {
+  font-family: "Poppins-Bold";
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
 }
 .header .hero .hero-content .hero-text p {
   font-family: "Inter-Regular";
@@ -701,6 +708,228 @@ template {
   }
 }
 
+.video-header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Background video */
+.video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.85) contrast(1.05);
+}
+
+/* Dark overlay for readability */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45));
+  z-index: 2;
+}
+
+/* Hero text container */
+.video-hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+.video-hero-content h1 {
+  font-family: "Poppins-Bold";
+  font-size: 5.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+.video-hero-content p {
+  font-family: "Inter-Regular";
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 680px;
+  line-height: 1.7;
+}
+.video-hero-content {
+  /* =========================
+     SCROLL DOWN INDICATOR
+  ========================== */
+}
+.video-hero-content .scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: #fff;
+  font-size: 2rem;
+  opacity: 0.85;
+  cursor: pointer;
+}
+.video-hero-content .scroll-indicator i {
+  display: inline-block;
+  animation: scroll-bounce 2s infinite;
+}
+.video-hero-content {
+  /* Bounce animation */
+}
+@keyframes scroll-bounce {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(12px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+}
+
+/**
+ * @file Service Pages partial Stylesheet
+ * @description
+ * partial SCSS file that serves as the main stylesheet for all service pages.
+ * used across all service page components and layouts.
+ * 
+ */
+/*-----------------------------------------------------------------------------------
+
+ Project Name: Amethyst
+ Project URI: http://
+ Description: 
+ Author: Chandan Baruah
+ Author URI: https://chandanbaruah.com/
+ Version: 1.0.0
+
+/* -----------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------
+
+ == Table Of Content
+
+ Imports
+
+
+---------------------------------------------------------------- */
+/* 00. Imports */
+.footer {
+  margin-top: 6rem;
+  padding-bottom: 3rem;
+}
+.footer .cta-img-wrapper {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  /* 👇 THIS CONTROLS HEIGHT */
+  height: 550px;
+}
+.footer .cta-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.footer {
+  /* Dark overlay */
+}
+.footer .cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
+  z-index: 1;
+}
+.footer {
+  /* Content */
+}
+.footer .cta-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 3rem;
+}
+.footer .cta-text h2 {
+  font-family: "Poppins-Bold";
+  font-size: 2.6rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.footer .cta-text p {
+  font-family: "Inter-Regular";
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 520px;
+  line-height: 1.6;
+}
+.footer {
+  /* Form */
+}
+.footer .cta-form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.75rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+}
+.footer .cta-form .form-control,
+.footer .cta-form .form-select {
+  font-family: "Inter-Regular";
+  font-size: 0.95rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: 0.6rem;
+}
+.footer .cta-form .btn-primary-custom {
+  background-color: #3F1E4F;
+  color: #ffffff;
+  border: none;
+  font-family: "Inter-Bold";
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s ease;
+}
+.footer .cta-form .btn-primary-custom:hover {
+  background-color: rgb(45.3137614679, 21.5779816514, 56.8220183486);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+.footer .cta-form .btn-primary-custom:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.footer .cta-form .btn-primary-custom:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(63, 30, 79, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer .cta-img-wrapper {
+    height: 520px;
+  }
+  .footer .cta-content {
+    position: relative;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .footer .cta-text {
+    margin-bottom: 2rem;
+  }
+  .footer .cta-text p {
+    margin: 0 auto;
+  }
+}
 html,
 body {
   -webkit-transition: 0.3s ease-in-out;
@@ -739,6 +968,10 @@ body::-moz-scrollbar-track {
 html #about,
 body #about {
   scroll-margin-top: 65px;
+}
+html #expertise,
+body #expertise {
+  scroll-margin-top: 100px;
 }
 html .about,
 body .about {
@@ -791,24 +1024,67 @@ body .about .section-header .content-center .btn-primary-custom:active {
   transform: translateY(0);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15);
 }
-html .about .section-header .content-center .btn-primary-custom:focus-visible,
-body .about .section-header .content-center .btn-primary-custom:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(63, 30, 79, 0.35), 0 10px 22px rgba(0, 0, 0, 0.18);
+html .about .section-header .physio-video,
+body .about .section-header .physio-video {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  margin-bottom: 20px;
+  border-radius: 28px;
+  overflow: hidden;
+  background-color: #000;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.18), 0 8px 18px rgba(0, 0, 0, 0.12);
+  -webkit-transition: 0.4s ease;
+  -moz-transition: 0.4s ease;
+  transition: 0.4s ease;
 }
-html .about .section-header img,
-body .about .section-header img {
-  margin-top: 2rem;
-  width: 80%;
-  border-radius: 2rem;
+html .about .section-header .physio-video video,
+html .about .section-header .physio-video iframe,
+body .about .section-header .physio-video video,
+body .about .section-header .physio-video iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-html .about .about-grid-wrapper,
-body .about .about-grid-wrapper {
+html .about .section-header .physio-video::after,
+body .about .section-header .physio-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45));
+  z-index: 1;
+}
+html .about .section-header .physio-video .video-overlay-content,
+body .about .section-header .physio-video .video-overlay-content {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  color: #fff;
+  text-align: center;
+  z-index: 2;
+}
+html .about .section-header .physio-video .video-overlay-content h2,
+body .about .section-header .physio-video .video-overlay-content h2 {
+  font-family: "Inter-Bold";
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+html .about .section-header .physio-video .video-overlay-content p,
+body .about .section-header .physio-video .video-overlay-content p {
+  font-family: "Inter-Regular";
+  font-size: 1.2rem;
+  max-width: 600px;
+  text-align: left;
+}
+html .about .section-header .about-grid-wrapper,
+body .about .section-header .about-grid-wrapper {
   width: 80%;
   margin: 1.5rem auto 0;
 }
-html .about .about-grid-wrapper .about-grid .about-box,
-body .about .about-grid-wrapper .about-grid .about-box {
+html .about .section-header .about-grid-wrapper .about-grid .about-box,
+body .about .section-header .about-grid-wrapper .about-grid .about-box {
   background-color: #ffffff;
   border-radius: 18px;
   padding: 2.5rem 2rem;
@@ -819,71 +1095,72 @@ body .about .about-grid-wrapper .about-grid .about-box {
   transition: 0.35s ease;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
 }
-html .about .about-grid-wrapper .about-grid .about-box h4,
-body .about .about-grid-wrapper .about-grid .about-box h4 {
+html .about .section-header .about-grid-wrapper .about-grid .about-box h4,
+body .about .section-header .about-grid-wrapper .about-grid .about-box h4 {
   font-family: "Inter-Bold";
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   color: #3F1E4F;
 }
-html .about .about-grid-wrapper .about-grid .about-box p,
-body .about .about-grid-wrapper .about-grid .about-box p {
+html .about .section-header .about-grid-wrapper .about-grid .about-box p,
+body .about .section-header .about-grid-wrapper .about-grid .about-box p {
   font-family: "Inter-Regular";
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 0;
   text-align: left;
 }
-html .about .about-grid-wrapper .about-grid .about-box:hover,
-body .about .about-grid-wrapper .about-grid .about-box:hover {
+html .about .section-header .about-grid-wrapper .about-grid .about-box:hover,
+body .about .section-header .about-grid-wrapper .about-grid .about-box:hover {
   background-color: #3F1E4F;
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
-html .about .about-grid-wrapper .about-grid .about-box:hover h4,
-html .about .about-grid-wrapper .about-grid .about-box:hover p,
-body .about .about-grid-wrapper .about-grid .about-box:hover h4,
-body .about .about-grid-wrapper .about-grid .about-box:hover p {
+html .about .section-header .about-grid-wrapper .about-grid .about-box:hover h4,
+html .about .section-header .about-grid-wrapper .about-grid .about-box:hover p,
+body .about .section-header .about-grid-wrapper .about-grid .about-box:hover h4,
+body .about .section-header .about-grid-wrapper .about-grid .about-box:hover p {
   color: #ffffff;
 }
-html .about .meet-our-team,
-body .about .meet-our-team {
+html .about .section-header .meet-our-team,
+body .about .section-header .meet-our-team {
   padding: 100px 0 80px 0;
 }
-html .about .meet-our-team .description-center,
-body .about .meet-our-team .description-center {
+html .about .section-header .meet-our-team .description-center,
+body .about .section-header .meet-our-team .description-center {
   max-width: 1000px;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-html .about .meet-our-team .description-center h2,
-body .about .meet-our-team .description-center h2 {
+html .about .section-header .meet-our-team .description-center h2,
+body .about .section-header .meet-our-team .description-center h2 {
   font-family: "Poppins-Bold";
   font-size: 3.5rem;
   color: #3F1E4F;
 }
-html .about .meet-our-team .description-center p,
-body .about .meet-our-team .description-center p {
+html .about .section-header .meet-our-team .description-center p,
+body .about .section-header .meet-our-team .description-center p {
   font-family: "Inter-Regular";
   font-size: 1.3rem;
   text-align: center;
 }
-html .about .meet-our-team .description-center .team-member-image img,
-body .about .meet-our-team .description-center .team-member-image img {
+html .about .section-header .meet-our-team .description-center .team-member-image img,
+body .about .section-header .meet-our-team .description-center .team-member-image img {
   border-radius: 50%;
   display: block;
   margin: auto;
   filter: grayscale(100);
   transition: filter 0.3s ease;
+  width: 100%;
 }
-html .about .meet-our-team .description-center .team-member-image img:hover,
-body .about .meet-our-team .description-center .team-member-image img:hover {
+html .about .section-header .meet-our-team .description-center .team-member-image img:hover,
+body .about .section-header .meet-our-team .description-center .team-member-image img:hover {
   filter: grayscale(0);
 }
-html .about .meet-our-team .description-center .team-member-image h4,
-body .about .meet-our-team .description-center .team-member-image h4 {
+html .about .section-header .meet-our-team .description-center .team-member-image h4,
+body .about .section-header .meet-our-team .description-center .team-member-image h4 {
   font-family: "Poppins-Bold";
   font-size: 1rem;
   margin-top: 1rem;
@@ -891,48 +1168,50 @@ body .about .meet-our-team .description-center .team-member-image h4 {
   color: #3F1E4F;
   text-align: center;
 }
-html .about .meet-our-team .description-center .team-member-image p,
-body .about .meet-our-team .description-center .team-member-image p {
+html .about .section-header .meet-our-team .description-center .team-member-image p,
+body .about .section-header .meet-our-team .description-center .team-member-image p {
   font-family: "Inter-Regular";
   font-size: 0.8rem;
   text-align: center;
   font-style: italic;
 }
-html .about .meet-our-team .description-center .team-member-description,
-body .about .meet-our-team .description-center .team-member-description {
+html .about .section-header .meet-our-team .description-center .team-member-description,
+body .about .section-header .meet-our-team .description-center .team-member-description {
   height: 100%;
   display: flex;
   align-items: center;
 }
-html .about .meet-our-team .description-center .team-member-description p,
-body .about .meet-our-team .description-center .team-member-description p {
+html .about .section-header .meet-our-team .description-center .team-member-description p,
+body .about .section-header .meet-our-team .description-center .team-member-description p {
   font-family: "Inter-Regular";
   font-size: 1rem;
   text-align: center;
   margin-bottom: 0;
 }
-html .about .meet-our-team .description-center .our-story,
-body .about .meet-our-team .description-center .our-story {
+html .about .section-header .meet-our-team .description-center .our-story,
+body .about .section-header .meet-our-team .description-center .our-story {
   padding-top: 1.5rem;
 }
-html .about .meet-our-team .description-center .our-story .story-img,
-body .about .meet-our-team .description-center .our-story .story-img {
+html .about .section-header .meet-our-team .description-center .our-story .story-img,
+body .about .section-header .meet-our-team .description-center .our-story .story-img {
   overflow: hidden;
   border-radius: 2rem;
 }
-html .about .meet-our-team .description-center .our-story .story-img img,
-body .about .meet-our-team .description-center .our-story .story-img img {
+html .about .section-header .meet-our-team .description-center .our-story .story-img img,
+body .about .section-header .meet-our-team .description-center .our-story .story-img img {
   margin-top: 0;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
   width: 100%;
   transition: all 0.3s ease;
+  height: 60vh;
+  object-fit: cover;
 }
-html .about .meet-our-team .description-center .our-story .story-img img:hover,
-body .about .meet-our-team .description-center .our-story .story-img img:hover {
+html .about .section-header .meet-our-team .description-center .our-story .story-img img:hover,
+body .about .section-header .meet-our-team .description-center .our-story .story-img img:hover {
   transform: scale(1.05);
 }
-html .about .meet-our-team .description-center .our-story .story,
-body .about .meet-our-team .description-center .our-story .story {
+html .about .section-header .meet-our-team .description-center .our-story .story,
+body .about .section-header .meet-our-team .description-center .our-story .story {
   height: 100%;
   padding: 30px;
   padding-right: 0;
@@ -940,35 +1219,58 @@ body .about .meet-our-team .description-center .our-story .story {
   flex-direction: column;
   justify-content: center;
 }
-html .about .meet-our-team .description-center .our-story .story h2,
-body .about .meet-our-team .description-center .our-story .story h2 {
+html .about .section-header .meet-our-team .description-center .our-story .story h2,
+body .about .section-header .meet-our-team .description-center .our-story .story h2 {
   font-family: "Poppins-SemiBold";
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #3F1E4F;
 }
-html .about .meet-our-team .description-center .our-story .story p,
-body .about .meet-our-team .description-center .our-story .story p {
+html .about .section-header .meet-our-team .description-center .our-story .story p,
+body .about .section-header .meet-our-team .description-center .our-story .story p {
   text-align: left;
   font-family: "Inter-Regular";
   font-size: 1.125rem;
 }
+html .about .section-header .meet-our-team .description-center .our-story .healthcare-quote,
+body .about .section-header .meet-our-team .description-center .our-story .healthcare-quote {
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #3F1E4F;
+  background-color: #fff;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+html .about .section-header .meet-our-team .description-center .our-story .healthcare-quote .quote-author,
+body .about .section-header .meet-our-team .description-center .our-story .healthcare-quote .quote-author {
+  font-family: "Inter-Regular";
+  font-size: 1rem;
+  color: #3F1E4F;
+  font-style: italic;
+  margin: 0;
+}
 html .expertise,
 body .expertise {
-  padding: 60px 0;
+  padding: 0 0 60px 0;
 }
-html .expertise .section-header h2,
-body .expertise .section-header h2 {
-  font-family: "Inter-Bold";
-  font-size: 3rem;
-  margin-bottom: 1rem;
+html .expertise .content-center,
+body .expertise .content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
+}
+html .expertise .content-center h2,
+body .expertise .content-center h2 {
+  font-family: "Poppins-Bold";
+  font-size: 3.5rem;
   color: #3F1E4F;
 }
-html .expertise .section-header p,
-body .expertise .section-header p {
+html .expertise .content-center p,
+body .expertise .content-center p {
   font-family: "Inter-Regular";
-  font-size: 2.4rem;
-  text-align: left;
+  font-size: 1.3rem;
+  text-align: center;
 }
 html .expertise .expertise-grid .expertise-box,
 body .expertise .expertise-grid .expertise-box {
@@ -985,29 +1287,28 @@ html .expertise .expertise-grid .expertise-box img,
 body .expertise .expertise-grid .expertise-box img {
   width: 100%;
   height: 100%;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-  -webkit-transition: 0.3s ease;
-  -moz-transition: 0.3s ease;
-  transition: 0.3s ease;
+  border-radius: 18px;
   object-fit: cover;
-  background: rgba(0, 0, 0, 0.6);
+  -webkit-transition: 0.4s ease;
+  -moz-transition: 0.4s ease;
+  transition: 0.4s ease;
 }
-html .expertise .expertise-grid .expertise-box img:hover,
-body .expertise .expertise-grid .expertise-box img:hover {
-  transform: scale(1.05);
+html .expertise .expertise-grid .expertise-box:hover img,
+body .expertise .expertise-grid .expertise-box:hover img {
+  transform: scale(1.06);
 }
 html .expertise .expertise-grid .expertise-box .text-overlay,
 body .expertise .expertise-grid .expertise-box .text-overlay {
   position: absolute;
-  inset: 0;
+  bottom: 20px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 1.25rem;
-  box-sizing: border-box;
   color: #ffffff;
   z-index: 2;
+  pointer-events: none;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.45) 40%, rgba(0, 0, 0, 0.15) 70%, rgba(0, 0, 0, 0) 100%);
 }
 html .expertise .expertise-grid .expertise-box .text-overlay::before,
@@ -1024,7 +1325,6 @@ body .expertise .expertise-grid .expertise-box .text-overlay h4 {
   font-family: "Inter-Bold";
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: #ffffff;
 }
 html .expertise .expertise-grid .expertise-box .text-overlay p,
 body .expertise .expertise-grid .expertise-box .text-overlay p {
@@ -1032,7 +1332,69 @@ body .expertise .expertise-grid .expertise-box .text-overlay p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 0;
+}
+html .expertise .expertise-grid .expertise-box .anchor-wrapper,
+body .expertise .expertise-grid .expertise-box .anchor-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #000;
+}
+html .expertise .expertise-grid .expertise-box .anchor-wrapper a,
+body .expertise .expertise-grid .expertise-box .anchor-wrapper a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem 0;
+  font-family: "Inter-Bold";
+  letter-spacing: 0.05rem;
+  font-size: 0.7rem;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+html .expertise .expertise-grid .expertise-box .anchor-wrapper a i,
+body .expertise .expertise-grid .expertise-box .anchor-wrapper a i {
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  transition: 0.3s ease;
+  opacity: 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+html .expertise .expertise-grid .expertise-box .anchor-wrapper a:hover i,
+body .expertise .expertise-grid .expertise-box .anchor-wrapper a:hover i {
+  margin-left: 6px;
+  opacity: 1;
+}
+html .expertise .services-detail-section,
+body .expertise .services-detail-section {
+  margin-top: 4rem;
+  max-width: 1000px;
+  margin: auto;
+}
+html .expertise .services-detail-section h5,
+body .expertise .services-detail-section h5 {
+  font-family: "Inter-Bold";
+  font-size: 1.8rem;
+  color: #3F1E4F;
+  margin-bottom: 0.5rem;
+}
+html .expertise .services-detail-section p,
+body .expertise .services-detail-section p {
+  font-family: "Inter-Regular";
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 720px;
+  border-bottom: 2px solid #e3e3e3;
+  padding-bottom: 0.6rem;
 }
 
 /*# sourceMappingURL=main.css.map */
