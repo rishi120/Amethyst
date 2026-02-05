@@ -60,6 +60,213 @@ body {
         background-color: #383838;
     }
 
+    &.loader-active {
+        overflow: hidden;
+        height: 100%;
+        overscroll-behavior: none;
+        touch-action: none;
+        position: fixed;
+        width: 100%;
+    }
+
+    .page-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+
+        .loader-card {
+            min-width: 260px;
+            padding: 2rem 2.25rem;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            // box-shadow:
+            //     0 24px 50px rgba(0, 0, 0, 0.18),
+            //     inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .loader-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            margin: 0 auto 0.4rem;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(140deg,
+                    rgba(63, 30, 79, 0.12),
+                    rgba(63, 30, 79, 0.35));
+            color: map-get(variables.$colors, primary);
+            font-size: 1.6rem;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: -10px;
+                border-radius: 22px;
+                border: 2px solid rgba(63, 30, 79, 0.25);
+                animation: loader-pulse 1.8s ease-in-out infinite;
+            }
+        }
+
+        .loader-title {
+            font-family: variables.$pb;
+            font-size: 1.15rem;
+            color: map-get(variables.$colors, primary);
+        }
+
+        .loader-subtitle {
+            font-family: variables.$ir;
+            font-size: 0.9rem;
+            color: rgba(38, 38, 38, 0.7);
+        }
+
+        .loader-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+
+            span {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: map-get(variables.$colors, primary);
+                animation: loader-dots 1.2s ease-in-out infinite;
+
+                &:nth-child(2) {
+                    animation-delay: 0.15s;
+                }
+
+                &:nth-child(3) {
+                    animation-delay: 0.3s;
+                }
+            }
+        }
+
+        &.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    @keyframes loader-pulse {
+        0% {
+            transform: scale(0.9);
+            opacity: 0.35;
+        }
+
+        50% {
+            transform: scale(1);
+            opacity: 0.8;
+        }
+
+        100% {
+            transform: scale(0.9);
+            opacity: 0.35;
+        }
+    }
+
+    @keyframes loader-dots {
+
+        0%,
+        100% {
+            transform: translateY(0);
+            opacity: 0.5;
+        }
+
+        50% {
+            transform: translateY(-4px);
+            opacity: 1;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .page-loader {
+            transition: none;
+        }
+
+        .loader-icon::after,
+        .loader-dots span {
+            animation: none;
+        }
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        left: 50%;
+        bottom: 24px;
+        transform: translate(-50%, 12px);
+        width: 43px;
+        height: 43px;
+        border-radius: 50%;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg,
+                lighten(map-get(variables.$colors, primary), 6%),
+                map-get(variables.$colors, primary));
+        color: #ffffff;
+        box-shadow:
+            0 14px 30px rgba(0, 0, 0, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease,
+            box-shadow 0.3s ease;
+        z-index: 9999;
+
+        i {
+            font-size: 1.03rem;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                    rgba(63, 30, 79, 0.35),
+                    rgba(63, 30, 79, 0));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        &:hover {
+            transform: translate(-50%, 4px);
+            box-shadow:
+                0 18px 34px rgba(0, 0, 0, 0.26),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+
+        &:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        &.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, 0);
+        }
+    }
+
     #about {
         scroll-margin-top: 65px; // adjust to your navbar height
     }
@@ -465,7 +672,7 @@ body {
                     bottom: 0;
                     width: 100%;
                     z-index: 10;
-                    background-color: map-get(variables.$colors, black);
+                    background-color: map-get(variables.$colors, white);
 
                     a {
                         display: flex;
@@ -474,10 +681,9 @@ body {
                         width: 100%;
                         text-align: center;
                         padding: 0.8rem 0;
-                        font-family: variables.$ib;
-                        letter-spacing: 0.05rem;
+                        font-family: variables.$ib;letter-spacing: 0.05rem;
                         font-size: 0.7rem;
-                        color: map-get(variables.$colors, white);
+                        color: map-get(variables.$colors, black);
                         text-decoration: none;
                         @include mixins.transition(0.3s ease);
 

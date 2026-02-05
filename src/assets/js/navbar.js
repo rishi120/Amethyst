@@ -3,9 +3,15 @@ const navbar = () => {
 
   if (!navbarEl) return;
 
+  const path = window.location.pathname.replace(/\\/g, "/");
+  const isServicesPage = path.includes("/services/");
+  const homeUrl = isServicesPage ? "../" : "#";
+  const aboutUrl = isServicesPage ? "../#about" : "#about";
+  const servicesUrl = isServicesPage ? "../#expertise" : "#expertise";
+
   navbarEl.innerHTML = `
     <div class="container">
-      <a class="navbar-brand custom-navbar-brand" href="#">Amethyst</a>
+      <a class="navbar-brand custom-navbar-brand" href="${homeUrl}">Amethyst</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -21,16 +27,16 @@ const navbar = () => {
       >
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" href="${homeUrl}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="${aboutUrl}">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#expertise">Services</a>
+            <a class="nav-link" href="${servicesUrl}">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#footer">Contact</a>
           </li>
         </ul>
       </div>
