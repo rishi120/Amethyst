@@ -578,12 +578,12 @@ body {
             .faq-wrapper {
                 max-width: 1000px;
                 margin: auto;
-                background: linear-gradient(120deg,
-                        darken(map-get(variables.$colors, primary), 6%),
-                        map-get(variables.$colors, primary) 45%,
-                        lighten(map-get(variables.$colors, primary), 6%));
+                // background: linear-gradient(120deg,
+                //         darken(map-get(variables.$colors, primary), 6%),
+                //         map-get(variables.$colors, primary) 45%,
+                //         lighten(map-get(variables.$colors, primary), 6%));
                 border-radius: 20px;
-                padding: 3rem 4rem 3rem 4rem;
+                padding: 0 0 3rem 0;
 
                 .text-style-tagline {
                     display: flex;
@@ -593,14 +593,14 @@ body {
                         width: 10px;
                         height: 10px;
                         border-radius: 50%;
-                        background-color: map-get(variables.$colors, white);
+                        background-color: map-get(variables.$colors, primary);
                         margin-right: 0.6rem;
                     }
 
                     p {
                         font-family: variables.$ir;
                         font-size: 1rem;
-                        color: map-get(variables.$colors, white);
+                        color: map-get(variables.$colors, primary);
                         letter-spacing: 0.05rem;
                         margin-bottom: 0;
                     }
@@ -609,7 +609,7 @@ body {
                 h2 {
                     font-family: variables.$pb;
                     font-size: 2rem;
-                    color: map-get(variables.$colors, white);
+                    color: map-get(variables.$colors, primary);
                     margin-bottom: 1rem;
                     padding-top: 0.5rem;
                 }

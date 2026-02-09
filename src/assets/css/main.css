@@ -1655,9 +1655,8 @@ html .about .section-header .faq-wrapper,
 body .about .section-header .faq-wrapper {
   max-width: 1000px;
   margin: auto;
-  background: linear-gradient(120deg, rgb(45.3137614679, 21.5779816514, 56.8220183486), #3F1E4F 45%, rgb(80.6862385321, 38.4220183486, 101.1779816514));
   border-radius: 20px;
-  padding: 3rem 4rem 3rem 4rem;
+  padding: 0 0 3rem 0;
 }
 html .about .section-header .faq-wrapper .text-style-tagline,
 body .about .section-header .faq-wrapper .text-style-tagline {
@@ -1669,14 +1668,14 @@ body .about .section-header .faq-wrapper .text-style-tagline .tagline_dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #3F1E4F;
   margin-right: 0.6rem;
 }
 html .about .section-header .faq-wrapper .text-style-tagline p,
 body .about .section-header .faq-wrapper .text-style-tagline p {
   font-family: "Inter-Regular";
   font-size: 1rem;
-  color: #fff;
+  color: #3F1E4F;
   letter-spacing: 0.05rem;
   margin-bottom: 0;
 }
@@ -1684,7 +1683,7 @@ html .about .section-header .faq-wrapper h2,
 body .about .section-header .faq-wrapper h2 {
   font-family: "Poppins-Bold";
   font-size: 2rem;
-  color: #fff;
+  color: #3F1E4F;
   margin-bottom: 1rem;
   padding-top: 0.5rem;
 }
