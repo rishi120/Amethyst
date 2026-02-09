@@ -5,3 +5,44 @@
  * used across all service page components and layouts.
  * 
  */
+
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.about-orthopedic {
+    padding: 5rem;
+
+    .img-wrapper {
+        overflow: hidden;
+        border-radius: 2rem;
+
+        img {
+            width: 100%;
+            height: clamp(240px, 40vw, 520px);
+            object-fit: cover;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .ortho-desp {
+        h2 {
+            font-family: variables.$pb;
+            font-size: 2.6rem;
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-family: variables.$ir;
+            font-size: 1rem;
+            color: map-get(variables.$colors, primary);
+            max-width: 600px;
+            line-height: 1.6;
+            text-align: left;
+        }
+    }
+}

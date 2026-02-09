@@ -1,35 +1,36 @@
 import navbar from "../../assets/js/navbar.js";
+import Swiper from "https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.mjs";
 
 // ---------- Global page loader ----------
-const pageLoader = (() => {
-  let loader = document.querySelector("#page-loader");
-  if (!loader) {
-    loader = document.createElement("div");
-    loader.id = "page-loader";
-    loader.className = "page-loader";
-    loader.setAttribute("role", "status");
-    loader.setAttribute("aria-live", "polite");
-    loader.innerHTML = `
-      <div class="loader-card">
-        <div class="loader-icon">
-          <i class="bi bi-heart-pulse"></i>
-        </div>
-        <div class="loader-title">Amethyst</div>
-        <div class="loader-subtitle">Preparing your recovery journey...</div>
-        <div class="loader-dots" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(loader);
-  }
-  const scrollY = window.scrollY || window.pageYOffset;
-  document.documentElement.classList.add("loader-active");
-  document.body.classList.add("loader-active");
-  document.body.style.top = `-${scrollY}px`;
-  document.body.dataset.scrollY = String(scrollY);
-  return loader;
-})();
+// const pageLoader = (() => {
+//   let loader = document.querySelector("#page-loader");
+//   if (!loader) {
+//     loader = document.createElement("div");
+//     loader.id = "page-loader";
+//     loader.className = "page-loader";
+//     loader.setAttribute("role", "status");
+//     loader.setAttribute("aria-live", "polite");
+//     loader.innerHTML = `
+//       <div class="loader-card">
+//         <div class="loader-icon">
+//           <i class="bi bi-heart-pulse"></i>
+//         </div>
+//         <div class="loader-title">Amethyst</div>
+//         <div class="loader-subtitle">Preparing your recovery journey...</div>
+//         <div class="loader-dots" aria-hidden="true">
+//           <span></span><span></span><span></span>
+//         </div>
+//       </div>
+//     `;
+//     document.body.appendChild(loader);
+//   }
+//   const scrollY = window.scrollY || window.pageYOffset;
+//   document.documentElement.classList.add("loader-active");
+//   document.body.classList.add("loader-active");
+//   document.body.style.top = `-${scrollY}px`;
+//   document.body.dataset.scrollY = String(scrollY);
+//   return loader;
+// })();
 
 const scrollToHashTarget = () => {
   const hash = window.location.hash;
@@ -259,4 +260,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   requestAnimationFrame(raf);
+
+  const swiper = new Swiper(".testimonials-swiper", {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 24,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    a11y: {
+      enabled: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      },
+      1100: {
+        slidesPerView: 3,
+      },
+    },
+  });
 });

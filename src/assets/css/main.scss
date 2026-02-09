@@ -574,6 +574,106 @@ body {
 
                 }
             }
+
+            .faq-wrapper {
+                max-width: 1000px;
+                margin: auto;
+                background: linear-gradient(120deg,
+                        darken(map-get(variables.$colors, primary), 6%),
+                        map-get(variables.$colors, primary) 45%,
+                        lighten(map-get(variables.$colors, primary), 6%));
+                border-radius: 20px;
+                padding: 3rem 4rem 3rem 4rem;
+
+                .text-style-tagline {
+                    display: flex;
+                    align-items: center;
+
+                    .tagline_dot {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background-color: map-get(variables.$colors, white);
+                        margin-right: 0.6rem;
+                    }
+
+                    p {
+                        font-family: variables.$ir;
+                        font-size: 1rem;
+                        color: map-get(variables.$colors, white);
+                        letter-spacing: 0.05rem;
+                        margin-bottom: 0;
+                    }
+                }
+
+                h2 {
+                    font-family: variables.$pb;
+                    font-size: 2rem;
+                    color: map-get(variables.$colors, white);
+                    margin-bottom: 1rem;
+                    padding-top: 0.5rem;
+                }
+
+                .faq-heading-wrapper {
+                    position: sticky;
+                    top: 96px;
+                    align-self: flex-start;
+                }
+
+                .accordion-wrapper {
+                    .accordion {
+                        --bs-accordion-border-width: 0;
+                        --bs-accordion-bg: transparent;
+                        --bs-accordion-btn-bg: #ffffff;
+                        --bs-accordion-active-bg: #ffffff;
+                        --bs-accordion-btn-focus-box-shadow: none;
+                        --bs-accordion-btn-color: #{map-get(variables.$colors, primary)};
+                        --bs-accordion-active-color: #{map-get(variables.$colors, primary)};
+                    }
+
+                    .accordion-item {
+                        border: 1px solid rgba(0, 0, 0, 0.08);
+                        border-radius: 12px;
+                        overflow: hidden;
+
+                        &:not(:last-child) {
+                            margin-bottom: 0.85rem;
+                        }
+                    }
+
+                    .accordion-button {
+                        font-family: variables.$ib;
+                        font-size: 1rem;
+                        line-height: 1.5;
+                        padding: 1rem 1.15rem;
+                    }
+
+                    .accordion-button:not(.collapsed) {
+                        box-shadow: none;
+                    }
+
+                    .accordion-body {
+                        font-family: variables.$ir;
+                        font-size: 0.96rem;
+                        line-height: 1.75;
+                        color: map-get(variables.$colors, darkGray);
+                        padding: 0 1.15rem 1.1rem 1.15rem;
+                        background-color: #ffffff;
+                    }
+                }
+
+                @media (max-width: 767.98px) {
+                    padding: 1.25rem;
+
+                    .faq-heading-wrapper {
+                        position: static;
+                        top: auto;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+
+            }
         }
     }
 
@@ -681,7 +781,8 @@ body {
                         width: 100%;
                         text-align: center;
                         padding: 0.8rem 0;
-                        font-family: variables.$ib;letter-spacing: 0.05rem;
+                        font-family: variables.$ib;
+                        letter-spacing: 0.05rem;
                         font-size: 0.7rem;
                         color: map-get(variables.$colors, black);
                         text-decoration: none;
@@ -727,6 +828,172 @@ body {
                 border-bottom: 2px solid #e3e3e3;
                 padding-bottom: 0.6rem;
             }
+        }
+    }
+
+    .testimonials {
+        padding: 60px 0 60px 0;
+
+        .content-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: auto;
+
+            h2 {
+                font-family: variables.$pb;
+                font-size: 3.5rem;
+                color: map-get(variables.$colors, primary);
+            }
+
+            p {
+                font-family: variables.$ir;
+                font-size: 1.3rem;
+                color: map-get(variables.$colors, darkGray);
+                text-align: center;
+            }
+        }
+
+        .testimonials-swiper {
+            margin-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .swiper-slide {
+            height: auto;
+        }
+
+        .testimonial-card {
+            background: #f7f3ee;
+            border-radius: 18px;
+            padding: 2.75rem 2.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+            min-height: 360px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-family: variables.$ir;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: map-get(variables.$colors, darkGray);
+            margin-bottom: 0;
+            position: relative;
+
+            &::before {
+                content: "“";
+                display: block;
+                font-family: variables.$pb;
+                font-size: 2rem;
+                color: rgba(0, 0, 0, 0.5);
+                margin-bottom: 1rem;
+            }
+        }
+
+        .testimonial-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-top: auto;
+
+            img {
+                display: none;
+            }
+
+            h4 {
+                font-family: variables.$pb;
+                font-size: 0.95rem;
+                margin: 0;
+                color: map-get(variables.$colors, darkGray);
+            }
+
+            span {
+                display: block;
+                font-family: variables.$ir;
+                font-size: 0.85rem;
+                color: rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        .swiper-pagination-bullet {
+            background: map-get(variables.$colors, primary);
+            opacity: 0.35;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+
+        .testimonial-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2.75rem;
+        }
+
+        .swiper-pagination {
+            position: static;
+            width: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.50rem;
+            margin-top: 0;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: static;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: none;
+            background: #232323;
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.25s ease;
+
+            svg {
+                display: none;
+            }
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            content: none;
+            display: none;
+        }
+
+        .swiper-button-prev i,
+        .swiper-button-next i {
+            font-size: 1rem;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            transform: translateY(-2px);
+        }
+
+        .swiper-button-prev:focus-visible,
+        .swiper-button-next:focus-visible {
+            outline: 2px solid map-get(variables.$colors, primary);
+            outline-offset: 3px;
         }
     }
 }

@@ -798,6 +798,25 @@ nav .custom-navbar-collapse ul li:last-child a {
   }
 }
 
+/*-----------------------------------------------------------------------------------
+
+ Project Name: Amethyst
+ Project URI: http://
+ Description: 
+ Author: Chandan Baruah
+ Author URI: https://chandanbaruah.com/
+ Version: 1.0.0
+
+/* -----------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------
+
+ == Table Of Content
+
+ Imports
+
+
+---------------------------------------------------------------- */
+/* 00. Imports */
 /**
  * @file Service Pages partial Stylesheet
  * @description
@@ -805,6 +824,37 @@ nav .custom-navbar-collapse ul li:last-child a {
  * used across all service page components and layouts.
  * 
  */
+.about-orthopedic {
+  padding: 5rem;
+}
+.about-orthopedic .img-wrapper {
+  overflow: hidden;
+  border-radius: 2rem;
+}
+.about-orthopedic .img-wrapper img {
+  width: 100%;
+  height: clamp(240px, 40vw, 520px);
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+.about-orthopedic .img-wrapper img:hover {
+  transform: scale(1.05);
+}
+.about-orthopedic .ortho-desp h2 {
+  font-family: "Poppins-Bold";
+  font-size: 2.6rem;
+  color: #3F1E4F;
+  margin-bottom: 1rem;
+}
+.about-orthopedic .ortho-desp p {
+  font-family: "Inter-Regular";
+  font-size: 1rem;
+  color: #3F1E4F;
+  max-width: 600px;
+  line-height: 1.6;
+  text-align: left;
+}
+
 /*-----------------------------------------------------------------------------------
 
  Project Name: Amethyst
@@ -1601,6 +1651,100 @@ body .about .section-header .meet-our-team .description-center .our-story .healt
   font-style: italic;
   margin: 0;
 }
+html .about .section-header .faq-wrapper,
+body .about .section-header .faq-wrapper {
+  max-width: 1000px;
+  margin: auto;
+  background: linear-gradient(120deg, rgb(45.3137614679, 21.5779816514, 56.8220183486), #3F1E4F 45%, rgb(80.6862385321, 38.4220183486, 101.1779816514));
+  border-radius: 20px;
+  padding: 3rem 4rem 3rem 4rem;
+}
+html .about .section-header .faq-wrapper .text-style-tagline,
+body .about .section-header .faq-wrapper .text-style-tagline {
+  display: flex;
+  align-items: center;
+}
+html .about .section-header .faq-wrapper .text-style-tagline .tagline_dot,
+body .about .section-header .faq-wrapper .text-style-tagline .tagline_dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 0.6rem;
+}
+html .about .section-header .faq-wrapper .text-style-tagline p,
+body .about .section-header .faq-wrapper .text-style-tagline p {
+  font-family: "Inter-Regular";
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: 0.05rem;
+  margin-bottom: 0;
+}
+html .about .section-header .faq-wrapper h2,
+body .about .section-header .faq-wrapper h2 {
+  font-family: "Poppins-Bold";
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+html .about .section-header .faq-wrapper .faq-heading-wrapper,
+body .about .section-header .faq-wrapper .faq-heading-wrapper {
+  position: sticky;
+  top: 96px;
+  align-self: flex-start;
+}
+html .about .section-header .faq-wrapper .accordion-wrapper .accordion,
+body .about .section-header .faq-wrapper .accordion-wrapper .accordion {
+  --bs-accordion-border-width: 0;
+  --bs-accordion-bg: transparent;
+  --bs-accordion-btn-bg: #ffffff;
+  --bs-accordion-active-bg: #ffffff;
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-btn-color: #3F1E4F;
+  --bs-accordion-active-color: #3F1E4F;
+}
+html .about .section-header .faq-wrapper .accordion-wrapper .accordion-item,
+body .about .section-header .faq-wrapper .accordion-wrapper .accordion-item {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+html .about .section-header .faq-wrapper .accordion-wrapper .accordion-item:not(:last-child),
+body .about .section-header .faq-wrapper .accordion-wrapper .accordion-item:not(:last-child) {
+  margin-bottom: 0.85rem;
+}
+html .about .section-header .faq-wrapper .accordion-wrapper .accordion-button,
+body .about .section-header .faq-wrapper .accordion-wrapper .accordion-button {
+  font-family: "Inter-Bold";
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 1rem 1.15rem;
+}
+html .about .section-header .faq-wrapper .accordion-wrapper .accordion-button:not(.collapsed),
+body .about .section-header .faq-wrapper .accordion-wrapper .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+html .about .section-header .faq-wrapper .accordion-wrapper .accordion-body,
+body .about .section-header .faq-wrapper .accordion-wrapper .accordion-body {
+  font-family: "Inter-Regular";
+  font-size: 0.96rem;
+  line-height: 1.75;
+  padding: 0 1.15rem 1.1rem 1.15rem;
+  background-color: #ffffff;
+}
+@media (max-width: 767.98px) {
+  html .about .section-header .faq-wrapper,
+  body .about .section-header .faq-wrapper {
+    padding: 1.25rem;
+  }
+  html .about .section-header .faq-wrapper .faq-heading-wrapper,
+  body .about .section-header .faq-wrapper .faq-heading-wrapper {
+    position: static;
+    top: auto;
+    margin-bottom: 1rem;
+  }
+}
 html .expertise,
 body .expertise {
   padding: 0 0 60px 0;
@@ -1748,6 +1892,176 @@ body .expertise .services-detail-section p {
   max-width: 720px;
   border-bottom: 2px solid #e3e3e3;
   padding-bottom: 0.6rem;
+}
+html .testimonials,
+body .testimonials {
+  padding: 60px 0 60px 0;
+}
+html .testimonials .content-center,
+body .testimonials .content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
+}
+html .testimonials .content-center h2,
+body .testimonials .content-center h2 {
+  font-family: "Poppins-Bold";
+  font-size: 3.5rem;
+  color: #3F1E4F;
+}
+html .testimonials .content-center p,
+body .testimonials .content-center p {
+  font-family: "Inter-Regular";
+  font-size: 1.3rem;
+  text-align: center;
+}
+html .testimonials .testimonials-swiper,
+body .testimonials .testimonials-swiper {
+  margin-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+html .testimonials .swiper-slide,
+body .testimonials .swiper-slide {
+  height: auto;
+}
+html .testimonials .testimonial-card,
+body .testimonials .testimonial-card {
+  background: #f7f3ee;
+  border-radius: 18px;
+  padding: 2.75rem 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  min-height: 360px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+html .testimonials .testimonial-quote,
+body .testimonials .testimonial-quote {
+  font-family: "Inter-Regular";
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 0;
+  position: relative;
+}
+html .testimonials .testimonial-quote::before,
+body .testimonials .testimonial-quote::before {
+  content: "“";
+  display: block;
+  font-family: "Poppins-Bold";
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+html .testimonials .testimonial-meta,
+body .testimonials .testimonial-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+html .testimonials .testimonial-meta img,
+body .testimonials .testimonial-meta img {
+  display: none;
+}
+html .testimonials .testimonial-meta h4,
+body .testimonials .testimonial-meta h4 {
+  font-family: "Poppins-Bold";
+  font-size: 0.95rem;
+  margin: 0;
+}
+html .testimonials .testimonial-meta span,
+body .testimonials .testimonial-meta span {
+  display: block;
+  font-family: "Inter-Regular";
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+html .testimonials .swiper-pagination-bullet,
+body .testimonials .swiper-pagination-bullet {
+  background: #3F1E4F;
+  opacity: 0.35;
+}
+html .testimonials .swiper-pagination-bullet-active,
+body .testimonials .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+html .testimonials .testimonial-controls,
+body .testimonials .testimonial-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.75rem;
+}
+html .testimonials .swiper-pagination,
+body .testimonials .swiper-pagination {
+  position: static;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+html .testimonials .testimonial-nav,
+body .testimonials .testimonial-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0;
+}
+html .testimonials .swiper-button-prev,
+html .testimonials .swiper-button-next,
+body .testimonials .swiper-button-prev,
+body .testimonials .swiper-button-next {
+  position: static;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: #232323;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+html .testimonials .swiper-button-prev svg,
+html .testimonials .swiper-button-next svg,
+body .testimonials .swiper-button-prev svg,
+body .testimonials .swiper-button-next svg {
+  display: none;
+}
+html .testimonials .swiper-button-prev::after,
+html .testimonials .swiper-button-next::after,
+body .testimonials .swiper-button-prev::after,
+body .testimonials .swiper-button-next::after {
+  content: none;
+  display: none;
+}
+html .testimonials .swiper-button-prev i,
+html .testimonials .swiper-button-next i,
+body .testimonials .swiper-button-prev i,
+body .testimonials .swiper-button-next i {
+  font-size: 1rem;
+}
+html .testimonials .swiper-button-prev:hover,
+html .testimonials .swiper-button-next:hover,
+body .testimonials .swiper-button-prev:hover,
+body .testimonials .swiper-button-next:hover {
+  transform: translateY(-2px);
+}
+html .testimonials .swiper-button-prev:focus-visible,
+html .testimonials .swiper-button-next:focus-visible,
+body .testimonials .swiper-button-prev:focus-visible,
+body .testimonials .swiper-button-next:focus-visible {
+  outline: 2px solid #3F1E4F;
+  outline-offset: 3px;
 }
 
 /*# sourceMappingURL=main.css.map */
