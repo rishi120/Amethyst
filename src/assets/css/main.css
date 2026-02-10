@@ -855,6 +855,271 @@ nav .custom-navbar-collapse ul li:last-child a {
   text-align: left;
 }
 
+.who-service-for {
+  padding: 0 0 5rem 0;
+}
+.who-service-for .section-head {
+  max-width: 760px;
+  margin: 0 auto 2.2rem auto;
+  text-align: center;
+}
+.who-service-for .section-head .eyebrow {
+  font-family: "Inter-Bold";
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #3F1E4F;
+  margin-bottom: 0.5rem;
+}
+.who-service-for .section-head h2 {
+  font-family: "Poppins-Bold";
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  color: #3F1E4F;
+  margin-bottom: 0.8rem;
+}
+.who-service-for .section-head .section-intro {
+  font-family: "Inter-Regular";
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+.who-service-for .who-card {
+  height: 100%;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 1.35rem 1.2rem;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.03);
+  -webkit-transition: 0.28s ease;
+  -moz-transition: 0.28s ease;
+  transition: 0.28s ease;
+}
+.who-service-for .who-card h3 {
+  font-family: "Inter-Bold";
+  font-size: 1.1rem;
+  line-height: 1.35;
+  color: #3F1E4F;
+  margin-bottom: 0.65rem;
+}
+.who-service-for .who-card p {
+  font-family: "Inter-Regular";
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+  text-align: left;
+}
+.who-service-for .who-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+@media (max-width: 767.98px) {
+  .who-service-for {
+    padding: 0 0 4rem 0;
+  }
+  .who-service-for .section-head {
+    text-align: left;
+  }
+}
+
+.orthopedic-treatments {
+  position: relative;
+  padding: 0 0 5.5rem 0;
+}
+.orthopedic-treatments::before {
+  content: "";
+  position: absolute;
+  inset: 12% 0 auto;
+  height: 320px;
+  background: radial-gradient(circle at 50% 40%, rgba(63, 30, 79, 0.12), rgba(63, 30, 79, 0));
+  z-index: -1;
+  pointer-events: none;
+}
+.orthopedic-treatments .section-head {
+  max-width: 760px;
+  margin: 0 auto 2.4rem auto;
+  text-align: center;
+}
+.orthopedic-treatments .section-head .eyebrow {
+  font-family: "Inter-Bold";
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #3F1E4F;
+  margin-bottom: 0.5rem;
+}
+.orthopedic-treatments .section-head h2 {
+  font-family: "Poppins-Bold";
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  color: #3F1E4F;
+  margin-bottom: 0.8rem;
+}
+.orthopedic-treatments .section-head .section-intro {
+  font-family: "Inter-Regular";
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+.orthopedic-treatments .treatment-card {
+  position: relative;
+  height: 100%;
+  padding: 1.35rem 1.2rem 1.25rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.82));
+  box-shadow: 0 14px 32px rgba(34, 34, 34, 0.08), 0 3px 8px rgba(34, 34, 34, 0.05);
+  backdrop-filter: blur(3px);
+  -webkit-transition: 0.28s ease;
+  -moz-transition: 0.28s ease;
+  transition: 0.28s ease;
+}
+.orthopedic-treatments .treatment-card .icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  background: linear-gradient(135deg, #3F1E4F, rgb(86.5816513761, 41.2293577982, 108.5706422018));
+  color: #ffffff;
+  font-size: 1.05rem;
+  box-shadow: 0 8px 18px rgba(63, 30, 79, 0.25);
+}
+.orthopedic-treatments .treatment-card h3 {
+  font-family: "Inter-Bold";
+  font-size: 1.1rem;
+  line-height: 1.35;
+  color: #3F1E4F;
+  margin-bottom: 0.65rem;
+}
+.orthopedic-treatments .treatment-card p {
+  font-family: "Inter-Regular";
+  font-size: 0.96rem;
+  line-height: 1.68;
+  margin-bottom: 0;
+  text-align: left;
+}
+.orthopedic-treatments .treatment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 36px rgba(34, 34, 34, 0.1), 0 6px 12px rgba(34, 34, 34, 0.07);
+}
+@media (max-width: 767.98px) {
+  .orthopedic-treatments {
+    padding: 0 0 4.5rem 0;
+  }
+  .orthopedic-treatments .section-head {
+    text-align: left;
+  }
+}
+
+.orthopedic-pathway {
+  padding: 0 0 5.5rem 0;
+}
+.orthopedic-pathway .section-head {
+  max-width: 760px;
+  margin: 0 auto 2.6rem auto;
+  text-align: center;
+}
+.orthopedic-pathway .section-head .eyebrow {
+  font-family: "Inter-Bold";
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #3F1E4F;
+  margin-bottom: 0.5rem;
+}
+.orthopedic-pathway .section-head h2 {
+  font-family: "Poppins-Bold";
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  color: #3F1E4F;
+  margin-bottom: 0.8rem;
+}
+.orthopedic-pathway .section-head .section-intro {
+  font-family: "Inter-Regular";
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+.orthopedic-pathway .pathway-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+.orthopedic-pathway .pathway-track::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 26px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(63, 30, 79, 0.25), rgba(63, 30, 79, 0.65), rgba(63, 30, 79, 0.25));
+  z-index: 0;
+}
+.orthopedic-pathway .pathway-step {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 1rem 1rem 1.15rem;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  -webkit-transition: 0.28s ease;
+  -moz-transition: 0.28s ease;
+  transition: 0.28s ease;
+}
+.orthopedic-pathway .pathway-step .step-no {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter-Bold";
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 0.9rem;
+  background: linear-gradient(135deg, #3F1E4F, rgb(86.5816513761, 41.2293577982, 108.5706422018));
+  box-shadow: 0 10px 20px rgba(63, 30, 79, 0.28);
+}
+.orthopedic-pathway .pathway-step h3 {
+  font-family: "Inter-Bold";
+  font-size: 1.05rem;
+  color: #3F1E4F;
+  margin-bottom: 0.6rem;
+}
+.orthopedic-pathway .pathway-step p {
+  font-family: "Inter-Regular";
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+.orthopedic-pathway .pathway-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+@media (max-width: 991.98px) {
+  .orthopedic-pathway .pathway-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .orthopedic-pathway .pathway-track::before {
+    display: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .orthopedic-pathway {
+    padding: 0 0 4.5rem 0;
+  }
+  .orthopedic-pathway .section-head {
+    text-align: left;
+    margin-bottom: 1.75rem;
+  }
+  .orthopedic-pathway .pathway-track {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+  }
+}
+
 /*-----------------------------------------------------------------------------------
 
  Project Name: Amethyst
@@ -1655,8 +1920,11 @@ html .about .section-header .faq-wrapper,
 body .about .section-header .faq-wrapper {
   max-width: 1000px;
   margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
   border-radius: 20px;
-  padding: 0 0 3rem 0;
+  padding: 3rem;
 }
 html .about .section-header .faq-wrapper .text-style-tagline,
 body .about .section-header .faq-wrapper .text-style-tagline {

@@ -578,12 +578,12 @@ body {
             .faq-wrapper {
                 max-width: 1000px;
                 margin: auto;
-                // background: linear-gradient(120deg,
-                //         darken(map-get(variables.$colors, primary), 6%),
-                //         map-get(variables.$colors, primary) 45%,
-                //         lighten(map-get(variables.$colors, primary), 6%));
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                background-color: #ffffff;
+                box-shadow:
+                    0 6px 16px rgba(0, 0, 0, 0.12);
                 border-radius: 20px;
-                padding: 0 0 3rem 0;
+                padding: 3rem;
 
                 .text-style-tagline {
                     display: flex;

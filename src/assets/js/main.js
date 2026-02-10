@@ -1,5 +1,7 @@
 import navbar from "../../assets/js/navbar.js";
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.mjs";
+import { gsap } from "https://cdn.jsdelivr.net/npm/gsap@3.12.7/+esm";
+import { ScrollTrigger } from "https://cdn.jsdelivr.net/npm/gsap@3.12.7/ScrollTrigger/+esm";
 
 // ---------- Global page loader ----------
 // const pageLoader = (() => {
@@ -67,6 +69,7 @@ window.addEventListener("load", () => {
 import renderFooter from "./footer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
   navbar();
   renderFooter();
   const navbarEl = document.querySelector(".navbar");
@@ -141,6 +144,41 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollToTopButton.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
+  }
+
+  // ---------- Orthopedic pathway reveal ----------
+  const pathwaySteps = Array.from(
+    document.querySelectorAll(".orthopedic-pathway .pathway-step"),
+  );
+
+  if (pathwaySteps.length) {
+    const shouldReduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!shouldReduceMotion) {
+      gsap.set(pathwaySteps, {
+        autoAlpha: 0,
+        y: 22,
+        scale: 0.985,
+      });
+
+      gsap.to(pathwaySteps, {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.58,
+        ease: "power3.out",
+        stagger: 0.12,
+        scrollTrigger: {
+          trigger: ".orthopedic-pathway .pathway-track",
+          start: "top 80%",
+          once: true,
+        },
+      });
+    } else {
+      gsap.set(pathwaySteps, { clearProps: "all" });
+    }
   }
 
   // ---------- Appointment form validation ----------

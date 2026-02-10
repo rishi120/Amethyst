@@ -46,3 +46,324 @@
         }
     }
 }
+
+.who-service-for {
+    padding: 0 0 5rem 0;
+
+    .section-head {
+        max-width: 760px;
+        margin: 0 auto 2.2rem auto;
+        text-align: center;
+
+        .eyebrow {
+            font-family: variables.$ib;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08rem;
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-family: variables.$pb;
+            font-size: clamp(1.75rem, 3vw, 2.6rem);
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-intro {
+            font-family: variables.$ir;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: map-get(variables.$colors, darkGray);
+            margin-bottom: 0;
+        }
+    }
+
+    .who-card {
+        height: 100%;
+        background-color: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 1.35rem 1.2rem;
+        box-shadow:
+            0 10px 22px rgba(0, 0, 0, 0.08),
+            0 1px 2px rgba(0, 0, 0, 0.03);
+        @include mixins.transition(0.28s ease);
+
+        h3 {
+            font-family: variables.$ib;
+            font-size: 1.1rem;
+            line-height: 1.35;
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.65rem;
+        }
+
+        p {
+            font-family: variables.$ir;
+            font-size: 0.96rem;
+            line-height: 1.65;
+            color: map-get(variables.$colors, darkGray);
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 16px 30px rgba(0, 0, 0, 0.1),
+                0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        padding: 0 0 4rem 0;
+
+        .section-head {
+            text-align: left;
+        }
+    }
+}
+
+.orthopedic-treatments {
+    position: relative;
+    padding: 0 0 5.5rem 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 12% 0 auto;
+        height: 320px;
+        background: radial-gradient(circle at 50% 40%,
+                rgba(63, 30, 79, 0.12),
+                rgba(63, 30, 79, 0));
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .section-head {
+        max-width: 760px;
+        margin: 0 auto 2.4rem auto;
+        text-align: center;
+
+        .eyebrow {
+            font-family: variables.$ib;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08rem;
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-family: variables.$pb;
+            font-size: clamp(1.75rem, 3vw, 2.6rem);
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-intro {
+            font-family: variables.$ir;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: map-get(variables.$colors, darkGray);
+            margin-bottom: 0;
+        }
+    }
+
+    .treatment-card {
+        position: relative;
+        height: 100%;
+        padding: 1.35rem 1.2rem 1.25rem;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: linear-gradient(145deg,
+                rgba(255, 255, 255, 0.92),
+                rgba(255, 255, 255, 0.82));
+        box-shadow:
+            0 14px 32px rgba(34, 34, 34, 0.08),
+            0 3px 8px rgba(34, 34, 34, 0.05);
+        backdrop-filter: blur(3px);
+        @include mixins.transition(0.28s ease);
+
+        .icon-wrap {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.85rem;
+            background: linear-gradient(135deg,
+                    map-get(variables.$colors, primary),
+                    lighten(map-get(variables.$colors, primary), 8%));
+            color: #ffffff;
+            font-size: 1.05rem;
+            box-shadow: 0 8px 18px rgba(63, 30, 79, 0.25);
+        }
+
+        h3 {
+            font-family: variables.$ib;
+            font-size: 1.1rem;
+            line-height: 1.35;
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.65rem;
+        }
+
+        p {
+            font-family: variables.$ir;
+            font-size: 0.96rem;
+            line-height: 1.68;
+            color: map-get(variables.$colors, darkGray);
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow:
+                0 20px 36px rgba(34, 34, 34, 0.1),
+                0 6px 12px rgba(34, 34, 34, 0.07);
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        padding: 0 0 4.5rem 0;
+
+        .section-head {
+            text-align: left;
+        }
+    }
+}
+
+.orthopedic-pathway {
+    padding: 0 0 5.5rem 0;
+
+    .section-head {
+        max-width: 760px;
+        margin: 0 auto 2.6rem auto;
+        text-align: center;
+
+        .eyebrow {
+            font-family: variables.$ib;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08rem;
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-family: variables.$pb;
+            font-size: clamp(1.75rem, 3vw, 2.6rem);
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-intro {
+            font-family: variables.$ir;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: map-get(variables.$colors, darkGray);
+            margin-bottom: 0;
+        }
+    }
+
+    .pathway-track {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.1rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            top: 26px;
+            height: 2px;
+            background: linear-gradient(90deg,
+                    rgba(63, 30, 79, 0.25),
+                    rgba(63, 30, 79, 0.65),
+                    rgba(63, 30, 79, 0.25));
+            z-index: 0;
+        }
+    }
+
+    .pathway-step {
+        position: relative;
+        z-index: 1;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 1rem 1rem 1.15rem;
+        box-shadow:
+            0 12px 26px rgba(0, 0, 0, 0.08),
+            0 1px 2px rgba(0, 0, 0, 0.04);
+        @include mixins.transition(0.28s ease);
+
+        .step-no {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: variables.$ib;
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-bottom: 0.9rem;
+            background: linear-gradient(135deg,
+                    map-get(variables.$colors, primary),
+                    lighten(map-get(variables.$colors, primary), 8%));
+            box-shadow: 0 10px 20px rgba(63, 30, 79, 0.28);
+        }
+
+        h3 {
+            font-family: variables.$ib;
+            font-size: 1.05rem;
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.6rem;
+        }
+
+        p {
+            font-family: variables.$ir;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: map-get(variables.$colors, darkGray);
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 18px 32px rgba(0, 0, 0, 0.1),
+                0 4px 8px rgba(0, 0, 0, 0.06);
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .pathway-track {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        padding: 0 0 4.5rem 0;
+
+        .section-head {
+            text-align: left;
+            margin-bottom: 1.75rem;
+        }
+
+        .pathway-track {
+            grid-template-columns: 1fr;
+            gap: 0.95rem;
+        }
+    }
+
+}
