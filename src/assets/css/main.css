@@ -858,6 +858,35 @@ nav .custom-navbar-collapse ul li:last-child a {
 .who-service-for {
   padding: 0 0 5rem 0;
 }
+.who-service-for .who-assessment-cta {
+  position: fixed;
+  right: 0;
+  bottom: 30px;
+  border: none;
+  padding: 0.8rem 1rem;
+  font-family: "Inter-Bold";
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: #fff;
+  background: linear-gradient(135deg, rgb(86.5816513761, 41.2293577982, 108.5706422018), #3F1E4F);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  transition: 0.3s ease;
+  z-index: 9998;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+.who-service-for .who-assessment-cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.who-service-for .who-assessment-cta.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 .who-service-for .section-head {
   max-width: 760px;
   margin: 0 auto 2.2rem auto;
@@ -883,34 +912,47 @@ nav .custom-navbar-collapse ul li:last-child a {
   line-height: 1.7;
   margin-bottom: 0;
 }
-.who-service-for .who-card {
-  height: 100%;
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  padding: 1.35rem 1.2rem;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.03);
-  -webkit-transition: 0.28s ease;
-  -moz-transition: 0.28s ease;
-  transition: 0.28s ease;
+.who-service-for .who-layout {
+  display: grid;
+  gap: 1.35rem;
 }
-.who-service-for .who-card h3 {
+.who-service-for .who-zigzag-item {
+  margin: 0;
+}
+.who-service-for .who-copy {
+  padding: 0.25rem 0;
+}
+.who-service-for .who-copy h3 {
   font-family: "Inter-Bold";
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.35;
   color: #3F1E4F;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.55rem;
 }
-.who-service-for .who-card p {
+.who-service-for .who-copy p {
   font-family: "Inter-Regular";
-  font-size: 0.96rem;
-  line-height: 1.65;
-  margin-bottom: 0;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  margin-bottom: 0.45rem;
   text-align: left;
 }
-.who-service-for .who-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
+.who-service-for .who-copy .who-detail {
+  margin-bottom: 0;
+  color: rgba(76, 77, 86, 0.92);
+}
+.who-service-for .who-image-placeholder {
+  overflow: hidden;
+}
+.who-service-for .who-image-placeholder img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(100);
+  transition: all 0.3s ease;
+}
+.who-service-for .who-image-placeholder img:hover {
+  filter: grayscale(0);
 }
 @media (max-width: 767.98px) {
   .who-service-for {
@@ -918,6 +960,16 @@ nav .custom-navbar-collapse ul li:last-child a {
   }
   .who-service-for .section-head {
     text-align: left;
+  }
+  .who-service-for .who-assessment-cta {
+    left: 50%;
+    bottom: 70px;
+    text-align: center;
+    font-size: 0.86rem;
+    padding: 0.7rem 0.9rem;
+  }
+  .who-service-for .who-image-placeholder {
+    min-height: 180px;
   }
 }
 

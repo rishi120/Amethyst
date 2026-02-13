@@ -146,6 +146,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ---------- Who section floating CTA ----------
+  const whoServiceSection = document.querySelector(".who-service-for");
+  const whoAssessmentCta = document.querySelector("#who-assessment-cta");
+
+  if (whoServiceSection && whoAssessmentCta) {
+    const whoSectionObserver = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        whoAssessmentCta.classList.toggle("is-visible", entry.isIntersecting);
+      },
+      { threshold: 0.2 },
+    );
+
+    whoSectionObserver.observe(whoServiceSection);
+
+    whoAssessmentCta.addEventListener("click", () => {
+      const assessmentTarget =
+        document.querySelector("#appointment-form") ||
+        document.querySelector("#footer");
+
+      if (assessmentTarget) {
+        assessmentTarget.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  }
+
   // ---------- Orthopedic pathway reveal ----------
   const pathwaySteps = Array.from(
     document.querySelectorAll(".orthopedic-pathway .pathway-step"),
