@@ -1,7 +1,9 @@
-import navbar from "../../assets/js/navbar.js";
+import navbar from "./navbar.js";
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.mjs";
 import { gsap } from "https://cdn.jsdelivr.net/npm/gsap@3.12.7/+esm";
 import { ScrollTrigger } from "https://cdn.jsdelivr.net/npm/gsap@3.12.7/ScrollTrigger/+esm";
+import renderFinalCta from "./finalCta.js";
+import renderFooter from "./footer.js";
 
 // ---------- Global page loader ----------
 // const pageLoader = (() => {
@@ -66,11 +68,11 @@ const hidePageLoader = () => {
 window.addEventListener("load", () => {
   setTimeout(hidePageLoader, 2000);
 });
-import renderFooter from "./footer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
   navbar();
+  renderFinalCta();
   renderFooter();
   const navbarEl = document.querySelector(".navbar");
   const scrollIndicator = document.querySelector(".scroll-indicator");
@@ -207,6 +209,39 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } else {
       gsap.set(pathwaySteps, { clearProps: "all" });
+    }
+  }
+
+  // ---------- Sports section reveal ----------
+  const sportsRevealBlocks = Array.from(
+    document.querySelectorAll(".sports-glm-reveal"),
+  );
+
+  if (sportsRevealBlocks.length) {
+    const shouldReduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!shouldReduceMotion) {
+      sportsRevealBlocks.forEach((block) => {
+        gsap.fromTo(
+          block,
+          { autoAlpha: 0, y: 28 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.65,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: block,
+              start: "top 84%",
+              once: true,
+            },
+          },
+        );
+      });
+    } else {
+      gsap.set(sportsRevealBlocks, { clearProps: "all" });
     }
   }
 

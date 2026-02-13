@@ -125,8 +125,7 @@ const renderFooter = () => {
             <div class="row align-items-center">
               <div class="col-md-6 text-center text-md-start">
                 <p class="mb-0">
-                  &copy; <span id="footer-year"></span> Amethyst Physiotherapy.
-                  All rights reserved.
+                  &copy; <span id="footer-year"></span> Amethyst Physiotherapy & Rehabilitation Services.
                 </p>
                 <div class="social-media-wrapper">
                   <ul>

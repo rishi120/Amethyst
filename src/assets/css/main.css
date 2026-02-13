@@ -973,6 +973,228 @@ nav .custom-navbar-collapse ul li:last-child a {
   }
 }
 
+.sports-proof-bar {
+  padding: 0 0 2.3rem 0;
+}
+.sports-proof-bar .proof-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+.sports-proof-bar .proof-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 56px;
+  border: 1px solid rgba(63, 30, 79, 0.18);
+  border-radius: 16px;
+  background: #ffffff;
+  color: #3F1E4F;
+  font-family: "Inter-SemiBold";
+  font-size: 0.86rem;
+  text-align: center;
+  padding: 0.65rem 0.8rem;
+}
+.sports-proof-bar .proof-list li i {
+  color: #3F1E4F;
+}
+.sports-proof-bar .proof-list li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -0.9rem;
+  width: 0.8rem;
+  height: 1px;
+  transform: translateY(-50%);
+  background: rgba(63, 30, 79, 0.35);
+  pointer-events: none;
+}
+
+.who-service-for .sports-intent-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.who-service-for .sports-intent-grid .sports-intent-card {
+  background: #ffffff;
+  border: 1px solid rgba(63, 30, 79, 0.14);
+  border-radius: 18px;
+  padding: 1.15rem 1.05rem;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.07);
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.who-service-for .sports-intent-grid .sports-intent-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 34px rgba(0, 0, 0, 0.1);
+}
+.who-service-for .sports-intent-grid .sports-intent-card h3 {
+  font-family: "Inter-Bold";
+  font-size: 1.03rem;
+  color: #3F1E4F;
+  margin-bottom: 0.55rem;
+  line-height: 1.35;
+}
+.who-service-for .sports-intent-grid .sports-intent-card p {
+  font-family: "Inter-Regular";
+  font-size: 0.95rem;
+  color: rgba(56, 40, 66, 0.92);
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+}
+.who-service-for .sports-intent-grid .sports-intent-card a {
+  font-family: "Inter-SemiBold";
+  color: #3F1E4F;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.who-service-for .sports-intent-grid .sports-intent-card a i {
+  margin-left: 0.25rem;
+}
+
+.sports-issues .treatment-card .who-detail {
+  margin-top: 0.65rem;
+  color: rgba(56, 40, 66, 0.86);
+}
+
+.sports-care-path {
+  padding: 0 0 5rem 0;
+}
+.sports-care-path .section-head {
+  margin-bottom: 2rem;
+}
+.sports-care-path .sports-path-step {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(63, 30, 79, 0.14);
+  padding: 1rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+}
+.sports-care-path .sports-path-step span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter-Bold";
+  font-size: 0.8rem;
+  color: #fff;
+  background: #3F1E4F;
+  margin-bottom: 0.7rem;
+}
+.sports-care-path .sports-path-step h3 {
+  font-family: "Inter-Bold";
+  font-size: 1rem;
+  color: #3F1E4F;
+  margin-bottom: 0.55rem;
+}
+.sports-care-path .sports-path-step p {
+  font-family: "Inter-Regular";
+  font-size: 0.93rem;
+  color: rgba(56, 40, 66, 0.92);
+  line-height: 1.6;
+}
+
+.sports-final-cta {
+  padding: 0 0 5.2rem 0;
+}
+.sports-final-cta .sports-final-cta-card {
+  border-radius: 24px;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  background: linear-gradient(140deg, #ffffff, #f6f1fa);
+  border: 1px solid rgba(63, 30, 79, 0.18);
+  box-shadow: 0 24px 42px rgba(27, 16, 34, 0.11);
+  text-align: center;
+}
+.sports-final-cta .sports-final-cta-card .eyebrow {
+  font-family: "Inter-Bold";
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #3F1E4F;
+  margin-bottom: 0.65rem;
+}
+.sports-final-cta .sports-final-cta-card h2 {
+  font-family: "Poppins-Bold";
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  color: #3F1E4F;
+  margin-bottom: 0.75rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sports-final-cta .sports-final-cta-card p {
+  font-family: "Inter-Regular";
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(56, 40, 66, 0.92);
+  max-width: 760px;
+  margin: 0 auto 1.2rem auto;
+}
+.sports-final-cta .sports-final-cta-card .cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.sports-final-cta .sports-final-cta-card .btn {
+  border-radius: 999px;
+  font-family: "Inter-SemiBold";
+  padding: 0.62rem 1.1rem;
+}
+
+.sports-glm-reveal {
+  will-change: transform, opacity;
+}
+
+@media (max-width: 767.98px) {
+  .sports-proof-bar .proof-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sports-proof-bar .proof-list li {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .sports-proof-bar .proof-list li::after {
+    content: none;
+  }
+  .sports-proof-bar .proof-list li:nth-child(odd)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -0.62rem;
+    width: 0.62rem;
+    height: 1px;
+    transform: translateY(-50%);
+    background: rgba(63, 30, 79, 0.35);
+    pointer-events: none;
+  }
+  .who-service-for .sports-intent-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sports-care-path {
+    padding-bottom: 4.3rem;
+  }
+  .sports-final-cta {
+    padding-bottom: 4.2rem;
+  }
+  .sports-final-cta .sports-final-cta-card {
+    text-align: left;
+  }
+  .sports-final-cta .sports-final-cta-card p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .sports-final-cta .sports-final-cta-card .cta-actions {
+    justify-content: flex-start;
+  }
+}
 .orthopedic-treatments {
   position: relative;
   padding: 0 0 5.5rem 0;
@@ -982,7 +1204,6 @@ nav .custom-navbar-collapse ul li:last-child a {
   position: absolute;
   inset: 12% 0 auto;
   height: 320px;
-  background: radial-gradient(circle at 50% 40%, rgba(63, 30, 79, 0.12), rgba(63, 30, 79, 0));
   z-index: -1;
   pointer-events: none;
 }
@@ -1082,9 +1303,12 @@ nav .custom-navbar-collapse ul li:last-child a {
 }
 .orthopedic-pathway .section-head h2 {
   font-family: "Poppins-Bold";
-  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  font-size: clamp(1.75rem, 3vw, 2rem);
   color: #3F1E4F;
   margin-bottom: 0.8rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .orthopedic-pathway .section-head .section-intro {
   font-family: "Inter-Regular";
