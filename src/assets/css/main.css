@@ -1101,7 +1101,7 @@ nav .custom-navbar-collapse ul li:last-child a {
 }
 
 .sports-final-cta {
-  padding: 0 0 5.2rem 0;
+  padding: 3rem 0 5.2rem 0;
 }
 .sports-final-cta .sports-final-cta-card {
   border-radius: 24px;
@@ -1396,6 +1396,264 @@ nav .custom-navbar-collapse ul li:last-child a {
   }
 }
 
+.video-header.geriatric-hero .video-overlay,
+.video-header.sports-hero .video-overlay,
+.video-header.orthopedic-hero .video-overlay {
+  background: linear-gradient(130deg, rgba(34, 19, 44, 0.74), rgba(34, 19, 44, 0.52) 55%, rgba(34, 19, 44, 0.35));
+}
+.video-header.geriatric-hero .geriatric-hero-content,
+.video-header.geriatric-hero .sports-hero-content,
+.video-header.geriatric-hero .orthopedic-hero-content,
+.video-header.sports-hero .geriatric-hero-content,
+.video-header.sports-hero .sports-hero-content,
+.video-header.sports-hero .orthopedic-hero-content,
+.video-header.orthopedic-hero .geriatric-hero-content,
+.video-header.orthopedic-hero .sports-hero-content,
+.video-header.orthopedic-hero .orthopedic-hero-content {
+  align-items: flex-start;
+  text-align: left;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(6rem, 11vh, 8rem) 1.5rem 1.5rem;
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-eyebrow,
+.video-header.geriatric-hero .sports-hero-content .hero-eyebrow,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-eyebrow,
+.video-header.sports-hero .geriatric-hero-content .hero-eyebrow,
+.video-header.sports-hero .sports-hero-content .hero-eyebrow,
+.video-header.sports-hero .orthopedic-hero-content .hero-eyebrow,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-eyebrow,
+.video-header.orthopedic-hero .sports-hero-content .hero-eyebrow,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Inter-SemiBold";
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+}
+.video-header.geriatric-hero .geriatric-hero-content h1,
+.video-header.geriatric-hero .sports-hero-content h1,
+.video-header.geriatric-hero .orthopedic-hero-content h1,
+.video-header.sports-hero .geriatric-hero-content h1,
+.video-header.sports-hero .sports-hero-content h1,
+.video-header.sports-hero .orthopedic-hero-content h1,
+.video-header.orthopedic-hero .geriatric-hero-content h1,
+.video-header.orthopedic-hero .sports-hero-content h1,
+.video-header.orthopedic-hero .orthopedic-hero-content h1 {
+  max-width: 780px;
+  font-size: clamp(2.2rem, 5.6vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 0.9rem;
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-promise,
+.video-header.geriatric-hero .sports-hero-content .hero-promise,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-promise,
+.video-header.sports-hero .geriatric-hero-content .hero-promise,
+.video-header.sports-hero .sports-hero-content .hero-promise,
+.video-header.sports-hero .orthopedic-hero-content .hero-promise,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-promise,
+.video-header.orthopedic-hero .sports-hero-content .hero-promise,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-promise {
+  max-width: 720px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.35rem;
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-actions,
+.video-header.geriatric-hero .sports-hero-content .hero-actions,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-actions,
+.video-header.sports-hero .geriatric-hero-content .hero-actions,
+.video-header.sports-hero .sports-hero-content .hero-actions,
+.video-header.sports-hero .orthopedic-hero-content .hero-actions,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-actions,
+.video-header.orthopedic-hero .sports-hero-content .hero-actions,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-actions .hero-btn,
+.video-header.geriatric-hero .sports-hero-content .hero-actions .hero-btn,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-actions .hero-btn,
+.video-header.sports-hero .geriatric-hero-content .hero-actions .hero-btn,
+.video-header.sports-hero .sports-hero-content .hero-actions .hero-btn,
+.video-header.sports-hero .orthopedic-hero-content .hero-actions .hero-btn,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-actions .hero-btn,
+.video-header.orthopedic-hero .sports-hero-content .hero-actions .hero-btn,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-actions .hero-btn {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.68rem 1.2rem;
+  font-family: "Inter-Bold";
+  font-size: 0.9rem;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-actions .hero-btn-primary,
+.video-header.geriatric-hero .sports-hero-content .hero-actions .hero-btn-primary,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-actions .hero-btn-primary,
+.video-header.sports-hero .geriatric-hero-content .hero-actions .hero-btn-primary,
+.video-header.sports-hero .sports-hero-content .hero-actions .hero-btn-primary,
+.video-header.sports-hero .orthopedic-hero-content .hero-actions .hero-btn-primary,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-actions .hero-btn-primary,
+.video-header.orthopedic-hero .sports-hero-content .hero-actions .hero-btn-primary,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-actions .hero-btn-primary {
+  color: #3F1E4F;
+  background: #fff;
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-actions .hero-btn-primary:hover,
+.video-header.geriatric-hero .sports-hero-content .hero-actions .hero-btn-primary:hover,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-actions .hero-btn-primary:hover,
+.video-header.sports-hero .geriatric-hero-content .hero-actions .hero-btn-primary:hover,
+.video-header.sports-hero .sports-hero-content .hero-actions .hero-btn-primary:hover,
+.video-header.sports-hero .orthopedic-hero-content .hero-actions .hero-btn-primary:hover,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-actions .hero-btn-primary:hover,
+.video-header.orthopedic-hero .sports-hero-content .hero-actions .hero-btn-primary:hover,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-actions .hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-actions .hero-btn-ghost,
+.video-header.geriatric-hero .sports-hero-content .hero-actions .hero-btn-ghost,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-actions .hero-btn-ghost,
+.video-header.sports-hero .geriatric-hero-content .hero-actions .hero-btn-ghost,
+.video-header.sports-hero .sports-hero-content .hero-actions .hero-btn-ghost,
+.video-header.sports-hero .orthopedic-hero-content .hero-actions .hero-btn-ghost,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-actions .hero-btn-ghost,
+.video-header.orthopedic-hero .sports-hero-content .hero-actions .hero-btn-ghost,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-actions .hero-btn-ghost {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.08);
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-actions .hero-btn-ghost:hover,
+.video-header.geriatric-hero .sports-hero-content .hero-actions .hero-btn-ghost:hover,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-actions .hero-btn-ghost:hover,
+.video-header.sports-hero .geriatric-hero-content .hero-actions .hero-btn-ghost:hover,
+.video-header.sports-hero .sports-hero-content .hero-actions .hero-btn-ghost:hover,
+.video-header.sports-hero .orthopedic-hero-content .hero-actions .hero-btn-ghost:hover,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-actions .hero-btn-ghost:hover,
+.video-header.orthopedic-hero .sports-hero-content .hero-actions .hero-btn-ghost:hover,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-actions .hero-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-trust-list,
+.video-header.geriatric-hero .sports-hero-content .hero-trust-list,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-trust-list,
+.video-header.sports-hero .geriatric-hero-content .hero-trust-list,
+.video-header.sports-hero .sports-hero-content .hero-trust-list,
+.video-header.sports-hero .orthopedic-hero-content .hero-trust-list,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-trust-list,
+.video-header.orthopedic-hero .sports-hero-content .hero-trust-list,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-trust-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-trust-list li,
+.video-header.geriatric-hero .sports-hero-content .hero-trust-list li,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-trust-list li,
+.video-header.sports-hero .geriatric-hero-content .hero-trust-list li,
+.video-header.sports-hero .sports-hero-content .hero-trust-list li,
+.video-header.sports-hero .orthopedic-hero-content .hero-trust-list li,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-trust-list li,
+.video-header.orthopedic-hero .sports-hero-content .hero-trust-list li,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-trust-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.7rem;
+  border-radius: 999px;
+  font-family: "Inter-SemiBold";
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+}
+.video-header.geriatric-hero .geriatric-hero-content .hero-trust-list i,
+.video-header.geriatric-hero .sports-hero-content .hero-trust-list i,
+.video-header.geriatric-hero .orthopedic-hero-content .hero-trust-list i,
+.video-header.sports-hero .geriatric-hero-content .hero-trust-list i,
+.video-header.sports-hero .sports-hero-content .hero-trust-list i,
+.video-header.sports-hero .orthopedic-hero-content .hero-trust-list i,
+.video-header.orthopedic-hero .geriatric-hero-content .hero-trust-list i,
+.video-header.orthopedic-hero .sports-hero-content .hero-trust-list i,
+.video-header.orthopedic-hero .orthopedic-hero-content .hero-trust-list i {
+  color: #9ff0c2;
+}
+
+@media (max-width: 767.98px) {
+  .video-header.geriatric-hero .geriatric-hero-content,
+  .video-header.geriatric-hero .sports-hero-content,
+  .video-header.geriatric-hero .orthopedic-hero-content,
+  .video-header.sports-hero .geriatric-hero-content,
+  .video-header.sports-hero .sports-hero-content,
+  .video-header.sports-hero .orthopedic-hero-content,
+  .video-header.orthopedic-hero .geriatric-hero-content,
+  .video-header.orthopedic-hero .sports-hero-content,
+  .video-header.orthopedic-hero .orthopedic-hero-content {
+    padding-top: 6.5rem;
+  }
+  .video-header.geriatric-hero .geriatric-hero-content .hero-actions,
+  .video-header.geriatric-hero .sports-hero-content .hero-actions,
+  .video-header.geriatric-hero .orthopedic-hero-content .hero-actions,
+  .video-header.sports-hero .geriatric-hero-content .hero-actions,
+  .video-header.sports-hero .sports-hero-content .hero-actions,
+  .video-header.sports-hero .orthopedic-hero-content .hero-actions,
+  .video-header.orthopedic-hero .geriatric-hero-content .hero-actions,
+  .video-header.orthopedic-hero .sports-hero-content .hero-actions,
+  .video-header.orthopedic-hero .orthopedic-hero-content .hero-actions {
+    width: 100%;
+  }
+  .video-header.geriatric-hero .geriatric-hero-content .hero-actions .hero-btn,
+  .video-header.geriatric-hero .sports-hero-content .hero-actions .hero-btn,
+  .video-header.geriatric-hero .orthopedic-hero-content .hero-actions .hero-btn,
+  .video-header.sports-hero .geriatric-hero-content .hero-actions .hero-btn,
+  .video-header.sports-hero .sports-hero-content .hero-actions .hero-btn,
+  .video-header.sports-hero .orthopedic-hero-content .hero-actions .hero-btn,
+  .video-header.orthopedic-hero .geriatric-hero-content .hero-actions .hero-btn,
+  .video-header.orthopedic-hero .sports-hero-content .hero-actions .hero-btn,
+  .video-header.orthopedic-hero .orthopedic-hero-content .hero-actions .hero-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .video-header.geriatric-hero .geriatric-hero-content .hero-trust-list,
+  .video-header.geriatric-hero .sports-hero-content .hero-trust-list,
+  .video-header.geriatric-hero .orthopedic-hero-content .hero-trust-list,
+  .video-header.sports-hero .geriatric-hero-content .hero-trust-list,
+  .video-header.sports-hero .sports-hero-content .hero-trust-list,
+  .video-header.sports-hero .orthopedic-hero-content .hero-trust-list,
+  .video-header.orthopedic-hero .geriatric-hero-content .hero-trust-list,
+  .video-header.orthopedic-hero .sports-hero-content .hero-trust-list,
+  .video-header.orthopedic-hero .orthopedic-hero-content .hero-trust-list {
+    gap: 0.5rem;
+  }
+  .video-header.geriatric-hero .geriatric-hero-content .hero-trust-list li,
+  .video-header.geriatric-hero .sports-hero-content .hero-trust-list li,
+  .video-header.geriatric-hero .orthopedic-hero-content .hero-trust-list li,
+  .video-header.sports-hero .geriatric-hero-content .hero-trust-list li,
+  .video-header.sports-hero .sports-hero-content .hero-trust-list li,
+  .video-header.sports-hero .orthopedic-hero-content .hero-trust-list li,
+  .video-header.orthopedic-hero .geriatric-hero-content .hero-trust-list li,
+  .video-header.orthopedic-hero .sports-hero-content .hero-trust-list li,
+  .video-header.orthopedic-hero .orthopedic-hero-content .hero-trust-list li {
+    font-size: 0.8rem;
+  }
+}
 /*-----------------------------------------------------------------------------------
 
  Project Name: Amethyst

@@ -336,7 +336,7 @@
 }
 
 .sports-final-cta {
-    padding: 0 0 5.2rem 0;
+    padding: 3rem 0 5.2rem 0;
 
     .sports-final-cta-card {
         border-radius: 24px;
@@ -693,4 +693,149 @@
         }
     }
 
+}
+
+.video-header.geriatric-hero,
+.video-header.sports-hero,
+.video-header.orthopedic-hero {
+    .video-overlay {
+        background: linear-gradient(130deg,
+                rgba(34, 19, 44, 0.74),
+                rgba(34, 19, 44, 0.52) 55%,
+                rgba(34, 19, 44, 0.35));
+    }
+
+    .geriatric-hero-content,
+    .sports-hero-content,
+    .orthopedic-hero-content {
+        align-items: flex-start;
+        text-align: left;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: clamp(6rem, 11vh, 8rem) 1.5rem 1.5rem;
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: variables.$is;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08rem;
+            margin-bottom: 0.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        h1 {
+            max-width: 780px;
+            font-size: clamp(2.2rem, 5.6vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero-promise {
+            max-width: 720px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.35rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.15rem;
+
+            .hero-btn {
+                text-decoration: none;
+                border-radius: 999px;
+                padding: 0.68rem 1.2rem;
+                font-family: variables.$ib;
+                font-size: 0.9rem;
+                @include mixins.transition(0.3s ease);
+            }
+
+            .hero-btn-primary {
+                color: map-get(variables.$colors, primary);
+                background: map-get(variables.$colors, white);
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+                }
+            }
+
+            .hero-btn-ghost {
+                color: map-get(variables.$colors, white);
+                border: 1px solid rgba(255, 255, 255, 0.62);
+                background: rgba(255, 255, 255, 0.08);
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+
+        .hero-trust-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+
+            li {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                padding: 0.42rem 0.7rem;
+                border-radius: 999px;
+                font-family: variables.$is;
+                font-size: 0.83rem;
+                color: rgba(255, 255, 255, 0.95);
+                border: 1px solid rgba(255, 255, 255, 0.22);
+                background: rgba(255, 255, 255, 0.08);
+            }
+
+            i {
+                color: #9ff0c2;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    .video-header.geriatric-hero,
+    .video-header.sports-hero,
+    .video-header.orthopedic-hero {
+
+        .geriatric-hero-content,
+        .sports-hero-content,
+        .orthopedic-hero-content {
+            padding-top: 6.5rem;
+
+            .hero-actions {
+                width: 100%;
+
+                .hero-btn {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            .hero-trust-list {
+                gap: 0.5rem;
+
+                li {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
 }
