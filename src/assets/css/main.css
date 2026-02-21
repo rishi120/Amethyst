@@ -559,6 +559,22 @@ nav.navbar-scrolled {
   background-color: #3F1E4F !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+nav.navbar-full-scrolled {
+  background-color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 1200px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  margin: auto;
+  top: 20px;
+}
+nav.navbar-full-scrolled .custom-navbar-brand {
+  color: #3F1E4F !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+nav.navbar-full-scrolled .custom-navbar-collapse ul li a {
+  color: #3F1E4F !important;
+}
 nav .custom-navbar-brand {
   font-family: "Inter-Bold";
   font-size: 1.5rem;
@@ -853,6 +869,98 @@ nav .custom-navbar-collapse ul li:last-child a {
   max-width: 600px;
   line-height: 1.6;
   text-align: left;
+}
+
+.geriatric-care-tabs {
+  padding: 0 0 5rem 0;
+}
+.geriatric-care-tabs .section-head {
+  margin: 0 auto 1.8rem auto;
+  text-align: center;
+}
+.geriatric-care-tabs .section-head .eyebrow {
+  font-family: "Inter-Bold";
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #3F1E4F;
+  margin-bottom: 0.5rem;
+}
+.geriatric-care-tabs .section-head h2 {
+  font-family: "Poppins-Bold";
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  color: #3F1E4F;
+  margin-bottom: 0.8rem;
+}
+.geriatric-care-tabs .section-head .section-intro {
+  font-family: "Inter-Regular";
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+.geriatric-care-tabs .geriatric-tabs-nav {
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.geriatric-care-tabs .geriatric-tabs-nav .nav-link {
+  border: 1px solid rgba(63, 30, 79, 0.22);
+  border-radius: 999px;
+  font-family: "Inter-SemiBold";
+  font-size: 0.88rem;
+  color: #3F1E4F;
+  background: rgba(255, 255, 255, 0.55);
+  padding: 0.55rem 0.95rem;
+  -webkit-transition: 0.25s ease;
+  -moz-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+.geriatric-care-tabs .geriatric-tabs-nav .nav-link:hover {
+  background: rgba(255, 255, 255, 0.88);
+}
+.geriatric-care-tabs .geriatric-tabs-nav .nav-link.active {
+  color: #fff;
+  background: #3F1E4F;
+  border-color: #3F1E4F;
+  box-shadow: 0 10px 24px rgba(63, 30, 79, 0.24);
+}
+.geriatric-care-tabs .geriatric-tabs-content .tabs-card {
+  margin: 0 auto;
+  padding: clamp(1.1rem, 2.2vw, 1.6rem);
+}
+.geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-media .image-slot {
+  overflow: hidden;
+  border-radius: 2rem;
+}
+.geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-media .image-slot img {
+  transition: all 0.3s ease;
+}
+.geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-media .image-slot img:hover {
+  transform: scale(1.05);
+}
+.geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-copy h3 {
+  font-family: "Inter-Bold";
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: #3F1E4F;
+  margin-bottom: 0.7rem;
+}
+.geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-copy p {
+  font-family: "Inter-Regular";
+  font-size: 0.97rem;
+  line-height: 1.7;
+  margin-bottom: 0.85rem;
+}
+.geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-copy ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+.geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-copy ul li {
+  font-family: "Inter-SemiBold";
+  font-size: 0.92rem;
+  color: rgba(56, 40, 66, 0.95);
+  line-height: 1.6;
 }
 
 .who-service-for {
@@ -1154,6 +1262,24 @@ nav .custom-navbar-collapse ul li:last-child a {
 }
 
 @media (max-width: 767.98px) {
+  .geriatric-care-tabs {
+    padding: 0 0 4.2rem 0;
+  }
+  .geriatric-care-tabs .section-head {
+    text-align: left;
+  }
+  .geriatric-care-tabs .geriatric-tabs-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.2rem;
+  }
+  .geriatric-care-tabs .geriatric-tabs-nav .nav-item {
+    flex: 0 0 auto;
+  }
+  .geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-media .image-slot {
+    min-height: 210px;
+  }
   .sports-proof-bar .proof-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1961,11 +2087,11 @@ body::-webkit-scrollbar {
 }
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to bottom, #6d3d8b, #ad3133);
+  background-image: linear-gradient(to bottom, rgb(86.5816513761, 41.2293577982, 108.5706422018), #3F1E4F, rgb(33.5229357798, 15.9633027523, 42.0366972477));
 }
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
-  background-color: #383838;
+  background-color: rgba(63, 30, 79, 0.16);
 }
 html::-moz-scrollbar,
 body::-moz-scrollbar {
@@ -1974,11 +2100,11 @@ body::-moz-scrollbar {
 }
 html::-moz-scrollbar-thumb,
 body::-moz-scrollbar-thumb {
-  background-image: linear-gradient(to bottom, #6d3d8b, #ad3133);
+  background-image: linear-gradient(to bottom, rgb(86.5816513761, 41.2293577982, 108.5706422018), #3F1E4F, rgb(33.5229357798, 15.9633027523, 42.0366972477));
 }
 html::-moz-scrollbar-track,
 body::-moz-scrollbar-track {
-  background-color: #383838;
+  background-color: rgba(63, 30, 79, 0.16);
 }
 html.loader-active,
 body.loader-active {

@@ -63,13 +63,13 @@
             Personalized geriatric support focused on mobility, cognition, and
             confidence in daily life for older adults and their families.
           </p>
-          <div class="hero-actions">
-            <a href="#footer" class="hero-btn hero-btn-primary">Book Assessment</a>
-            <a href="#about-geriatric" class="hero-btn hero-btn-ghost">Explore Care Plans</a>
-          </div>
           <ul class="hero-trust-list">
-            <li><i class="bi bi-check-circle"></i> Comprehensive assessments</li>
-            <li><i class="bi bi-check-circle"></i> Family-inclusive planning</li>
+            <li>
+              <i class="bi bi-check-circle"></i> Comprehensive assessments
+            </li>
+            <li>
+              <i class="bi bi-check-circle"></i> Family-inclusive planning
+            </li>
             <li><i class="bi bi-check-circle"></i> Ongoing progress reviews</li>
           </ul>
           <div class="scroll-indicator">
@@ -106,6 +106,239 @@
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section class="geriatric-care-tabs">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Our care focus</p>
+            <h2>Specialized support tailored to aging needs</h2>
+            <p class="section-intro">
+              Explore the core areas we prioritize to help older adults stay
+              safe, active, and independent.
+            </p>
+          </div>
+
+          <ul class="nav nav-pills geriatric-tabs-nav" id="geriatricCareTabs">
+            <li class="nav-item">
+              <button
+                class="nav-link active"
+                id="mobility-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#mobility-pane"
+                type="button"
+                role="tab"
+                aria-controls="mobility-pane"
+                aria-selected="true"
+              >
+                Mobility & Falls
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                id="memory-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#memory-pane"
+                type="button"
+                role="tab"
+                aria-controls="memory-pane"
+                aria-selected="false"
+              >
+                Memory & Cognition
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                id="chronic-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#chronic-pane"
+                type="button"
+                role="tab"
+                aria-controls="chronic-pane"
+                aria-selected="false"
+              >
+                Chronic Conditions
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                id="caregiver-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#caregiver-pane"
+                type="button"
+                role="tab"
+                aria-controls="caregiver-pane"
+                aria-selected="false"
+              >
+                Caregiver Guidance
+              </button>
+            </li>
+          </ul>
+
+          <div
+            class="tab-content geriatric-tabs-content"
+            id="geriatricCareTabsContent"
+          >
+            <article
+              class="tab-pane fade show active"
+              id="mobility-pane"
+              role="tabpanel"
+              aria-labelledby="mobility-tab"
+            >
+              <div class="tabs-card">
+                <div class="row g-4 align-items-center tab-pane-layout">
+                  <div class="col-md-4">
+                    <div class="tab-media">
+                      <div class="image-slot">
+                        <img
+                          src="../assets/images/expertise/geriatric/tabs/first-tab-pic.jpg"
+                          alt="Mobility and fall risk reduction"
+                          class="img-fluid rounded-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="tab-copy">
+                      <h3>Mobility, balance, and fall-risk reduction</h3>
+                      <p>
+                        We assess gait, lower-limb strength, and home-risk
+                        factors to reduce fall incidents and improve confidence
+                        in everyday movement.
+                      </p>
+                      <ul>
+                        <li>Balance and gait retraining</li>
+                        <li>Assistive device and walking strategy support</li>
+                        <li>Home-safety recommendations for safer mobility</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="tab-pane fade"
+              id="memory-pane"
+              role="tabpanel"
+              aria-labelledby="memory-tab"
+            >
+              <div class="tabs-card">
+                <div class="row g-4 align-items-center tab-pane-layout">
+                  <div class="col-md-4">
+                    <div class="tab-media">
+                      <div class="image-slot">
+                        <img
+                          src="../assets/images/expertise/geriatric/tabs/second-tab-pic.jpg"
+                          alt="Cognition-first care and routine support"
+                          class="img-fluid rounded-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="tab-copy">
+                      <h3>Cognition-first care and routine support</h3>
+                      <p>
+                        For older adults with memory concerns, we structure care
+                        plans around clarity, consistency, and family-inclusive
+                        decision support.
+                      </p>
+                      <ul>
+                        <li>Early cognitive screening and tracking</li>
+                        <li>
+                          Daily routine planning for safety and orientation
+                        </li>
+                        <li>Family education for long-term continuity</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="tab-pane fade"
+              id="chronic-pane"
+              role="tabpanel"
+              aria-labelledby="chronic-tab"
+            >
+              <div class="tabs-card">
+                <div class="row g-4 align-items-center tab-pane-layout">
+                  <div class="col-md-4">
+                    <div class="tab-media">
+                      <div class="image-slot">
+                        <img
+                          src="../assets/images/expertise/geriatric/tabs/third-tab-pic.jpg"
+                          alt="Integrated management of chronic health issues"
+                          class="img-fluid rounded-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="tab-copy">
+                      <h3>Integrated management of chronic health issues</h3>
+                      <p>
+                        We coordinate ongoing care for long-term conditions
+                        while preserving function, reducing flare-ups, and
+                        improving quality of life.
+                      </p>
+                      <ul>
+                        <li>Medication and symptom review with care plans</li>
+                        <li>
+                          Strength, endurance, and functional conditioning
+                        </li>
+                        <li>
+                          Regular follow-ups with measurable progress goals
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="tab-pane fade"
+              id="caregiver-pane"
+              role="tabpanel"
+              aria-labelledby="caregiver-tab"
+            >
+              <div class="tabs-card">
+                <div class="row g-4 align-items-center tab-pane-layout">
+                  <div class="col-md-4">
+                    <div class="tab-media">
+                      <div class="image-slot">
+                        <img
+                          src="../assets/images/expertise/geriatric/tabs/forth-tab-pic.jpg"
+                          alt="Practical caregiver guidance and support"
+                          class="img-fluid rounded-5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="tab-copy">
+                      <h3>Practical caregiver guidance and support</h3>
+                      <p>
+                        We help families navigate daily care needs with
+                        practical strategies that reduce stress and improve
+                        patient safety.
+                      </p>
+                      <ul>
+                        <li>Safe transfer and mobility handling techniques</li>
+                        <li>Emergency preparedness and escalation planning</li>
+                        <li>
+                          Caregiver burnout prevention and support pathways
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>

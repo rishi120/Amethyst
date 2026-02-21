@@ -44,30 +44,30 @@ const scrollToHashTarget = () => {
   target.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-const hidePageLoader = () => {
-  if (!pageLoader || pageLoader.classList.contains("is-hidden")) return;
-  pageLoader.classList.add("is-hidden");
-  document.documentElement.classList.remove("loader-active");
-  document.body.classList.remove("loader-active");
-  const storedScrollY = Number(document.body.dataset.scrollY || "0");
-  document.body.style.top = "";
-  document.body.dataset.scrollY = "";
-  window.scrollTo(0, storedScrollY);
-  // After restoring scroll, honor any hash navigation (e.g. /index.html#about).
-  scrollToHashTarget();
-  const removeLoader = () => {
-    pageLoader.removeEventListener("transitionend", removeLoader);
-    if (pageLoader.parentElement) {
-      pageLoader.remove();
-    }
-  };
-  pageLoader.addEventListener("transitionend", removeLoader);
-  setTimeout(removeLoader, 5000);
-};
+// const hidePageLoader = () => {
+//   if (!pageLoader || pageLoader.classList.contains("is-hidden")) return;
+//   pageLoader.classList.add("is-hidden");
+//   document.documentElement.classList.remove("loader-active");
+//   document.body.classList.remove("loader-active");
+//   const storedScrollY = Number(document.body.dataset.scrollY || "0");
+//   document.body.style.top = "";
+//   document.body.dataset.scrollY = "";
+//   window.scrollTo(0, storedScrollY);
+//   // After restoring scroll, honor any hash navigation (e.g. /index.html#about).
+//   scrollToHashTarget();
+//   const removeLoader = () => {
+//     pageLoader.removeEventListener("transitionend", removeLoader);
+//     if (pageLoader.parentElement) {
+//       pageLoader.remove();
+//     }
+//   };
+//   pageLoader.addEventListener("transitionend", removeLoader);
+//   setTimeout(removeLoader, 5000);
+// };
 
-window.addEventListener("load", () => {
-  setTimeout(hidePageLoader, 2000);
-});
+// window.addEventListener("load", () => {
+//   setTimeout(hidePageLoader, 2000);
+// });
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -100,9 +100,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const onScroll = () => {
     const currentScrollY = window.scrollY;
 
-    if (currentScrollY > 200) {
+    if (currentScrollY > 600) {
+      navbarEl.classList.add("navbar-full-scrolled");
+      navbarEl.classList.add("navbar-scrolled");
+    } else if (currentScrollY > 200) {
+      navbarEl.classList.remove("navbar-full-scrolled");
       navbarEl.classList.add("navbar-scrolled");
     } else {
+      navbarEl.classList.remove("navbar-full-scrolled");
       navbarEl.classList.remove("navbar-scrolled");
     }
 
@@ -145,6 +150,43 @@ document.addEventListener("DOMContentLoaded", () => {
   if (scrollToTopButton) {
     scrollToTopButton.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  // ---------- Geriatric tabs fallback ----------
+  const geriatricTabs = Array.from(
+    document.querySelectorAll("#geriatricCareTabs [data-bs-target]"),
+  );
+  const geriatricTabContent = document.querySelector("#geriatricCareTabsContent");
+
+  if (geriatricTabs.length && geriatricTabContent) {
+    const geriatricPanes = Array.from(
+      geriatricTabContent.querySelectorAll(".tab-pane"),
+    );
+
+    const activateGeriatricTab = (tabButton) => {
+      const targetSelector = tabButton.getAttribute("data-bs-target");
+      if (!targetSelector) return;
+
+      const targetPane = geriatricTabContent.querySelector(targetSelector);
+      if (!targetPane) return;
+
+      geriatricTabs.forEach((btn) => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-selected", "false");
+      });
+
+      geriatricPanes.forEach((pane) => {
+        pane.classList.remove("show", "active");
+      });
+
+      tabButton.classList.add("active");
+      tabButton.setAttribute("aria-selected", "true");
+      targetPane.classList.add("show", "active");
+    };
+
+    geriatricTabs.forEach((tabButton) => {
+      tabButton.addEventListener("click", () => activateGeriatricTab(tabButton));
     });
   }
 

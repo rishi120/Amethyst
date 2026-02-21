@@ -47,6 +47,122 @@
     }
 }
 
+.geriatric-care-tabs {
+    padding: 0 0 5rem 0;
+
+    .section-head {
+        margin: 0 auto 1.8rem auto;
+        text-align: center;
+
+        .eyebrow {
+            font-family: variables.$ib;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08rem;
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-family: variables.$pb;
+            font-size: clamp(1.75rem, 3vw, 2.6rem);
+            color: map-get(variables.$colors, primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-intro {
+            font-family: variables.$ir;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: map-get(variables.$colors, darkGray);
+            margin-bottom: 0;
+        }
+    }
+
+    .geriatric-tabs-nav {
+        gap: 2rem;
+        justify-content: center;
+        margin-bottom: 1rem;
+
+        .nav-link {
+            border: 1px solid rgba(63, 30, 79, 0.22);
+            border-radius: 999px;
+            font-family: variables.$is;
+            font-size: 0.88rem;
+            color: map-get(variables.$colors, primary);
+            background: rgba(255, 255, 255, 0.55);
+            padding: 0.55rem 0.95rem;
+            @include mixins.transition(0.25s ease);
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.88);
+            }
+
+            &.active {
+                color: map-get(variables.$colors, white);
+                background: map-get(variables.$colors, primary);
+                border-color: map-get(variables.$colors, primary);
+                box-shadow: 0 10px 24px rgba(63, 30, 79, 0.24);
+            }
+        }
+    }
+
+    .geriatric-tabs-content {
+        .tabs-card {
+            margin: 0 auto;
+            padding: clamp(1.1rem, 2.2vw, 1.6rem);
+
+            .tab-pane-layout {
+                .tab-media {
+                    .image-slot {
+                        overflow: hidden;
+                        border-radius: 2rem;
+
+                        img {
+                            transition: all 0.3s ease;
+
+                            &:hover {
+                                transform: scale(1.05);
+                            }
+                        }
+                    }
+                }
+
+                .tab-copy {
+                    h3 {
+                        font-family: variables.$ib;
+                        font-size: clamp(1.1rem, 2vw, 1.35rem);
+                        color: map-get(variables.$colors, primary);
+                        margin-bottom: 0.7rem;
+                    }
+
+                    p {
+                        font-family: variables.$ir;
+                        font-size: 0.97rem;
+                        line-height: 1.7;
+                        color: map-get(variables.$colors, darkGray);
+                        margin-bottom: 0.85rem;
+                    }
+
+                    ul {
+                        margin: 0;
+                        padding-left: 1.1rem;
+                        display: grid;
+                        gap: 0.45rem;
+
+                        li {
+                            font-family: variables.$is;
+                            font-size: 0.92rem;
+                            color: rgba(56, 40, 66, 0.95);
+                            line-height: 1.6;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 .who-service-for {
     padding: 0 0 5rem 0;
 
@@ -395,6 +511,37 @@
 }
 
 @media (max-width: 767.98px) {
+    .geriatric-care-tabs {
+        padding: 0 0 4.2rem 0;
+
+        .section-head {
+            text-align: left;
+        }
+
+        .geriatric-tabs-nav {
+            justify-content: flex-start;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding-bottom: 0.2rem;
+
+            .nav-item {
+                flex: 0 0 auto;
+            }
+        }
+
+        .geriatric-tabs-content {
+            .tabs-card {
+                .tab-pane-layout {
+                    .tab-media {
+                        .image-slot {
+                            min-height: 210px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .sports-proof-bar {
         .proof-list {
             grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -40,11 +40,14 @@ body {
     }
 
     &::-webkit-scrollbar-thumb {
-        background-image: linear-gradient(to bottom, #6d3d8b, #ad3133);
+        background-image: linear-gradient(to bottom,
+                lighten(map-get(variables.$colors, primary), 8%),
+                map-get(variables.$colors, primary),
+                darken(map-get(variables.$colors, primary), 10%));
     }
 
     &::-webkit-scrollbar-track {
-        background-color: #383838;
+        background-color: rgba(63, 30, 79, 0.16);
     }
 
     &::-moz-scrollbar {
@@ -53,11 +56,14 @@ body {
     }
 
     &::-moz-scrollbar-thumb {
-        background-image: linear-gradient(to bottom, #6d3d8b, #ad3133);
+        background-image: linear-gradient(to bottom,
+                lighten(map-get(variables.$colors, primary), 8%),
+                map-get(variables.$colors, primary),
+                darken(map-get(variables.$colors, primary), 10%));
     }
 
     &::-moz-scrollbar-track {
-        background-color: #383838;
+        background-color: rgba(63, 30, 79, 0.16);
     }
 
     &.loader-active {
