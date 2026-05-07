@@ -43,7 +43,36 @@
       <nav class="navbar navbar-expand-lg fixed-top" id="navbar"></nav>
       <!-- header -->
       <header class="header">
-        <!--- hero section -->
+        <div class="hero">
+          <div class="hero-shell">
+            <div class="hero-panel">
+              <div class="hero-copy">
+                <h2>Amethyst</h2>
+                <h1>
+                  Expert care for<br />
+                  your <span>mobility</span>
+                </h1>
+                <p>
+                  Experience expert physiotherapy for enhanced mobility and a
+                  vibrant life.
+                </p>
+                <div class="hero-actions" aria-label="Hero actions">
+                  <a class="hero-button hero-button-primary" href="#footer"
+                    >Book now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <figure class="hero-image-wrap">
+              <img
+                src="./assets/images/main-header.avif"
+                alt="Physiotherapist guiding a mobility exercise"
+              />
+            </figure>
+          </div>
+        </div>
+        <!--
+        Legacy header code kept for rollback:
         <div class="hero">
           <div class="container">
             <div class="hero-content">
@@ -63,6 +92,7 @@
             </div>
           </div>
         </div>
+        -->
       </header>
       <!-- about section -->
       <section class="about" id="about">
@@ -157,27 +187,50 @@
                   <div class="col-md-4">
                     <div class="team-member-image">
                       <img
-                        src="./assets/images/team/team-1.jpg"
+                        src="./assets/images/team/Team-1.png"
                         alt="team member 1"
                       />
-                      <h4>Dr. Pooja Bhagabati</h4>
+                      <h4>Dr. Pooja B <span>(PT)</span></h4>
                       <p>Co-Founder</p>
+                      <div
+                        class="team-social-links"
+                        aria-label="Dr. Pooja Bhagabati social links"
+                      >
+                        <a
+                          class="instagram"
+                          href="https://www.instagram.com/the.rehab.hub/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Dr. Pooja Bhagabati on Instagram"
+                        >
+                          <i class="bi bi-instagram"></i>
+                        </a>
+                        <a
+                          class="linkedin"
+                          href="https://www.linkedin.com/in/dr-pooja-bhagabati-pt-29b820210/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Dr. Pooja Bhagabati on LinkedIn"
+                        >
+                          <i class="bi bi-linkedin"></i>
+                        </a>
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="team-member-description">
                       <p>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and
-                        scrambled it to make a type specimen book. It has
-                        survived not only five centuries, but also the leap into
-                        electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the release of
-                        Letraset sheets containing Lorem Ipsum passages, and
-                        more recently with desktop publishing software like
-                        Aldus PageMaker including versions of Lorem Ipsum.
+                        A physiotherapist with over 8 plus years of experience,
+                        specializing in neurophysiotherapy and evidence-based
+                        rehabilitation. Her expertise spans neurology,
+                        orthopedics, women’s health, pediatrics, geriatrics, and
+                        sports rehabilitation, enabling a well-rounded,
+                        patient-centered approach to care. With strong clinical
+                        leadership experience, she combines hands-on expertise
+                        with compassionate treatment. Her mission is to make
+                        rehabilitation accessible, empowering, and focused on
+                        long-term function and quality of life for individuals
+                        and communities alike.
                       </p>
                     </div>
                   </div>
@@ -185,28 +238,46 @@
                   <div class="col-md-8">
                     <div class="team-member-description">
                       <p>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and
-                        scrambled it to make a type specimen book. It has
-                        survived not only five centuries, but also the leap into
-                        electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the release of
-                        Letraset sheets containing Lorem Ipsum passages, and
-                        more recently with desktop publishing software like
-                        Aldus PageMaker including versions of Lorem Ipsum.
+                        Musculoskeletal and sports Physiotherapist with 11+
+                        years of experience. Specialist in sports, ortho -
+                        rehabilitation, Musculoskeletal disorders, Neuro-
+                        rehabilitation, dry needling, cupping, KT taping.
+                        Dedicated to restoring function and improving mobility
+                        through personalized, evidence-based care.
                       </p>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="team-member-image">
                       <img
-                        src="./assets/images/team/team-2.jpg"
+                        src="./assets/images/team/Team-2.jpeg"
                         alt="team member 2"
                       />
-                      <h4>Dr. Nikita Gangurde</h4>
+                      <h4>Dr. Nikita G <span>(MPTh)</span></h4>
                       <p>Co-Founder</p>
+                      <div
+                        class="team-social-links"
+                        aria-label="Dr. Nikita Gangurde social links"
+                      >
+                        <a
+                          class="instagram"
+                          href="https://www.instagram.com/niktrix_physiotherapy/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Dr. Nikita Gangurde on Instagram"
+                        >
+                          <i class="bi bi-instagram"></i>
+                        </a>
+                        <a
+                          class="linkedin"
+                          href="#"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Dr. Nikita Gangurde on LinkedIn"
+                        >
+                          <i class="bi bi-linkedin"></i>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -307,8 +378,8 @@
                         >
                           <div class="accordion-body">
                             In most cases, no referral is needed. If your case
-                            involves recent surgery or medical complexity, we may
-                            coordinate with your doctor for safe planning.
+                            involves recent surgery or medical complexity, we
+                            may coordinate with your doctor for safe planning.
                           </div>
                         </div>
                       </div>
@@ -386,8 +457,8 @@
                           data-bs-parent="#faqAccordion"
                         >
                           <div class="accordion-body">
-                            Yes. We provide home sessions for patients who prefer
-                            treatment at home, including post surgery and
+                            Yes. We provide home sessions for patients who
+                            prefer treatment at home, including post surgery and
                             mobility support cases.
                           </div>
                         </div>
@@ -412,8 +483,8 @@
                           data-bs-parent="#faqAccordion"
                         >
                           <div class="accordion-body">
-                            Treatment is usually comfortable and adjusted to your
-                            pain tolerance. Some techniques may cause mild
+                            Treatment is usually comfortable and adjusted to
+                            your pain tolerance. Some techniques may cause mild
                             temporary soreness, but your therapist will always
                             guide intensity safely.
                           </div>
@@ -467,8 +538,9 @@
                         >
                           <div class="accordion-body">
                             Wear comfortable clothing that allows easy movement.
-                            For lower body issues, shorts or flexible track pants
-                            are ideal. Bring any prior reports if available.
+                            For lower body issues, shorts or flexible track
+                            pants are ideal. Bring any prior reports if
+                            available.
                           </div>
                         </div>
                       </div>
@@ -486,8 +558,11 @@
           <div class="content-center">
             <h2>Our Services</h2>
             <p>
-              Our expertise lies in providing comprehensive care tailored to
-              each individual's unique needs.
+              At Amethyst, we offer a diverse range of services meticulously
+              designed to cater to your unique needs. Whether you're recovering
+              from an injury, seeking relief from pain, or aiming to optimize
+              your physical well-being, our team of dedicated professionals is
+              committed to providing therapeutic excellence.
             </p>
           </div>
           <div class="row align-items-center expertise-grid mt-5 gx-4 gy-4">

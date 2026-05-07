@@ -59,9 +59,6 @@ const renderFinalCta = () => {
             </p>
             <div class="cta-actions">
               <a href="#footer" class="btn btn-dark">${ctaContent.primaryLabel}</a>
-              <a href="tel:+10000000000" class="btn btn-outline-dark"
-                >Call clinic</a
-              >
             </div>
           </div>
         </div>

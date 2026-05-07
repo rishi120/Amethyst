@@ -986,3 +986,360 @@
         }
     }
 }
+
+.geriatric-showcase {
+    padding: 5.25rem 4rem 1.75rem 4rem;
+
+    &-shell {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    &-panel {
+        position: relative;
+        overflow: hidden;
+        min-height: 760px;
+        border-radius: 2.25rem;
+        background:
+            linear-gradient(90deg,
+                rgba(32, 22, 54, 0.7) 0%,
+                rgba(32, 22, 54, 0.48) 34%,
+                rgba(32, 22, 54, 0.14) 70%,
+                rgba(32, 22, 54, 0.08) 100%),
+            url("../images/services/Geriatric-header-img.jpg") center center / cover no-repeat;
+        isolation: isolate;
+        background-attachment: fixed;
+    }
+
+    &-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 34%),
+            linear-gradient(180deg, rgba(11, 11, 17, 0.06), rgba(11, 11, 17, 0.18));
+        z-index: 0;
+    }
+
+    &-content {
+        position: relative;
+        z-index: 1;
+        min-height: 760px;
+        padding: 9.5rem clamp(1.5rem, 4vw, 4rem) 2.4rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-copy {
+        max-width: 610px;
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 0 1rem;
+            color: rgba(255, 255, 255, 0.88);
+            font-family: "Inter", sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+        h1 {
+            margin: 0;
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+            font-size: clamp(2.6rem, 5.2vw, 3rem);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.06em;
+        }
+
+        p {
+            max-width: 620px;
+            margin: 1.85rem 0 0;
+            color: rgba(255, 255, 255, 0.88);
+            font-family: "Inter", sans-serif;
+            font-size: clamp(1.02rem, 1.65vw, 1.28rem);
+            font-weight: 500;
+            line-height: 1.55;
+        }
+    }
+
+    &-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        margin-top: 1.3rem;
+
+        .showcase-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            min-height: 3rem;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            font-family: "Inter", sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+        }
+
+        .showcase-btn-primary {
+            color: #182a3e;
+            background: #11e6bd;
+            box-shadow: 0 16px 28px rgba(17, 230, 189, 0.2);
+
+            &:hover {
+                box-shadow: 0 20px 32px rgba(17, 230, 189, 0.28);
+            }
+        }
+
+        .showcase-btn-secondary {
+            color: #2f2850;
+            background: #ffffff;
+            box-shadow: 0 16px 30px rgba(17, 16, 24, 0.18);
+
+            &:hover {
+                background: #f6f3ff;
+            }
+        }
+    }
+
+    &-bottom {
+        display: flex;
+        justify-content: flex-end;
+        align-items: stretch;
+        gap: 1.25rem;
+        margin-top: 2.9rem;
+    }
+
+    &-info-card,
+    &-image-card {
+        border-radius: 1.8rem;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 24px 60px rgba(14, 16, 28, 0.18);
+    }
+
+    &-info-card {
+        width: min(100%, 480px);
+        padding: 2.25rem 2.35rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 248px;
+
+        p {
+            margin: 0;
+            color: #2f2850;
+            font-family: "Inter", sans-serif;
+            font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+            font-weight: 500;
+            line-height: 1.38;
+            letter-spacing: -0.03em;
+        }
+    }
+
+    &-play {
+        width: 100%;
+        margin-top: 1.9rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #5f4cff;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: default;
+
+        i {
+            width: 4.4rem;
+            height: 4.4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #6b57ff;
+            background: #e8e0ff;
+            font-size: 1.2rem;
+        }
+    }
+
+    &-image-card {
+        width: min(100%, 250px);
+        min-height: 248px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    &-scroll {
+        position: absolute;
+        left: 50%;
+        bottom: 1.35rem;
+        transform: translateX(-50%);
+        z-index: 2;
+        color: map-get(variables.$colors, white);
+        font-size: 2rem;
+        opacity: 0.85;
+        text-decoration: none;
+
+        i {
+            display: inline-block;
+            animation: scroll-bounce 2s infinite;
+        }
+    }
+}
+
+.orthopedic-showcase {
+    .orthopedic-showcase-panel {
+        background:
+            linear-gradient(90deg,
+                rgba(32, 22, 54, 0.7) 0%,
+                rgba(32, 22, 54, 0.48) 34%,
+                rgba(32, 22, 54, 0.14) 70%,
+                rgba(32, 22, 54, 0.08) 100%),
+            url("../../images/services/Ortho-header-img.jpg") center center / cover no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+.sports-showcase {
+    .sports-showcase-panel {
+        background:
+            linear-gradient(90deg,
+                rgba(32, 22, 54, 0.7) 0%,
+                rgba(32, 22, 54, 0.48) 34%,
+                rgba(32, 22, 54, 0.14) 70%,
+                rgba(32, 22, 54, 0.08) 100%),
+            url("../../images/services/Sports-header-img.jpg") center center / cover no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+.neuro-showcase {
+    .neuro-showcase-panel {
+        background:
+            linear-gradient(90deg,
+                rgba(32, 22, 54, 0.7) 0%,
+                rgba(32, 22, 54, 0.48) 34%,
+                rgba(32, 22, 54, 0.14) 70%,
+                rgba(32, 22, 54, 0.08) 100%),
+            url("../../images/services/Neuro-header-img.jpg") center center / cover no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .geriatric-showcase {
+        &-content {
+            padding-top: 12.25rem;
+        }
+
+        &-bottom {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    .geriatric-showcase {
+        padding-top: 6.75rem;
+
+        &-panel,
+        &-content {
+            min-height: auto;
+        }
+
+        &-content {
+            padding: 10.5rem 1.3rem 1.5rem;
+        }
+
+        &-copy h1 {
+            max-width: 540px;
+        }
+
+        &-actions .showcase-btn {
+            min-height: 4.35rem;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .geriatric-showcase {
+        padding-top: 6.25rem;
+        padding-bottom: 1rem;
+
+        &-shell {
+            padding-left: 0.4rem;
+            padding-right: 0.4rem;
+        }
+
+        &-panel {
+            border-radius: 1.6rem;
+        }
+
+        &-content {
+            padding: 8.25rem 1rem 1rem;
+        }
+
+        &-copy p {
+            margin-top: 1.2rem;
+        }
+
+        &-actions {
+            gap: 0.85rem;
+            margin-top: 1.7rem;
+
+            .showcase-btn {
+                width: 100%;
+                min-height: 3.9rem;
+                border-radius: 1.1rem;
+                padding: 0.95rem 1.1rem;
+            }
+        }
+
+        &-bottom {
+            gap: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        &-scroll {
+            bottom: 1rem;
+        }
+
+        &-info-card,
+        &-image-card {
+            width: 100%;
+            border-radius: 1.4rem;
+        }
+
+        &-info-card {
+            min-height: 220px;
+            padding: 1.5rem;
+        }
+
+        &-play i {
+            width: 3.65rem;
+            height: 3.65rem;
+        }
+
+        &-image-card {
+            min-height: 220px;
+        }
+    }
+}

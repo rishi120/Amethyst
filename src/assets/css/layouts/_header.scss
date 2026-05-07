@@ -5,41 +5,17 @@
 nav {
     background-color: transparent !important;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
 
     &.navbar-scrolled {
         background-color: map-get(variables.$colors, primary) !important;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    &.navbar-full-scrolled {
-        background-color: map-get(variables.$colors, white) !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        max-width: 1200px;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-        margin: auto;
-        top: 20px;
-
-        .custom-navbar-brand {
-            color: map-get(variables.$colors, primary) !important;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .custom-navbar-collapse {
-            ul {
-                li {
-                    a {
-                        color: map-get(variables.$colors, primary) !important;
-                    }
-                }
-            }
-        }
-    }
-
     .custom-navbar-brand {
         font-family: variables.$ib;
         font-size: 1.5rem;
-        color: white !important;
+        color: map-get(variables.$colors, primary) !important;
     }
 
     .custom-navbar-collapse {
@@ -50,16 +26,16 @@ nav {
                 a {
                     font-family: variables.$ib;
                     font-size: 0.95rem;
-                    color: white !important;
+                    color: map-get(variables.$colors, primary) !important;
                     margin-right: 1.5rem;
 
                     &:hover {
-                        color: #d1d1d1 !important;
+                        color: #6d3a85 !important;
                     }
                 }
 
                 &:last-child {
-                    border: 1px solid #fff;
+                    border: 1px solid map-get(variables.$colors, primary);
                     border-radius: 5px;
                     display: flex;
                     justify-content: center;
@@ -67,10 +43,10 @@ nav {
                     @include mixins.transition(0.3s ease-in-out);
 
                     &:hover {
-                        background-color: map-get(variables.$colors, white) !important;
+                        background-color: map-get(variables.$colors, primary) !important;
 
                         a {
-                            color: map-get(variables.$colors, primary) !important;
+                            color: map-get(variables.$colors, white) !important;
                         }
                     }
 
@@ -81,24 +57,48 @@ nav {
             }
         }
     }
+
+    &.navbar-scrolled {
+        .custom-navbar-brand {
+            color: map-get(variables.$colors, white) !important;
+        }
+
+        .custom-navbar-collapse {
+            ul {
+                li {
+                    a {
+                        color: map-get(variables.$colors, white) !important;
+
+                        &:hover {
+                            color: #d1d1d1 !important;
+                        }
+                    }
+
+                    &:last-child {
+                        border-color: map-get(variables.$colors, white);
+
+                        &:hover {
+                            background-color: map-get(variables.$colors, white) !important;
+
+                            a {
+                                color: map-get(variables.$colors, primary) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .header {
-    background-image: url("../images/Group 1265.png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
-
-    // overlay for better contrast
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.45);
-        z-index: 1;
-    }
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: clamp(0.5rem, 10vh, 8rem) 0 clamp(3rem, 7vh, 5rem);
+    background-color: #f2e8df;
 
     /* =========================
        HERO SECTION
@@ -106,81 +106,140 @@ nav {
 
     .hero {
         position: relative;
-        z-index: 2;
-        height: 100%;
-        display: flex;
-        align-items: center;
+        width: 100%;
+        min-height: 720px;
 
-        .hero-content {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-
-            .hero-text {
-                text-align: center;
-
-                h1 {
-                    font-family: variables.$pb;
-                    font-size: 6.5rem;
-                    color: map-get(variables.$colors, white);
-                    margin-bottom: 0.5rem;
-                }
-
-                h5 {
-                    font-family: variables.$pb;
-                    font-size: 3.5rem;
-                    color: map-get(variables.$colors, white);
-                    margin-bottom: 1.5rem;
-                }
-
-                p {
-                    font-family: variables.$ir;
-                    font-size: 1.25rem;
-                    color: map-get(variables.$colors, white);
-                    margin-bottom: 0.5rem;
-                }
-
-
-                .hero-services {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 1rem;
-                    padding: 0;
-                    margin: 0;
-                    list-style: none;
-
-                    li {
-                        font-family: variables.$ir;
-                        font-size: 1rem;
-                        color: rgba(255, 255, 255, 0.85);
-                        white-space: nowrap;
-                        position: relative;
-
-                        &:not(:last-child)::after {
-                            content: "•";
-                            margin-left: 1rem;
-                            color: rgba(255, 255, 255, 0.6);
-                        }
-                    }
-                }
-
-            }
-
+        .hero-shell {
+            position: relative;
+            width: calc(100% - 14rem);
+            max-width: 1460px;
+            min-height: 590px;
+            margin: 2rem auto 0;
         }
 
-        /* =========================
-   SCROLL DOWN INDICATOR
-========================== */
+        .hero-panel {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            min-height: 79%;
+            border-radius: 0 28px 0 28px;
+            background: map-get(variables.$colors, primary);
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 2;
+            width: min(620px, 45vw);
+            padding: clamp(5.5rem, 13vh, 8.7rem) 0 5rem clamp(3rem, 7vw, 3.8rem);
+
+            h2 {
+                font-family: variables.$ib;
+                font-size: 2rem;
+                font-weight: 400;
+                line-height: 1.6;
+                color: rgba(255, 255, 255, 0.82);
+                margin-bottom: 0;
+            }
+
+            h1 {
+                font-family: variables.$pb;
+                font-size: 70px;
+                font-weight: 700;
+                line-height: 1.04;
+                color: rgba(255, 255, 255, 0.94);
+                margin-bottom: clamp(2rem, 5vh, 3.6rem);
+
+                span {
+                    color: #b88bea;
+                }
+            }
+
+            p {
+                max-width: 620px;
+                font-family: variables.$ib;
+                font-size: clamp(1.05rem, 1.35vw, 1.45rem);
+                line-height: 1.62;
+                color: rgba(255, 255, 255, 0.82);
+                margin-bottom: clamp(1.8rem, 4vh, 3rem);
+            }
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 142px;
+            min-height: 58px;
+            border-radius: 6px;
+            padding: 1rem 1.6rem;
+            font-family: variables.$ib;
+            font-size: 1rem;
+            line-height: 1;
+            text-decoration: none;
+            @include mixins.transition(0.25s ease);
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+        }
+
+        .hero-button-primary {
+            background: map-get(variables.$colors, white);
+            color: map-get(variables.$colors, primary);
+            border: 1px solid #b88bea;
+
+            &:hover {
+                color: map-get(variables.$colors, primary);
+                background: #cba7f1;
+                border-color: #cba7f1;
+            }
+        }
+
+        .hero-button-secondary {
+            background: map-get(variables.$colors, white);
+            color: map-get(variables.$colors, primary);
+            border: 1px solid rgba(184, 139, 234, 0.88);
+
+            &:hover {
+                color: map-get(variables.$colors, white);
+                border-color: map-get(variables.$colors, white);
+            }
+        }
+
+        .hero-image-wrap {
+            position: absolute;
+            top: -10px;
+            right: 3%;
+            z-index: 3;
+            width: min(620px, 37vw);
+            aspect-ratio: 0.86;
+            overflow: hidden;
+            border-radius: 28px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                filter: saturate(0.82) contrast(0.95);
+            }
+        }
 
         .scroll-indicator {
             position: absolute;
-            bottom: 2.5rem;
+            bottom: -3.2rem;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 2;
-            color: map-get(variables.$colors, white);
-            font-size: 2rem;
+            z-index: 5;
+            color: map-get(variables.$colors, primary);
+            font-size: 1.65rem;
             opacity: 0.85;
             cursor: pointer;
 
@@ -190,7 +249,6 @@ nav {
             }
         }
 
-        /* Bounce animation */
         @keyframes scroll-bounce {
             0% {
                 transform: translateY(0);
@@ -205,6 +263,105 @@ nav {
             100% {
                 transform: translateY(0);
                 opacity: 0.4;
+            }
+        }
+    }
+}
+
+@media #{variables.$mq12b} {
+    .header {
+        .hero {
+            .hero-shell {
+                width: calc(100% - 2rem);
+                max-width: 1120px;
+            }
+
+            .hero-copy {
+                width: min(520px, 50vw);
+                padding-left: clamp(2rem, 5vw, 3.5rem);
+            }
+
+            .hero-image-wrap {
+                right: 3%;
+                width: min(520px, 41vw);
+            }
+        }
+    }
+}
+
+@media #{variables.$mq9b} {
+    .header {
+        min-height: auto;
+        padding: 6.5rem 0 3.5rem;
+
+        .hero {
+            min-height: 0;
+
+            .hero-shell {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 0;
+                min-height: 0;
+                width: calc(100% - 1.5rem);
+            }
+
+            .hero-panel,
+            .hero-image-wrap {
+                position: relative;
+                width: 100%;
+                right: auto;
+                top: auto;
+            }
+
+            .hero-panel {
+                min-height: 0;
+                border-radius: 0 0 24px 24px;
+            }
+
+            .hero-copy {
+                width: 100%;
+                padding: 2.5rem 1.4rem 2rem;
+
+                h1 {
+                    font-size: clamp(2.45rem, 10vw, 4.4rem);
+                    margin-bottom: 1.3rem;
+                }
+            }
+
+            .hero-image-wrap {
+                aspect-ratio: 1.38;
+                border-radius: 24px 24px 0 0;
+            }
+
+            .hero-target {
+                top: 1.2rem;
+                right: 1.2rem;
+                width: clamp(5.5rem, 18vw, 7.2rem);
+            }
+
+            .hero-corner {
+                display: none;
+            }
+
+            .scroll-indicator {
+                bottom: -2.5rem;
+            }
+        }
+    }
+}
+
+@media #{variables.$mq5b7} {
+    .header {
+        padding-top: 5.7rem;
+
+        .hero {
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-button {
+                width: 100%;
             }
         }
     }

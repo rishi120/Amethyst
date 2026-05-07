@@ -4,6 +4,12 @@ import { gsap } from "https://cdn.jsdelivr.net/npm/gsap@3.12.7/+esm";
 import { ScrollTrigger } from "https://cdn.jsdelivr.net/npm/gsap@3.12.7/ScrollTrigger/+esm";
 import renderFinalCta from "./finalCta.js";
 import renderFooter from "./footer.js";
+import {
+  initAboutGridAnimation,
+  initAboutSectionAnimation,
+  initHeroHeaderAnimation,
+  initViewportVideoPlayback,
+} from "./gsapAnimations.js";
 
 // ---------- Global page loader ----------
 // const pageLoader = (() => {
@@ -71,6 +77,10 @@ const scrollToHashTarget = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
+  initHeroHeaderAnimation(gsap);
+  initAboutSectionAnimation(gsap, ScrollTrigger);
+  initAboutGridAnimation(gsap, ScrollTrigger);
+  initViewportVideoPlayback(ScrollTrigger);
   navbar();
   renderFinalCta();
   renderFooter();
@@ -94,20 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
     return existingButton;
   })();
 
-  let lastScrollY = 0;
   const scrollTopTrigger = 220;
 
   const onScroll = () => {
     const currentScrollY = window.scrollY;
 
-    if (currentScrollY > 600) {
-      navbarEl.classList.add("navbar-full-scrolled");
+    if (navbarEl && currentScrollY > 50) {
       navbarEl.classList.add("navbar-scrolled");
-    } else if (currentScrollY > 200) {
-      navbarEl.classList.remove("navbar-full-scrolled");
-      navbarEl.classList.add("navbar-scrolled");
-    } else {
-      navbarEl.classList.remove("navbar-full-scrolled");
+    } else if (navbarEl) {
       navbarEl.classList.remove("navbar-scrolled");
     }
 
@@ -118,11 +122,10 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollToTopButton.classList.remove("is-visible");
       }
     }
-
-    lastScrollY = currentScrollY;
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
   // ---------- Scroll to About section ----------
   if (scrollIndicator && aboutSection) {
@@ -157,7 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const geriatricTabs = Array.from(
     document.querySelectorAll("#geriatricCareTabs [data-bs-target]"),
   );
-  const geriatricTabContent = document.querySelector("#geriatricCareTabsContent");
+  const geriatricTabContent = document.querySelector(
+    "#geriatricCareTabsContent",
+  );
 
   if (geriatricTabs.length && geriatricTabContent) {
     const geriatricPanes = Array.from(
@@ -186,7 +191,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     geriatricTabs.forEach((tabButton) => {
-      tabButton.addEventListener("click", () => activateGeriatricTab(tabButton));
+      tabButton.addEventListener("click", () =>
+        activateGeriatricTab(tabButton),
+      );
     });
   }
 

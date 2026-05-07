@@ -554,31 +554,16 @@ template {
 nav {
   background-color: transparent !important;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
 }
 nav.navbar-scrolled {
-  background-color: #3F1E4F !important;
+  background-color: #371548 !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-nav.navbar-full-scrolled {
-  background-color: #fff !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  max-width: 1200px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  margin: auto;
-  top: 20px;
-}
-nav.navbar-full-scrolled .custom-navbar-brand {
-  color: #3F1E4F !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-nav.navbar-full-scrolled .custom-navbar-collapse ul li a {
-  color: #3F1E4F !important;
 }
 nav .custom-navbar-brand {
   font-family: "Inter-Bold";
   font-size: 1.5rem;
-  color: white !important;
+  color: #371548 !important;
 }
 nav .custom-navbar-collapse {
   justify-content: flex-end;
@@ -586,14 +571,14 @@ nav .custom-navbar-collapse {
 nav .custom-navbar-collapse ul li a {
   font-family: "Inter-Bold";
   font-size: 0.95rem;
-  color: white !important;
+  color: #371548 !important;
   margin-right: 1.5rem;
 }
 nav .custom-navbar-collapse ul li a:hover {
-  color: #d1d1d1 !important;
+  color: #6d3a85 !important;
 }
 nav .custom-navbar-collapse ul li:last-child {
-  border: 1px solid #fff;
+  border: 1px solid #371548;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -603,111 +588,173 @@ nav .custom-navbar-collapse ul li:last-child {
   transition: 0.3s ease-in-out;
 }
 nav .custom-navbar-collapse ul li:last-child:hover {
-  background-color: #fff !important;
+  background-color: #371548 !important;
 }
 nav .custom-navbar-collapse ul li:last-child:hover a {
-  color: #3F1E4F !important;
+  color: #fff !important;
 }
 nav .custom-navbar-collapse ul li:last-child a {
   margin-right: 0;
 }
+nav.navbar-scrolled .custom-navbar-brand {
+  color: #fff !important;
+}
+nav.navbar-scrolled .custom-navbar-collapse ul li a {
+  color: #fff !important;
+}
+nav.navbar-scrolled .custom-navbar-collapse ul li a:hover {
+  color: #d1d1d1 !important;
+}
+nav.navbar-scrolled .custom-navbar-collapse ul li:last-child {
+  border-color: #fff;
+}
+nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover {
+  background-color: #fff !important;
+}
+nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
+  color: #371548 !important;
+}
 
 .header {
-  background-image: url("../images/Group 1265.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
-}
-.header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 1;
-}
-.header {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: clamp(0.5rem, 10vh, 8rem) 0 clamp(3rem, 7vh, 5rem);
+  background-color: #f2e8df;
   /* =========================
      HERO SECTION
   ========================== */
 }
 .header .hero {
   position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.header .hero .hero-content {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  min-height: 720px;
 }
-.header .hero .hero-content .hero-text {
-  text-align: center;
+.header .hero .hero-shell {
+  position: relative;
+  width: calc(100% - 14rem);
+  max-width: 1460px;
+  min-height: 590px;
+  margin: 2rem auto 0;
 }
-.header .hero .hero-content .hero-text h1 {
+.header .hero .hero-panel {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 79%;
+  border-radius: 0 28px 0 28px;
+  background: #371548;
+}
+.header .hero .hero-copy {
+  position: relative;
+  z-index: 2;
+  width: min(620px, 45vw);
+  padding: clamp(5.5rem, 13vh, 8.7rem) 0 5rem clamp(3rem, 7vw, 3.8rem);
+}
+.header .hero .hero-copy h2 {
+  font-family: "Inter-Bold";
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 0;
+}
+.header .hero .hero-copy h1 {
   font-family: "Poppins-Bold";
-  font-size: 6.5rem;
-  color: #fff;
-  margin-bottom: 0.5rem;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1.04;
+  color: rgba(255, 255, 255, 0.94);
+  margin-bottom: clamp(2rem, 5vh, 3.6rem);
 }
-.header .hero .hero-content .hero-text h5 {
-  font-family: "Poppins-Bold";
-  font-size: 3.5rem;
-  color: #fff;
-  margin-bottom: 1.5rem;
+.header .hero .hero-copy h1 span {
+  color: #b88bea;
 }
-.header .hero .hero-content .hero-text p {
-  font-family: "Inter-Regular";
-  font-size: 1.25rem;
-  color: #fff;
-  margin-bottom: 0.5rem;
+.header .hero .hero-copy p {
+  max-width: 620px;
+  font-family: "Inter-Bold";
+  font-size: clamp(1.05rem, 1.35vw, 1.45rem);
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: clamp(1.8rem, 4vh, 3rem);
 }
-.header .hero .hero-content .hero-text .hero-services {
+.header .hero .hero-actions {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
 }
-.header .hero .hero-content .hero-text .hero-services li {
-  font-family: "Inter-Regular";
+.header .hero .hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 142px;
+  min-height: 58px;
+  border-radius: 6px;
+  padding: 1rem 1.6rem;
+  font-family: "Inter-Bold";
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.85);
-  white-space: nowrap;
-  position: relative;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-transition: 0.25s ease;
+  -moz-transition: 0.25s ease;
+  transition: 0.25s ease;
 }
-.header .hero .hero-content .hero-text .hero-services li:not(:last-child)::after {
-  content: "•";
-  margin-left: 1rem;
-  color: rgba(255, 255, 255, 0.6);
+.header .hero .hero-button:hover {
+  transform: translateY(-2px);
 }
-.header .hero {
-  /* =========================
-     SCROLL DOWN INDICATOR
-  ========================== */
+.header .hero .hero-button-primary {
+  background: #fff;
+  color: #371548;
+  border: 1px solid #b88bea;
+}
+.header .hero .hero-button-primary:hover {
+  color: #371548;
+  background: #cba7f1;
+  border-color: #cba7f1;
+}
+.header .hero .hero-button-secondary {
+  background: #fff;
+  color: #371548;
+  border: 1px solid rgba(184, 139, 234, 0.88);
+}
+.header .hero .hero-button-secondary:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.header .hero .hero-image-wrap {
+  position: absolute;
+  top: -10px;
+  right: 3%;
+  z-index: 3;
+  width: min(620px, 37vw);
+  aspect-ratio: 0.86;
+  overflow: hidden;
+  border-radius: 28px;
+}
+.header .hero .hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.82) contrast(0.95);
 }
 .header .hero .scroll-indicator {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: -3.2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
-  color: #fff;
-  font-size: 2rem;
+  z-index: 5;
+  color: #371548;
+  font-size: 1.65rem;
   opacity: 0.85;
   cursor: pointer;
 }
 .header .hero .scroll-indicator i {
   display: inline-block;
   animation: scroll-bounce 2s infinite;
-}
-.header .hero {
-  /* Bounce animation */
 }
 @keyframes scroll-bounce {
   0% {
@@ -724,6 +771,82 @@ nav .custom-navbar-collapse ul li:last-child a {
   }
 }
 
+@media screen and (max-width: 1199px) {
+  .header .hero .hero-shell {
+    width: calc(100% - 2rem);
+    max-width: 1120px;
+  }
+  .header .hero .hero-copy {
+    width: min(520px, 50vw);
+    padding-left: clamp(2rem, 5vw, 3.5rem);
+  }
+  .header .hero .hero-image-wrap {
+    right: 3%;
+    width: min(520px, 41vw);
+  }
+}
+@media screen and (max-width: 991px) {
+  .header {
+    min-height: auto;
+    padding: 6.5rem 0 3.5rem;
+  }
+  .header .hero {
+    min-height: 0;
+  }
+  .header .hero .hero-shell {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0;
+    min-height: 0;
+    width: calc(100% - 1.5rem);
+  }
+  .header .hero .hero-panel,
+  .header .hero .hero-image-wrap {
+    position: relative;
+    width: 100%;
+    right: auto;
+    top: auto;
+  }
+  .header .hero .hero-panel {
+    min-height: 0;
+    border-radius: 0 0 24px 24px;
+  }
+  .header .hero .hero-copy {
+    width: 100%;
+    padding: 2.5rem 1.4rem 2rem;
+  }
+  .header .hero .hero-copy h1 {
+    font-size: clamp(2.45rem, 10vw, 4.4rem);
+    margin-bottom: 1.3rem;
+  }
+  .header .hero .hero-image-wrap {
+    aspect-ratio: 1.38;
+    border-radius: 24px 24px 0 0;
+  }
+  .header .hero .hero-target {
+    top: 1.2rem;
+    right: 1.2rem;
+    width: clamp(5.5rem, 18vw, 7.2rem);
+  }
+  .header .hero .hero-corner {
+    display: none;
+  }
+  .header .hero .scroll-indicator {
+    bottom: -2.5rem;
+  }
+}
+@media screen and (max-width: 575px) {
+  .header {
+    padding-top: 5.7rem;
+  }
+  .header .hero .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .header .hero .hero-button {
+    width: 100%;
+  }
+}
 .video-header {
   position: relative;
   height: 100vh;
@@ -859,13 +982,13 @@ nav .custom-navbar-collapse ul li:last-child a {
 .about-orthopedic .ortho-desp h2 {
   font-family: "Poppins-Bold";
   font-size: 2.6rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 1rem;
 }
 .about-orthopedic .ortho-desp p {
   font-family: "Inter-Regular";
   font-size: 1rem;
-  color: #3F1E4F;
+  color: #371548;
   max-width: 600px;
   line-height: 1.6;
   text-align: left;
@@ -883,13 +1006,13 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.08rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.5rem;
 }
 .geriatric-care-tabs .section-head h2 {
   font-family: "Poppins-Bold";
   font-size: clamp(1.75rem, 3vw, 2.6rem);
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.8rem;
 }
 .geriatric-care-tabs .section-head .section-intro {
@@ -908,7 +1031,7 @@ nav .custom-navbar-collapse ul li:last-child a {
   border-radius: 999px;
   font-family: "Inter-SemiBold";
   font-size: 0.88rem;
-  color: #3F1E4F;
+  color: #371548;
   background: rgba(255, 255, 255, 0.55);
   padding: 0.55rem 0.95rem;
   -webkit-transition: 0.25s ease;
@@ -920,8 +1043,8 @@ nav .custom-navbar-collapse ul li:last-child a {
 }
 .geriatric-care-tabs .geriatric-tabs-nav .nav-link.active {
   color: #fff;
-  background: #3F1E4F;
-  border-color: #3F1E4F;
+  background: #371548;
+  border-color: #371548;
   box-shadow: 0 10px 24px rgba(63, 30, 79, 0.24);
 }
 .geriatric-care-tabs .geriatric-tabs-content .tabs-card {
@@ -941,7 +1064,7 @@ nav .custom-navbar-collapse ul li:last-child a {
 .geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-copy h3 {
   font-family: "Inter-Bold";
   font-size: clamp(1.1rem, 2vw, 1.35rem);
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.7rem;
 }
 .geriatric-care-tabs .geriatric-tabs-content .tabs-card .tab-pane-layout .tab-copy p {
@@ -976,7 +1099,7 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-size: 0.9rem;
   line-height: 1.2;
   color: #fff;
-  background: linear-gradient(135deg, rgb(86.5816513761, 41.2293577982, 108.5706422018), #3F1E4F);
+  background: linear-gradient(135deg, rgb(79.1290322581, 30.2129032258, 103.5870967742), #371548);
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   opacity: 0;
   pointer-events: none;
@@ -1005,13 +1128,13 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.08rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.5rem;
 }
 .who-service-for .section-head h2 {
   font-family: "Poppins-Bold";
   font-size: clamp(1.75rem, 3vw, 2.6rem);
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.8rem;
 }
 .who-service-for .section-head .section-intro {
@@ -1034,7 +1157,7 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-family: "Inter-Bold";
   font-size: 1.15rem;
   line-height: 1.35;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.55rem;
 }
 .who-service-for .who-copy p {
@@ -1099,14 +1222,14 @@ nav .custom-navbar-collapse ul li:last-child a {
   border: 1px solid rgba(63, 30, 79, 0.18);
   border-radius: 16px;
   background: #ffffff;
-  color: #3F1E4F;
+  color: #371548;
   font-family: "Inter-SemiBold";
   font-size: 0.86rem;
   text-align: center;
   padding: 0.65rem 0.8rem;
 }
 .sports-proof-bar .proof-list li i {
-  color: #3F1E4F;
+  color: #371548;
 }
 .sports-proof-bar .proof-list li:not(:last-child)::after {
   content: "";
@@ -1142,7 +1265,7 @@ nav .custom-navbar-collapse ul li:last-child a {
 .who-service-for .sports-intent-grid .sports-intent-card h3 {
   font-family: "Inter-Bold";
   font-size: 1.03rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.55rem;
   line-height: 1.35;
 }
@@ -1155,7 +1278,7 @@ nav .custom-navbar-collapse ul li:last-child a {
 }
 .who-service-for .sports-intent-grid .sports-intent-card a {
   font-family: "Inter-SemiBold";
-  color: #3F1E4F;
+  color: #371548;
   font-size: 0.9rem;
   text-decoration: none;
 }
@@ -1192,13 +1315,13 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-family: "Inter-Bold";
   font-size: 0.8rem;
   color: #fff;
-  background: #3F1E4F;
+  background: #371548;
   margin-bottom: 0.7rem;
 }
 .sports-care-path .sports-path-step h3 {
   font-family: "Inter-Bold";
   font-size: 1rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.55rem;
 }
 .sports-care-path .sports-path-step p {
@@ -1224,13 +1347,13 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-size: 0.84rem;
   text-transform: uppercase;
   letter-spacing: 0.08rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.65rem;
 }
 .sports-final-cta .sports-final-cta-card h2 {
   font-family: "Poppins-Bold";
   font-size: clamp(1.55rem, 3vw, 2rem);
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.75rem;
   max-width: 800px;
   margin-left: auto;
@@ -1343,13 +1466,13 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.08rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.5rem;
 }
 .orthopedic-treatments .section-head h2 {
   font-family: "Poppins-Bold";
   font-size: clamp(1.75rem, 3vw, 2.6rem);
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.8rem;
 }
 .orthopedic-treatments .section-head .section-intro {
@@ -1379,7 +1502,7 @@ nav .custom-navbar-collapse ul li:last-child a {
   align-items: center;
   justify-content: center;
   margin-bottom: 0.85rem;
-  background: linear-gradient(135deg, #3F1E4F, rgb(86.5816513761, 41.2293577982, 108.5706422018));
+  background: linear-gradient(135deg, #371548, rgb(79.1290322581, 30.2129032258, 103.5870967742));
   color: #ffffff;
   font-size: 1.05rem;
   box-shadow: 0 8px 18px rgba(63, 30, 79, 0.25);
@@ -1388,7 +1511,7 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-family: "Inter-Bold";
   font-size: 1.1rem;
   line-height: 1.35;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.65rem;
 }
 .orthopedic-treatments .treatment-card p {
@@ -1424,13 +1547,13 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.08rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.5rem;
 }
 .orthopedic-pathway .section-head h2 {
   font-family: "Poppins-Bold";
   font-size: clamp(1.75rem, 3vw, 2rem);
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.8rem;
   max-width: 800px;
   margin-left: auto;
@@ -1481,13 +1604,13 @@ nav .custom-navbar-collapse ul li:last-child a {
   font-size: 0.95rem;
   color: #ffffff;
   margin-bottom: 0.9rem;
-  background: linear-gradient(135deg, #3F1E4F, rgb(86.5816513761, 41.2293577982, 108.5706422018));
+  background: linear-gradient(135deg, #371548, rgb(79.1290322581, 30.2129032258, 103.5870967742));
   box-shadow: 0 10px 20px rgba(63, 30, 79, 0.28);
 }
 .orthopedic-pathway .pathway-step h3 {
   font-family: "Inter-Bold";
   font-size: 1.05rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.6rem;
 }
 .orthopedic-pathway .pathway-step p {
@@ -1635,7 +1758,7 @@ nav .custom-navbar-collapse ul li:last-child a {
 .video-header.orthopedic-hero .geriatric-hero-content .hero-actions .hero-btn-primary,
 .video-header.orthopedic-hero .sports-hero-content .hero-actions .hero-btn-primary,
 .video-header.orthopedic-hero .orthopedic-hero-content .hero-actions .hero-btn-primary {
-  color: #3F1E4F;
+  color: #371548;
   background: #fff;
 }
 .video-header.geriatric-hero .geriatric-hero-content .hero-actions .hero-btn-primary:hover,
@@ -1778,6 +1901,281 @@ nav .custom-navbar-collapse ul li:last-child a {
   .video-header.orthopedic-hero .sports-hero-content .hero-trust-list li,
   .video-header.orthopedic-hero .orthopedic-hero-content .hero-trust-list li {
     font-size: 0.8rem;
+  }
+}
+.geriatric-showcase {
+  padding: 5.25rem 4rem 1.75rem 4rem;
+}
+.geriatric-showcase-shell {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.geriatric-showcase-panel {
+  position: relative;
+  overflow: hidden;
+  min-height: 760px;
+  border-radius: 2.25rem;
+  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../images/services/Geriatric-header-img.jpg") center center/cover no-repeat;
+  isolation: isolate;
+  background-attachment: fixed;
+}
+.geriatric-showcase-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 34%), linear-gradient(180deg, rgba(11, 11, 17, 0.06), rgba(11, 11, 17, 0.18));
+  z-index: 0;
+}
+.geriatric-showcase-content {
+  position: relative;
+  z-index: 1;
+  min-height: 760px;
+  padding: 9.5rem clamp(1.5rem, 4vw, 4rem) 2.4rem;
+  display: flex;
+  flex-direction: column;
+}
+.geriatric-showcase-copy {
+  max-width: 610px;
+}
+.geriatric-showcase-copy .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.geriatric-showcase-copy h1 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.6rem, 5.2vw, 3rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+.geriatric-showcase-copy p {
+  max-width: 620px;
+  margin: 1.85rem 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.02rem, 1.65vw, 1.28rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+.geriatric-showcase-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1.3rem;
+}
+.geriatric-showcase-actions .showcase-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  min-height: 3rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.geriatric-showcase-actions .showcase-btn:hover {
+  transform: translateY(-2px);
+}
+.geriatric-showcase-actions .showcase-btn-primary {
+  color: #182a3e;
+  background: #11e6bd;
+  box-shadow: 0 16px 28px rgba(17, 230, 189, 0.2);
+}
+.geriatric-showcase-actions .showcase-btn-primary:hover {
+  box-shadow: 0 20px 32px rgba(17, 230, 189, 0.28);
+}
+.geriatric-showcase-actions .showcase-btn-secondary {
+  color: #2f2850;
+  background: #ffffff;
+  box-shadow: 0 16px 30px rgba(17, 16, 24, 0.18);
+}
+.geriatric-showcase-actions .showcase-btn-secondary:hover {
+  background: #f6f3ff;
+}
+.geriatric-showcase-bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  gap: 1.25rem;
+  margin-top: 2.9rem;
+}
+.geriatric-showcase-info-card, .geriatric-showcase-image-card {
+  border-radius: 1.8rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 60px rgba(14, 16, 28, 0.18);
+}
+.geriatric-showcase-info-card {
+  width: min(100%, 480px);
+  padding: 2.25rem 2.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 248px;
+}
+.geriatric-showcase-info-card p {
+  margin: 0;
+  color: #2f2850;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+  font-weight: 500;
+  line-height: 1.38;
+  letter-spacing: -0.03em;
+}
+.geriatric-showcase-play {
+  width: 100%;
+  margin-top: 1.9rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #5f4cff;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: default;
+}
+.geriatric-showcase-play i {
+  width: 4.4rem;
+  height: 4.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #6b57ff;
+  background: #e8e0ff;
+  font-size: 1.2rem;
+}
+.geriatric-showcase-image-card {
+  width: min(100%, 250px);
+  min-height: 248px;
+  overflow: hidden;
+}
+.geriatric-showcase-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.geriatric-showcase-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.35rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: #fff;
+  font-size: 2rem;
+  opacity: 0.85;
+  text-decoration: none;
+}
+.geriatric-showcase-scroll i {
+  display: inline-block;
+  animation: scroll-bounce 2s infinite;
+}
+
+.orthopedic-showcase .orthopedic-showcase-panel {
+  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../../images/services/Ortho-header-img.jpg") center center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+.sports-showcase .sports-showcase-panel {
+  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../../images/services/Sports-header-img.jpg") center center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+.neuro-showcase .neuro-showcase-panel {
+  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../images/services/Neuro-header-img.jpg") center center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 1199.98px) {
+  .geriatric-showcase-content {
+    padding-top: 12.25rem;
+  }
+  .geriatric-showcase-bottom {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 991.98px) {
+  .geriatric-showcase {
+    padding-top: 6.75rem;
+  }
+  .geriatric-showcase-panel, .geriatric-showcase-content {
+    min-height: auto;
+  }
+  .geriatric-showcase-content {
+    padding: 10.5rem 1.3rem 1.5rem;
+  }
+  .geriatric-showcase-copy h1 {
+    max-width: 540px;
+  }
+  .geriatric-showcase-actions .showcase-btn {
+    min-height: 4.35rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .geriatric-showcase {
+    padding-top: 6.25rem;
+    padding-bottom: 1rem;
+  }
+  .geriatric-showcase-shell {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+  .geriatric-showcase-panel {
+    border-radius: 1.6rem;
+  }
+  .geriatric-showcase-content {
+    padding: 8.25rem 1rem 1rem;
+  }
+  .geriatric-showcase-copy p {
+    margin-top: 1.2rem;
+  }
+  .geriatric-showcase-actions {
+    gap: 0.85rem;
+    margin-top: 1.7rem;
+  }
+  .geriatric-showcase-actions .showcase-btn {
+    width: 100%;
+    min-height: 3.9rem;
+    border-radius: 1.1rem;
+    padding: 0.95rem 1.1rem;
+  }
+  .geriatric-showcase-bottom {
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+  .geriatric-showcase-scroll {
+    bottom: 1rem;
+  }
+  .geriatric-showcase-info-card, .geriatric-showcase-image-card {
+    width: 100%;
+    border-radius: 1.4rem;
+  }
+  .geriatric-showcase-info-card {
+    min-height: 220px;
+    padding: 1.5rem;
+  }
+  .geriatric-showcase-play i {
+    width: 3.65rem;
+    height: 3.65rem;
+  }
+  .geriatric-showcase-image-card {
+    min-height: 220px;
   }
 }
 /*-----------------------------------------------------------------------------------
@@ -1931,7 +2329,7 @@ nav .custom-navbar-collapse ul li:last-child a {
   text-align: left;
 }
 .footer .cta-form .btn-primary-custom {
-  background-color: #3F1E4F;
+  background-color: #371548;
   color: #ffffff;
   border: none;
   font-family: "Inter-Bold";
@@ -1942,7 +2340,7 @@ nav .custom-navbar-collapse ul li:last-child a {
   transition: all 0.3s ease;
 }
 .footer .cta-form .btn-primary-custom:hover {
-  background-color: rgb(45.3137614679, 21.5779816514, 56.8220183486);
+  background-color: rgb(36.9032258065, 14.0903225806, 48.3096774194);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
@@ -1953,13 +2351,13 @@ nav .custom-navbar-collapse ul li:last-child a {
 }
 .footer .cta-form .btn-primary-custom:focus {
   outline: none;
-  box-shadow: 0 0 0 0.25rem rgba(63, 30, 79, 0.35);
+  box-shadow: 0 0 0 0.25rem rgba(55, 21, 72, 0.35);
 }
 .footer .footer-bottom {
   position: relative;
   margin-top: 3rem;
   padding: 0.8rem 0;
-  background: linear-gradient(120deg, rgb(45.3137614679, 21.5779816514, 56.8220183486), #3F1E4F 45%, rgb(80.6862385321, 38.4220183486, 101.1779816514));
+  background: linear-gradient(120deg, rgb(36.9032258065, 14.0903225806, 48.3096774194), #371548 45%, rgb(73.0967741935, 27.9096774194, 95.6903225806));
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 -14px 28px rgba(0, 0, 0, 0.18);
 }
@@ -2087,7 +2485,7 @@ body::-webkit-scrollbar {
 }
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to bottom, rgb(86.5816513761, 41.2293577982, 108.5706422018), #3F1E4F, rgb(33.5229357798, 15.9633027523, 42.0366972477));
+  background-image: linear-gradient(to bottom, rgb(79.1290322581, 30.2129032258, 103.5870967742), #371548, rgb(24.8387096774, 9.4838709677, 32.5161290323));
 }
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
@@ -2100,7 +2498,7 @@ body::-moz-scrollbar {
 }
 html::-moz-scrollbar-thumb,
 body::-moz-scrollbar-thumb {
-  background-image: linear-gradient(to bottom, rgb(86.5816513761, 41.2293577982, 108.5706422018), #3F1E4F, rgb(33.5229357798, 15.9633027523, 42.0366972477));
+  background-image: linear-gradient(to bottom, rgb(79.1290322581, 30.2129032258, 103.5870967742), #371548, rgb(24.8387096774, 9.4838709677, 32.5161290323));
 }
 html::-moz-scrollbar-track,
 body::-moz-scrollbar-track {
@@ -2147,7 +2545,7 @@ body .page-loader .loader-icon {
   display: grid;
   place-items: center;
   background: linear-gradient(140deg, rgba(63, 30, 79, 0.12), rgba(63, 30, 79, 0.35));
-  color: #3F1E4F;
+  color: #371548;
   font-size: 1.6rem;
   position: relative;
 }
@@ -2164,7 +2562,7 @@ html .page-loader .loader-title,
 body .page-loader .loader-title {
   font-family: "Poppins-Bold";
   font-size: 1.15rem;
-  color: #3F1E4F;
+  color: #371548;
 }
 html .page-loader .loader-subtitle,
 body .page-loader .loader-subtitle {
@@ -2185,7 +2583,7 @@ body .page-loader .loader-dots span {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #3F1E4F;
+  background: #371548;
   animation: loader-dots 1.2s ease-in-out infinite;
 }
 html .page-loader .loader-dots span:nth-child(2),
@@ -2250,7 +2648,7 @@ body .scroll-to-top {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgb(80.6862385321, 38.4220183486, 101.1779816514), #3F1E4F);
+  background: linear-gradient(135deg, rgb(73.0967741935, 27.9096774194, 95.6903225806), #371548);
   color: #ffffff;
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   opacity: 0;
@@ -2317,7 +2715,7 @@ html .about .section-header .content-center h2,
 body .about .section-header .content-center h2 {
   font-family: "Poppins-Bold";
   font-size: 3.5rem;
-  color: #3F1E4F;
+  color: #371548;
 }
 html .about .section-header .content-center p,
 body .about .section-header .content-center p {
@@ -2327,7 +2725,7 @@ body .about .section-header .content-center p {
 }
 html .about .section-header .content-center .btn-primary-custom,
 body .about .section-header .content-center .btn-primary-custom {
-  background-color: #3F1E4F;
+  background-color: #371548;
   color: #ffffff;
   font-family: "Inter-Bold";
   font-size: 1.05rem;
@@ -2343,7 +2741,7 @@ body .about .section-header .content-center .btn-primary-custom {
 }
 html .about .section-header .content-center .btn-primary-custom:hover,
 body .about .section-header .content-center .btn-primary-custom:hover {
-  background-color: rgb(45.3137614679, 21.5779816514, 56.8220183486);
+  background-color: rgb(36.9032258065, 14.0903225806, 48.3096774194);
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22), 0 5px 12px rgba(0, 0, 0, 0.16);
 }
@@ -2428,7 +2826,7 @@ body .about .section-header .about-grid-wrapper .about-grid .about-box h4 {
   font-family: "Inter-Bold";
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
-  color: #3F1E4F;
+  color: #371548;
 }
 html .about .section-header .about-grid-wrapper .about-grid .about-box p,
 body .about .section-header .about-grid-wrapper .about-grid .about-box p {
@@ -2440,7 +2838,7 @@ body .about .section-header .about-grid-wrapper .about-grid .about-box p {
 }
 html .about .section-header .about-grid-wrapper .about-grid .about-box:hover,
 body .about .section-header .about-grid-wrapper .about-grid .about-box:hover {
-  background-color: #3F1E4F;
+  background-color: #371548;
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
@@ -2466,7 +2864,7 @@ html .about .section-header .meet-our-team .description-center h2,
 body .about .section-header .meet-our-team .description-center h2 {
   font-family: "Poppins-Bold";
   font-size: 3.5rem;
-  color: #3F1E4F;
+  color: #371548;
 }
 html .about .section-header .meet-our-team .description-center p,
 body .about .section-header .meet-our-team .description-center p {
@@ -2479,13 +2877,15 @@ body .about .section-header .meet-our-team .description-center .team-member-imag
   border-radius: 50%;
   display: block;
   margin: auto;
-  filter: grayscale(100);
+  filter: grayscale(0);
   transition: filter 0.3s ease;
-  width: 100%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
 }
 html .about .section-header .meet-our-team .description-center .team-member-image img:hover,
 body .about .section-header .meet-our-team .description-center .team-member-image img:hover {
-  filter: grayscale(0);
+  filter: grayscale(100);
 }
 html .about .section-header .meet-our-team .description-center .team-member-image h4,
 body .about .section-header .meet-our-team .description-center .team-member-image h4 {
@@ -2493,7 +2893,7 @@ body .about .section-header .meet-our-team .description-center .team-member-imag
   font-size: 1rem;
   margin-top: 1rem;
   margin-bottom: 0;
-  color: #3F1E4F;
+  color: #371548;
   text-align: center;
 }
 html .about .section-header .meet-our-team .description-center .team-member-image p,
@@ -2502,19 +2902,75 @@ body .about .section-header .meet-our-team .description-center .team-member-imag
   font-size: 0.8rem;
   text-align: center;
   font-style: italic;
+  margin-bottom: 0.6rem;
+}
+html .about .section-header .meet-our-team .description-center .team-member-image .team-social-links,
+body .about .section-header .meet-our-team .description-center .team-member-image .team-social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+html .about .section-header .meet-our-team .description-center .team-member-image .team-social-links a,
+body .about .section-header .meet-our-team .description-center .team-member-image .team-social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(55, 21, 72, 0.12);
+  border-radius: 8px;
+  background: #e1306c;
+  box-shadow: 0 16px 28px rgba(55, 21, 72, 0.18);
+  text-decoration: none;
+  -webkit-transition: 0.25s ease;
+  -moz-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+html .about .section-header .meet-our-team .description-center .team-member-image .team-social-links a i,
+body .about .section-header .meet-our-team .description-center .team-member-image .team-social-links a i {
+  font-size: 1.15rem;
+  -webkit-transition: 0.25s ease;
+  -moz-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+html .about .section-header .meet-our-team .description-center .team-member-image .team-social-links a:hover,
+body .about .section-header .meet-our-team .description-center .team-member-image .team-social-links a:hover {
+  transform: translateY(-4px);
+  border-color: transparent;
+}
+html .about .section-header .meet-our-team .description-center .team-member-image .team-social-links .instagram,
+body .about .section-header .meet-our-team .description-center .team-member-image .team-social-links .instagram {
+  color: #fff;
+}
+html .about .section-header .meet-our-team .description-center .team-member-image .team-social-links .instagram:hover,
+body .about .section-header .meet-our-team .description-center .team-member-image .team-social-links .instagram:hover {
+  background: #e1306c;
+  color: #fff;
+}
+html .about .section-header .meet-our-team .description-center .team-member-image .team-social-links .linkedin,
+body .about .section-header .meet-our-team .description-center .team-member-image .team-social-links .linkedin {
+  color: #fff;
+  background: #0a66c2;
+}
+html .about .section-header .meet-our-team .description-center .team-member-image .team-social-links .linkedin:hover,
+body .about .section-header .meet-our-team .description-center .team-member-image .team-social-links .linkedin:hover {
+  background: #0a66c2;
+  color: #fff;
 }
 html .about .section-header .meet-our-team .description-center .team-member-description,
 body .about .section-header .meet-our-team .description-center .team-member-description {
   height: 100%;
   display: flex;
-  align-items: center;
+  padding-bottom: 10rem;
 }
 html .about .section-header .meet-our-team .description-center .team-member-description p,
 body .about .section-header .meet-our-team .description-center .team-member-description p {
   font-family: "Inter-Regular";
   font-size: 1rem;
-  text-align: center;
+  text-align: left;
   margin-bottom: 0;
+  padding-top: 50px;
 }
 html .about .section-header .meet-our-team .description-center .our-story,
 body .about .section-header .meet-our-team .description-center .our-story {
@@ -2552,7 +3008,7 @@ body .about .section-header .meet-our-team .description-center .our-story .story
   font-family: "Poppins-SemiBold";
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #3F1E4F;
+  color: #371548;
 }
 html .about .section-header .meet-our-team .description-center .our-story .story p,
 body .about .section-header .meet-our-team .description-center .our-story .story p {
@@ -2563,7 +3019,7 @@ body .about .section-header .meet-our-team .description-center .our-story .story
 html .about .section-header .meet-our-team .description-center .our-story .healthcare-quote,
 body .about .section-header .meet-our-team .description-center .our-story .healthcare-quote {
   padding: 1rem 1.5rem;
-  border-left: 4px solid #3F1E4F;
+  border-left: 4px solid #371548;
   background-color: #fff;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -2572,7 +3028,7 @@ html .about .section-header .meet-our-team .description-center .our-story .healt
 body .about .section-header .meet-our-team .description-center .our-story .healthcare-quote .quote-author {
   font-family: "Inter-Regular";
   font-size: 1rem;
-  color: #3F1E4F;
+  color: #371548;
   font-style: italic;
   margin: 0;
 }
@@ -2596,14 +3052,14 @@ body .about .section-header .faq-wrapper .text-style-tagline .tagline_dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #3F1E4F;
+  background-color: #371548;
   margin-right: 0.6rem;
 }
 html .about .section-header .faq-wrapper .text-style-tagline p,
 body .about .section-header .faq-wrapper .text-style-tagline p {
   font-family: "Inter-Regular";
   font-size: 1rem;
-  color: #3F1E4F;
+  color: #371548;
   letter-spacing: 0.05rem;
   margin-bottom: 0;
 }
@@ -2611,7 +3067,7 @@ html .about .section-header .faq-wrapper h2,
 body .about .section-header .faq-wrapper h2 {
   font-family: "Poppins-Bold";
   font-size: 2rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 1rem;
   padding-top: 0.5rem;
 }
@@ -2628,8 +3084,8 @@ body .about .section-header .faq-wrapper .accordion-wrapper .accordion {
   --bs-accordion-btn-bg: #ffffff;
   --bs-accordion-active-bg: #ffffff;
   --bs-accordion-btn-focus-box-shadow: none;
-  --bs-accordion-btn-color: #3F1E4F;
-  --bs-accordion-active-color: #3F1E4F;
+  --bs-accordion-btn-color: #371548;
+  --bs-accordion-active-color: #371548;
 }
 html .about .section-header .faq-wrapper .accordion-wrapper .accordion-item,
 body .about .section-header .faq-wrapper .accordion-wrapper .accordion-item {
@@ -2688,7 +3144,7 @@ html .expertise .content-center h2,
 body .expertise .content-center h2 {
   font-family: "Poppins-Bold";
   font-size: 3.5rem;
-  color: #3F1E4F;
+  color: #371548;
 }
 html .expertise .content-center p,
 body .expertise .content-center p {
@@ -2807,7 +3263,7 @@ html .expertise .services-detail-section h5,
 body .expertise .services-detail-section h5 {
   font-family: "Inter-Bold";
   font-size: 1.8rem;
-  color: #3F1E4F;
+  color: #371548;
   margin-bottom: 0.5rem;
 }
 html .expertise .services-detail-section p,
@@ -2836,7 +3292,7 @@ html .testimonials .content-center h2,
 body .testimonials .content-center h2 {
   font-family: "Poppins-Bold";
   font-size: 3.5rem;
-  color: #3F1E4F;
+  color: #371548;
 }
 html .testimonials .content-center p,
 body .testimonials .content-center p {
@@ -2911,7 +3367,7 @@ body .testimonials .testimonial-meta span {
 }
 html .testimonials .swiper-pagination-bullet,
 body .testimonials .swiper-pagination-bullet {
-  background: #3F1E4F;
+  background: #371548;
   opacity: 0.35;
 }
 html .testimonials .swiper-pagination-bullet-active,
@@ -2987,7 +3443,7 @@ html .testimonials .swiper-button-prev:focus-visible,
 html .testimonials .swiper-button-next:focus-visible,
 body .testimonials .swiper-button-prev:focus-visible,
 body .testimonials .swiper-button-next:focus-visible {
-  outline: 2px solid #3F1E4F;
+  outline: 2px solid #371548;
   outline-offset: 3px;
 }
 
