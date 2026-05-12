@@ -1,3 +1,5 @@
+@use "sass:color";
+@use "sass:map";
 @use "../abstracts/variables";
 @use "../abstracts/mixins";
 
@@ -64,7 +66,7 @@
                 font-family: variables.$pb;
                 font-size: 0.95rem;
                 letter-spacing: 0.2px;
-                color: map-get(variables.$colors, white);
+                color: map.get(variables.$colors, white);
                 margin-bottom: 0.5rem;
                 text-transform: none;
             }
@@ -83,17 +85,17 @@
                 gap: 0.5rem;
                 font-family: variables.$ir;
                 font-size: 0.85rem;
-                color: map-get(variables.$colors, white);
+                color: map.get(variables.$colors, white);
                 letter-spacing: 0.2px;
             }
 
             i {
                 font-size: 0.9rem;
-                color: map-get(variables.$colors, white);
+                color: map.get(variables.$colors, white);
             }
 
             a {
-                color: map-get(variables.$colors, white);
+                color: map.get(variables.$colors, white);
                 text-decoration: none;
                 transition: color 0.2s ease;
 
@@ -159,7 +161,7 @@
         }
 
         .btn-primary-custom {
-            background-color: map-get(variables.$colors, primary);
+            background-color: map.get(variables.$colors, primary);
             color: #ffffff;
             border: none;
 
@@ -172,7 +174,7 @@
             transition: all 0.3s ease;
 
             &:hover {
-                background-color: darken(map-get(variables.$colors, primary), 6%);
+                background-color: color.adjust(map.get(variables.$colors, primary), $lightness: -6%);
                 color: #ffffff;
                 transform: translateY(-2px);
                 box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
@@ -186,10 +188,7 @@
             &:focus {
                 outline: none;
                 box-shadow:
-                    0 0 0 0.25rem rgba(red(map-get(variables.$colors, primary)),
-                        green(map-get(variables.$colors, primary)),
-                        blue(map-get(variables.$colors, primary)),
-                        0.35);
+                    0 0 0 0.25rem color.change(map.get(variables.$colors, primary), $alpha: 0.35);
             }
         }
 
@@ -200,9 +199,9 @@
         margin-top: 3rem;
         padding: 0.8rem 0;
         background: linear-gradient(120deg,
-                darken(map-get(variables.$colors, primary), 6%),
-                map-get(variables.$colors, primary) 45%,
-                lighten(map-get(variables.$colors, primary), 6%));
+                color.adjust(map.get(variables.$colors, primary), $lightness: -6%),
+                map.get(variables.$colors, primary) 45%,
+                color.adjust(map.get(variables.$colors, primary), $lightness: 6%));
         border-top: 1px solid rgba(255, 255, 255, 0.12);
         box-shadow: 0 -14px 28px rgba(0, 0, 0, 0.18);
 

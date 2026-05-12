@@ -5,9 +5,12 @@ const navbar = () => {
 
   const path = window.location.pathname.replace(/\\/g, "/");
   const isServicesPage = path.includes("/services/");
-  const homeUrl = isServicesPage ? "../" : "#";
-  const aboutUrl = isServicesPage ? "../#about" : "#about";
-  const servicesUrl = isServicesPage ? "../#expertise" : "#expertise";
+  const homeUrl = isServicesPage ? "../index.html" : "#";
+  const aboutUrl = isServicesPage ? "../index.html#about" : "#about";
+  const servicesUrl = isServicesPage
+    ? "../index.html#expertise"
+    : "#expertise";
+  const contactUrl = isServicesPage ? "../index.html#footer" : "#footer";
 
   navbarEl.innerHTML = `
     <div class="container">
@@ -36,7 +39,7 @@ const navbar = () => {
             <a class="nav-link" href="${servicesUrl}">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#footer">Contact</a>
+            <a class="nav-link" href="${contactUrl}">Contact</a>
           </li>
         </ul>
       </div>

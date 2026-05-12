@@ -1,3 +1,5 @@
+@use "sass:color";
+@use "sass:map";
 /*-----------------------------------------------------------------------------------
 
  Project Name: Amethyst
@@ -41,9 +43,9 @@ body {
 
     &::-webkit-scrollbar-thumb {
         background-image: linear-gradient(to bottom,
-                lighten(map-get(variables.$colors, primary), 8%),
-                map-get(variables.$colors, primary),
-                darken(map-get(variables.$colors, primary), 10%));
+                color.adjust(map.get(variables.$colors, primary), $lightness: 8%),
+                map.get(variables.$colors, primary),
+                color.adjust(map.get(variables.$colors, primary), $lightness: -10%));
     }
 
     &::-webkit-scrollbar-track {
@@ -57,13 +59,33 @@ body {
 
     &::-moz-scrollbar-thumb {
         background-image: linear-gradient(to bottom,
-                lighten(map-get(variables.$colors, primary), 8%),
-                map-get(variables.$colors, primary),
-                darken(map-get(variables.$colors, primary), 10%));
+                color.adjust(map.get(variables.$colors, primary), $lightness: 8%),
+                map.get(variables.$colors, primary),
+                color.adjust(map.get(variables.$colors, primary), $lightness: -10%));
     }
 
     &::-moz-scrollbar-track {
         background-color: rgba(63, 30, 79, 0.16);
+    }
+
+    &.page-transition-ready {
+        transition:
+            opacity 0.18s ease,
+            transform 0.18s ease,
+            filter 0.18s ease;
+    }
+
+    &.page-transition-enter {
+        opacity: 0;
+        transform: translateY(10px);
+        filter: blur(4px);
+    }
+
+    &.page-transition-leave {
+        opacity: 0;
+        transform: translateY(-8px);
+        filter: blur(4px);
+        pointer-events: none;
     }
 
     &.loader-active {
@@ -110,7 +132,7 @@ body {
             background: linear-gradient(140deg,
                     rgba(63, 30, 79, 0.12),
                     rgba(63, 30, 79, 0.35));
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             font-size: 1.6rem;
             position: relative;
 
@@ -127,7 +149,7 @@ body {
         .loader-title {
             font-family: variables.$pb;
             font-size: 1.15rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
         }
 
         .loader-subtitle {
@@ -147,7 +169,7 @@ body {
                 width: 8px;
                 height: 8px;
                 border-radius: 50%;
-                background: map-get(variables.$colors, primary);
+                background: map.get(variables.$colors, primary);
                 animation: loader-dots 1.2s ease-in-out infinite;
 
                 &:nth-child(2) {
@@ -221,8 +243,8 @@ body {
         align-items: center;
         justify-content: center;
         background: linear-gradient(135deg,
-                lighten(map-get(variables.$colors, primary), 6%),
-                map-get(variables.$colors, primary));
+                color.adjust(map.get(variables.$colors, primary), $lightness: 6%),
+                map.get(variables.$colors, primary));
         color: #ffffff;
         box-shadow:
             0 14px 30px rgba(0, 0, 0, 0.22),
@@ -295,18 +317,18 @@ body {
                 h2 {
                     font-family: variables.$pb;
                     font-size: 3.5rem;
-                    color: map-get(variables.$colors, primary);
+                    color: map.get(variables.$colors, primary);
                 }
 
                 p {
                     font-family: variables.$ir;
                     font-size: 1.3rem;
-                    color: map-get(variables.$colors, darkGray);
+                    color: map.get(variables.$colors, darkGray);
                     text-align: center;
                 }
 
                 .btn-primary-custom {
-                    background-color: map-get(variables.$colors, primary);
+                    background-color: map.get(variables.$colors, primary);
                     color: #ffffff;
                     font-family: variables.$ib;
                     font-size: 1.05rem;
@@ -325,7 +347,7 @@ body {
                     @include mixins.transition(0.3s ease);
 
                     &:hover {
-                        background-color: darken(map-get(variables.$colors, primary), 6%);
+                        background-color: color.adjust(map.get(variables.$colors, primary), $lightness: -6%);
                         transform: translateY(-2px);
                         box-shadow:
                             0 14px 30px rgba(0, 0, 0, 0.22),
@@ -419,20 +441,20 @@ body {
                             font-family: variables.$ib;
                             font-size: 1.25rem;
                             margin-bottom: 0.75rem;
-                            color: map-get(variables.$colors, primary);
+                            color: map.get(variables.$colors, primary);
                         }
 
                         p {
                             font-family: variables.$ir;
                             font-size: 1rem;
                             line-height: 1.6;
-                            color: map-get(variables.$colors, darkGray);
+                            color: map.get(variables.$colors, darkGray);
                             margin-bottom: 0;
                             text-align: left;
                         }
 
                         &:hover {
-                            background-color: map-get(variables.$colors, primary);
+                            background-color: map.get(variables.$colors, primary);
                             transform: translateY(-8px);
                             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
@@ -458,13 +480,13 @@ body {
                     h2 {
                         font-family: variables.$pb;
                         font-size: 3.5rem;
-                        color: map-get(variables.$colors, primary);
+                        color: map.get(variables.$colors, primary);
                     }
 
                     p {
                         font-family: variables.$ir;
                         font-size: 1.3rem;
-                        color: map-get(variables.$colors, darkGray);
+                        color: map.get(variables.$colors, darkGray);
                         text-align: center;
                     }
 
@@ -490,14 +512,14 @@ body {
                             font-size: 1rem;
                             margin-top: 1rem;
                             margin-bottom: 0;
-                            color: map-get(variables.$colors, primary);
+                            color: map.get(variables.$colors, primary);
                             text-align: center;
                         }
 
                         p {
                             font-family: variables.$ir;
                             font-size: 0.8rem;
-                            color: map-get(variables.$colors, darkGray);
+                            color: map.get(variables.$colors, darkGray);
                             text-align: center;
                             font-style: italic;
                             margin-bottom: 0.60rem;
@@ -534,21 +556,21 @@ body {
                             }
 
                             .instagram {
-                                color: map-get(variables.$colors, white);
+                                color: map.get(variables.$colors, white);
 
                                 &:hover {
                                     background: #e1306c;
-                                    color: map-get(variables.$colors, white);
+                                    color: map.get(variables.$colors, white);
                                 }
                             }
 
                             .linkedin {
-                                color: map-get(variables.$colors, white);
+                                color: map.get(variables.$colors, white);
                                 background: #0a66c2;
 
                                 &:hover {
                                     background: #0a66c2;
-                                    color: map-get(variables.$colors, white);
+                                    color: map.get(variables.$colors, white);
                                 }
                             }
                         }
@@ -562,7 +584,7 @@ body {
                         p {
                             font-family: variables.$ir;
                             font-size: 1rem;
-                            color: map-get(variables.$colors, darkGray);
+                            color: map.get(variables.$colors, darkGray);
                             text-align: left;
                             margin-bottom: 0;
                             padding-top: 50px;
@@ -604,28 +626,28 @@ body {
                                 font-family: variables.$pblack;
                                 font-size: 2rem;
                                 margin-bottom: 1rem;
-                                color: map-get(variables.$colors, primary);
+                                color: map.get(variables.$colors, primary);
                             }
 
                             p {
                                 text-align: left;
                                 font-family: variables.$ir;
                                 font-size: 1.125rem;
-                                color: map-get(variables.$colors, darkGray);
+                                color: map.get(variables.$colors, darkGray);
                             }
                         }
 
                         .healthcare-quote {
                             padding: 1rem 1.5rem;
-                            border-left: 4px solid map-get(variables.$colors, primary);
-                            background-color: map-get(variables.$colors, white);
+                            border-left: 4px solid map.get(variables.$colors, primary);
+                            background-color: map.get(variables.$colors, white);
                             border-top-right-radius: 1rem;
                             border-bottom-right-radius: 1rem;
 
                             .quote-author {
                                 font-family: variables.$ir;
                                 font-size: 1rem;
-                                color: map-get(variables.$colors, primary);
+                                color: map.get(variables.$colors, primary);
                                 font-style: italic;
                                 margin: 0;
                             }
@@ -654,14 +676,14 @@ body {
                         width: 10px;
                         height: 10px;
                         border-radius: 50%;
-                        background-color: map-get(variables.$colors, primary);
+                        background-color: map.get(variables.$colors, primary);
                         margin-right: 0.6rem;
                     }
 
                     p {
                         font-family: variables.$ir;
                         font-size: 1rem;
-                        color: map-get(variables.$colors, primary);
+                        color: map.get(variables.$colors, primary);
                         letter-spacing: 0.05rem;
                         margin-bottom: 0;
                     }
@@ -670,7 +692,7 @@ body {
                 h2 {
                     font-family: variables.$pb;
                     font-size: 2rem;
-                    color: map-get(variables.$colors, primary);
+                    color: map.get(variables.$colors, primary);
                     margin-bottom: 1rem;
                     padding-top: 0.5rem;
                 }
@@ -688,8 +710,8 @@ body {
                         --bs-accordion-btn-bg: #ffffff;
                         --bs-accordion-active-bg: #ffffff;
                         --bs-accordion-btn-focus-box-shadow: none;
-                        --bs-accordion-btn-color: #{map-get(variables.$colors, primary)};
-                        --bs-accordion-active-color: #{map-get(variables.$colors, primary)};
+                        --bs-accordion-btn-color: #{map.get(variables.$colors, primary)};
+                        --bs-accordion-active-color: #{map.get(variables.$colors, primary)};
                     }
 
                     .accordion-item {
@@ -717,7 +739,7 @@ body {
                         font-family: variables.$ir;
                         font-size: 0.96rem;
                         line-height: 1.75;
-                        color: map-get(variables.$colors, darkGray);
+                        color: map.get(variables.$colors, darkGray);
                         padding: 0 1.15rem 1.1rem 1.15rem;
                         background-color: #ffffff;
                     }
@@ -751,13 +773,13 @@ body {
             h2 {
                 font-family: variables.$pb;
                 font-size: 3.5rem;
-                color: map-get(variables.$colors, primary);
+                color: map.get(variables.$colors, primary);
             }
 
             p {
                 font-family: variables.$ir;
                 font-size: 1.3rem;
-                color: map-get(variables.$colors, darkGray);
+                color: map.get(variables.$colors, darkGray);
                 text-align: center;
             }
         }
@@ -833,7 +855,7 @@ body {
                     bottom: 0;
                     width: 100%;
                     z-index: 10;
-                    background-color: map-get(variables.$colors, white);
+                    background-color: map.get(variables.$colors, white);
 
                     a {
                         display: flex;
@@ -845,7 +867,7 @@ body {
                         font-family: variables.$ib;
                         letter-spacing: 0.05rem;
                         font-size: 0.7rem;
-                        color: map-get(variables.$colors, black);
+                        color: map.get(variables.$colors, black);
                         text-decoration: none;
                         @include mixins.transition(0.3s ease);
 
@@ -875,7 +897,7 @@ body {
             h5 {
                 font-family: variables.$ib;
                 font-size: 1.8rem;
-                color: map-get(variables.$colors, primary);
+                color: map.get(variables.$colors, primary);
                 margin-bottom: 0.5rem;
             }
 
@@ -883,7 +905,7 @@ body {
                 font-family: variables.$ir;
                 font-size: 1.15rem;
                 line-height: 1.6;
-                color: map-get(variables.$colors, darkGray);
+                color: map.get(variables.$colors, darkGray);
                 margin-bottom: 2rem;
                 max-width: 720px;
                 border-bottom: 2px solid #e3e3e3;
@@ -905,13 +927,13 @@ body {
             h2 {
                 font-family: variables.$pb;
                 font-size: 3.5rem;
-                color: map-get(variables.$colors, primary);
+                color: map.get(variables.$colors, primary);
             }
 
             p {
                 font-family: variables.$ir;
                 font-size: 1.3rem;
-                color: map-get(variables.$colors, darkGray);
+                color: map.get(variables.$colors, darkGray);
                 text-align: center;
             }
         }
@@ -943,7 +965,7 @@ body {
             font-family: variables.$ir;
             font-size: 1.05rem;
             line-height: 1.8;
-            color: map-get(variables.$colors, darkGray);
+            color: map.get(variables.$colors, darkGray);
             margin-bottom: 0;
             position: relative;
 
@@ -972,7 +994,7 @@ body {
                 font-family: variables.$pb;
                 font-size: 0.95rem;
                 margin: 0;
-                color: map-get(variables.$colors, darkGray);
+                color: map.get(variables.$colors, darkGray);
             }
 
             span {
@@ -984,7 +1006,7 @@ body {
         }
 
         .swiper-pagination-bullet {
-            background: map-get(variables.$colors, primary);
+            background: map.get(variables.$colors, primary);
             opacity: 0.35;
         }
 
@@ -1053,8 +1075,22 @@ body {
 
         .swiper-button-prev:focus-visible,
         .swiper-button-next:focus-visible {
-            outline: 2px solid map-get(variables.$colors, primary);
+            outline: 2px solid map.get(variables.$colors, primary);
             outline-offset: 3px;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        &.page-transition-ready,
+        &.page-transition-enter,
+        &.page-transition-leave {
+            transition: none;
+            transform: none;
+            filter: none;
+            opacity: 1;
         }
     }
 }

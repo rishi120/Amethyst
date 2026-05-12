@@ -2087,18 +2087,109 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
 }
 
 .orthopedic-showcase .orthopedic-showcase-panel {
-  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../../images/services/Ortho-header-img.jpg") center center/cover no-repeat;
+  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../images/services/Ortho-header-img.jpg") center center/cover no-repeat;
   background-attachment: fixed;
 }
 
 .sports-showcase .sports-showcase-panel {
-  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../../images/services/Sports-header-img.jpg") center center/cover no-repeat;
+  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../images/services/Sports-header-img.jpg") center center/cover no-repeat;
   background-attachment: fixed;
 }
 
 .neuro-showcase .neuro-showcase-panel {
   background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../images/services/Neuro-header-img.jpg") center center/cover no-repeat;
   background-attachment: fixed;
+}
+
+.cardio-showcase .cardio-showcase-panel {
+  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../images/services/cardio.jpg") center center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+.neuro-coming-soon {
+  padding: 1rem 0 0;
+}
+.neuro-coming-soon-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  padding: clamp(2rem, 4vw, 3.2rem);
+  background: radial-gradient(circle at top right, rgba(212, 189, 238, 0.85), rgba(212, 189, 238, 0) 30%), linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(244, 235, 250, 0.98));
+  border: 1px solid rgba(63, 30, 79, 0.12);
+  box-shadow: 0 24px 48px rgba(37, 20, 48, 0.1), 0 4px 14px rgba(37, 20, 48, 0.06);
+}
+.neuro-coming-soon-card::before, .neuro-coming-soon-card::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+}
+.neuro-coming-soon-card::before {
+  top: -4.5rem;
+  right: -2rem;
+  width: 14rem;
+  height: 14rem;
+  background: rgba(120, 199, 255, 0.14);
+}
+.neuro-coming-soon-card::after {
+  left: -3rem;
+  bottom: -4rem;
+  width: 12rem;
+  height: 12rem;
+  background: rgba(184, 139, 234, 0.18);
+}
+.neuro-coming-soon-eyebrow {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  color: #371548;
+  font-family: "Inter-Bold";
+  font-size: 0.85rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+.neuro-coming-soon-eyebrow::before {
+  content: "";
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8ed9ff, #b88bea);
+  box-shadow: 0 0 0 0.35rem rgba(184, 139, 234, 0.14);
+}
+.neuro-coming-soon h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin-bottom: 0.9rem;
+  color: #371548;
+  font-family: "Poppins-Bold";
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+.neuro-coming-soon-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin-bottom: 0;
+  color: rgba(56, 40, 66, 0.92);
+  font-family: "Inter-Regular";
+  font-size: clamp(1rem, 1.45vw, 1.12rem);
+  line-height: 1.8;
+}
+.neuro-coming-soon-actions {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+.neuro-coming-soon-actions .showcase-btn {
+  min-width: 220px;
+  justify-content: center;
 }
 
 @media (max-width: 1199.98px) {
@@ -2176,6 +2267,17 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
   }
   .geriatric-showcase-image-card {
     min-height: 220px;
+  }
+  .neuro-coming-soon-card {
+    border-radius: 1.5rem;
+    padding: 1.5rem 1.2rem;
+  }
+  .neuro-coming-soon h2 {
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
+  }
+  .neuro-coming-soon-actions .showcase-btn {
+    width: 100%;
+    min-width: 0;
   }
 }
 /*-----------------------------------------------------------------------------------
@@ -2504,6 +2606,23 @@ html::-moz-scrollbar-track,
 body::-moz-scrollbar-track {
   background-color: rgba(63, 30, 79, 0.16);
 }
+html.page-transition-ready,
+body.page-transition-ready {
+  transition: opacity 0.18s ease, transform 0.18s ease, filter 0.18s ease;
+}
+html.page-transition-enter,
+body.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+  filter: blur(4px);
+}
+html.page-transition-leave,
+body.page-transition-leave {
+  opacity: 0;
+  transform: translateY(-8px);
+  filter: blur(4px);
+  pointer-events: none;
+}
 html.loader-active,
 body.loader-active {
   overflow: hidden;
@@ -2624,6 +2743,17 @@ body .page-loader.is-hidden {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  html.page-transition-ready,
+  html.page-transition-enter,
+  html.page-transition-leave,
+  body.page-transition-ready,
+  body.page-transition-enter,
+  body.page-transition-leave {
+    transition: none;
+    transform: none;
+    filter: none;
+    opacity: 1;
+  }
   html .page-loader,
   body .page-loader {
     transition: none;

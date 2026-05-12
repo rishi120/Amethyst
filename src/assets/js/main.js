@@ -42,12 +42,104 @@ import {
 //   return loader;
 // })();
 
-const scrollToHashTarget = () => {
-  const hash = window.location.hash;
+let lenisInstance = null;
+const pendingHomeHashKey = "amethyst:pending-home-hash";
+const pageTransitionDuration = 180;
+
+const getNormalizedPath = () => window.location.pathname.replace(/\\/g, "/");
+const isServicesPage = () => getNormalizedPath().includes("/services/");
+const isHomePage = () => !isServicesPage();
+const prefersReducedMotion = () =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const consumePendingHomeHash = () => {
+  const pendingHash = sessionStorage.getItem(pendingHomeHashKey);
+  if (!pendingHash || !pendingHash.startsWith("#")) return "";
+
+  sessionStorage.removeItem(pendingHomeHashKey);
+  return pendingHash;
+};
+
+const scrollToHashTarget = (hashValue = window.location.hash) => {
+  const hash = hashValue;
   if (!hash) return;
   const target = document.querySelector(hash);
   if (!target) return;
-  target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  const navbarEl = document.querySelector(".navbar");
+  const navbarOffset = navbarEl ? navbarEl.offsetHeight : 0;
+  const targetTop =
+    target.getBoundingClientRect().top + window.scrollY - navbarOffset;
+
+  if (lenisInstance) {
+    lenisInstance.scrollTo(Math.max(targetTop, 0), {
+      immediate: false,
+      force: true,
+    });
+    return;
+  }
+
+  window.scrollTo({ top: Math.max(targetTop, 0), behavior: "smooth" });
+};
+
+const scheduleHashScroll = (hashValue) => {
+  if (!hashValue) return;
+
+  const runScroll = () => {
+    scrollToHashTarget(hashValue);
+  };
+
+  requestAnimationFrame(runScroll);
+  window.setTimeout(runScroll, 250);
+  window.setTimeout(runScroll, 700);
+
+  if (document.readyState !== "complete") {
+    window.addEventListener("load", runScroll, { once: true });
+  }
+};
+
+const setupCrossPageHomeNavigation = () => {
+  if (!isServicesPage()) return;
+
+  const homeSectionLinks = Array.from(
+    document.querySelectorAll('a[href*="index.html#"]'),
+  );
+
+  homeSectionLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+
+      const parsedUrl = new URL(href, window.location.href);
+      if (!parsedUrl.hash) return;
+
+      event.preventDefault();
+      sessionStorage.setItem(pendingHomeHashKey, parsedUrl.hash);
+
+      if (prefersReducedMotion()) {
+        window.location.href = parsedUrl.pathname;
+        return;
+      }
+
+      document.body.classList.add("page-transition-leave");
+      window.setTimeout(() => {
+        window.location.href = parsedUrl.pathname;
+      }, pageTransitionDuration);
+    });
+  });
+};
+
+const initPageTransition = () => {
+  document.body.classList.add("page-transition-ready");
+
+  if (prefersReducedMotion()) return;
+
+  document.body.classList.add("page-transition-enter");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.body.classList.remove("page-transition-enter");
+    });
+  });
 };
 
 // const hidePageLoader = () => {
@@ -76,6 +168,7 @@ const scrollToHashTarget = () => {
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
+  initPageTransition();
   gsap.registerPlugin(ScrollTrigger);
   initHeroHeaderAnimation(gsap);
   initAboutSectionAnimation(gsap, ScrollTrigger);
@@ -84,6 +177,11 @@ document.addEventListener("DOMContentLoaded", () => {
   navbar();
   renderFinalCta();
   renderFooter();
+  setupCrossPageHomeNavigation();
+  window.addEventListener("hashchange", () => {
+    scheduleHashScroll(window.location.hash);
+  });
+  const pendingHomeHash = isHomePage() ? consumePendingHomeHash() : "";
   const navbarEl = document.querySelector(".navbar");
   const scrollIndicator = document.querySelector(".scroll-indicator");
   const aboutSection = document.querySelector("#about");
@@ -399,18 +497,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // lenis config
 
-  const lenis = new Lenis();
+  lenisInstance = new Lenis();
 
-  lenis.on("scroll", (e) => {
+  lenisInstance.on("scroll", (e) => {
     // console.log(e)
   });
 
   function raf(time) {
-    lenis.raf(time);
+    lenisInstance.raf(time);
     requestAnimationFrame(raf);
   }
 
   requestAnimationFrame(raf);
+  requestAnimationFrame(() => {
+    const targetHash = pendingHomeHash || window.location.hash;
+
+    if (!targetHash) return;
+
+    if (pendingHomeHash) {
+      window.history.replaceState(null, "", targetHash);
+    }
+
+    scheduleHashScroll(targetHash);
+  });
 
   const swiper = new Swiper(".testimonials-swiper", {
     loop: true,

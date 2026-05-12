@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass src/assets/css/main.scss src/assets/css/main.css",
-    "sass:watch": "sass src/assets/css/main.scss src/assets/css/main.css --watch"
+    "sass": "sass src/assets/css/main.scss:src/assets/css/main.css",
+    "sass:watch": "sass --watch --poll src/assets/css/main.scss:src/assets/css/main.css",
+    "sass:verify": "npm run sass && node -e \"const fs=require('fs'); const css=fs.readFileSync('src/assets/css/main.css','utf8'); if(!css.includes('.geriatric-showcase-copy h1')) throw new Error('Expected compiled geriatric showcase h1 rule was not found in main.css'); console.log('Verified main.css contains the compiled geriatric showcase h1 rule.');\""
   },
   "repository": {
     "type": "git",

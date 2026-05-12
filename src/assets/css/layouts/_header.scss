@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/variables";
 @use "../abstracts/mixins";
 
@@ -8,14 +9,14 @@ nav {
     width: 100%;
 
     &.navbar-scrolled {
-        background-color: map-get(variables.$colors, primary) !important;
+        background-color: map.get(variables.$colors, primary) !important;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .custom-navbar-brand {
         font-family: variables.$ib;
         font-size: 1.5rem;
-        color: map-get(variables.$colors, primary) !important;
+        color: map.get(variables.$colors, primary) !important;
     }
 
     .custom-navbar-collapse {
@@ -26,7 +27,7 @@ nav {
                 a {
                     font-family: variables.$ib;
                     font-size: 0.95rem;
-                    color: map-get(variables.$colors, primary) !important;
+                    color: map.get(variables.$colors, primary) !important;
                     margin-right: 1.5rem;
 
                     &:hover {
@@ -35,7 +36,7 @@ nav {
                 }
 
                 &:last-child {
-                    border: 1px solid map-get(variables.$colors, primary);
+                    border: 1px solid map.get(variables.$colors, primary);
                     border-radius: 5px;
                     display: flex;
                     justify-content: center;
@@ -43,10 +44,10 @@ nav {
                     @include mixins.transition(0.3s ease-in-out);
 
                     &:hover {
-                        background-color: map-get(variables.$colors, primary) !important;
+                        background-color: map.get(variables.$colors, primary) !important;
 
                         a {
-                            color: map-get(variables.$colors, white) !important;
+                            color: map.get(variables.$colors, white) !important;
                         }
                     }
 
@@ -60,14 +61,14 @@ nav {
 
     &.navbar-scrolled {
         .custom-navbar-brand {
-            color: map-get(variables.$colors, white) !important;
+            color: map.get(variables.$colors, white) !important;
         }
 
         .custom-navbar-collapse {
             ul {
                 li {
                     a {
-                        color: map-get(variables.$colors, white) !important;
+                        color: map.get(variables.$colors, white) !important;
 
                         &:hover {
                             color: #d1d1d1 !important;
@@ -75,13 +76,13 @@ nav {
                     }
 
                     &:last-child {
-                        border-color: map-get(variables.$colors, white);
+                        border-color: map.get(variables.$colors, white);
 
                         &:hover {
-                            background-color: map-get(variables.$colors, white) !important;
+                            background-color: map.get(variables.$colors, white) !important;
 
                             a {
-                                color: map-get(variables.$colors, primary) !important;
+                                color: map.get(variables.$colors, primary) !important;
                             }
                         }
                     }
@@ -124,7 +125,7 @@ nav {
             width: 100%;
             min-height: 79%;
             border-radius: 0 28px 0 28px;
-            background: map-get(variables.$colors, primary);
+            background: map.get(variables.$colors, primary);
         }
 
         .hero-copy {
@@ -191,25 +192,25 @@ nav {
         }
 
         .hero-button-primary {
-            background: map-get(variables.$colors, white);
-            color: map-get(variables.$colors, primary);
+            background: map.get(variables.$colors, white);
+            color: map.get(variables.$colors, primary);
             border: 1px solid #b88bea;
 
             &:hover {
-                color: map-get(variables.$colors, primary);
+                color: map.get(variables.$colors, primary);
                 background: #cba7f1;
                 border-color: #cba7f1;
             }
         }
 
         .hero-button-secondary {
-            background: map-get(variables.$colors, white);
-            color: map-get(variables.$colors, primary);
+            background: map.get(variables.$colors, white);
+            color: map.get(variables.$colors, primary);
             border: 1px solid rgba(184, 139, 234, 0.88);
 
             &:hover {
-                color: map-get(variables.$colors, white);
-                border-color: map-get(variables.$colors, white);
+                color: map.get(variables.$colors, white);
+                border-color: map.get(variables.$colors, white);
             }
         }
 
@@ -238,7 +239,7 @@ nav {
             left: 50%;
             transform: translateX(-50%);
             z-index: 5;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             font-size: 1.65rem;
             opacity: 0.85;
             cursor: pointer;
@@ -412,7 +413,7 @@ nav {
     h1 {
         font-family: variables.$pb;
         font-size: 5.5rem;
-        color: map-get(variables.$colors, white);
+        color: map.get(variables.$colors, white);
         margin-bottom: 1rem;
         letter-spacing: 1px;
     }
@@ -435,7 +436,7 @@ nav {
         left: 50%;
         transform: translateX(-50%);
         z-index: 2;
-        color: map-get(variables.$colors, white);
+        color: map.get(variables.$colors, white);
         font-size: 2rem;
         opacity: 0.85;
         cursor: pointer;

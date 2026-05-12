@@ -6,6 +6,8 @@
  * 
  */
 
+@use "sass:color";
+@use "sass:map";
 @use "../abstracts/variables";
 @use "../abstracts/mixins";
 
@@ -32,14 +34,14 @@
         h2 {
             font-family: variables.$pb;
             font-size: 2.6rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 1rem;
         }
 
         p {
             font-family: variables.$ir;
             font-size: 1rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             max-width: 600px;
             line-height: 1.6;
             text-align: left;
@@ -59,14 +61,14 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.08rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.5rem;
         }
 
         h2 {
             font-family: variables.$pb;
             font-size: clamp(1.75rem, 3vw, 2.6rem);
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.8rem;
         }
 
@@ -74,7 +76,7 @@
             font-family: variables.$ir;
             font-size: 1rem;
             line-height: 1.7;
-            color: map-get(variables.$colors, darkGray);
+            color: map.get(variables.$colors, darkGray);
             margin-bottom: 0;
         }
     }
@@ -89,7 +91,7 @@
             border-radius: 999px;
             font-family: variables.$is;
             font-size: 0.88rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             background: rgba(255, 255, 255, 0.55);
             padding: 0.55rem 0.95rem;
             @include mixins.transition(0.25s ease);
@@ -99,9 +101,9 @@
             }
 
             &.active {
-                color: map-get(variables.$colors, white);
-                background: map-get(variables.$colors, primary);
-                border-color: map-get(variables.$colors, primary);
+                color: map.get(variables.$colors, white);
+                background: map.get(variables.$colors, primary);
+                border-color: map.get(variables.$colors, primary);
                 box-shadow: 0 10px 24px rgba(63, 30, 79, 0.24);
             }
         }
@@ -132,7 +134,7 @@
                     h3 {
                         font-family: variables.$ib;
                         font-size: clamp(1.1rem, 2vw, 1.35rem);
-                        color: map-get(variables.$colors, primary);
+                        color: map.get(variables.$colors, primary);
                         margin-bottom: 0.7rem;
                     }
 
@@ -140,7 +142,7 @@
                         font-family: variables.$ir;
                         font-size: 0.97rem;
                         line-height: 1.7;
-                        color: map-get(variables.$colors, darkGray);
+                        color: map.get(variables.$colors, darkGray);
                         margin-bottom: 0.85rem;
                     }
 
@@ -176,10 +178,10 @@
         font-family: variables.$ib;
         font-size: 0.9rem;
         line-height: 1.2;
-        color: map-get(variables.$colors, white);
+        color: map.get(variables.$colors, white);
         background: linear-gradient(135deg,
-                lighten(map-get(variables.$colors, primary), 8%),
-                map-get(variables.$colors, primary));
+                color.adjust(map.get(variables.$colors, primary), $lightness: 8%),
+                map.get(variables.$colors, primary));
         box-shadow:
             0 18px 34px rgba(0, 0, 0, 0.26),
             inset 0 1px 0 rgba(255, 255, 255, 0.4);
@@ -191,7 +193,7 @@
         border-bottom-left-radius: 50px;
 
         &:focus-visible {
-            outline: 2px solid map-get(variables.$colors, white);
+            outline: 2px solid map.get(variables.$colors, white);
             outline-offset: 3px;
         }
 
@@ -211,14 +213,14 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.08rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.5rem;
         }
 
         h2 {
             font-family: variables.$pb;
             font-size: clamp(1.75rem, 3vw, 2.6rem);
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.8rem;
         }
 
@@ -226,7 +228,7 @@
             font-family: variables.$ir;
             font-size: 1rem;
             line-height: 1.7;
-            color: map-get(variables.$colors, darkGray);
+            color: map.get(variables.$colors, darkGray);
             margin-bottom: 0;
         }
     }
@@ -247,7 +249,7 @@
             font-family: variables.$ib;
             font-size: 1.15rem;
             line-height: 1.35;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.55rem;
         }
 
@@ -255,7 +257,7 @@
             font-family: variables.$ir;
             font-size: 0.97rem;
             line-height: 1.7;
-            color: map-get(variables.$colors, darkGray);
+            color: map.get(variables.$colors, darkGray);
             margin-bottom: 0.45rem;
             text-align: left;
         }
@@ -323,14 +325,14 @@
             border: 1px solid rgba(63, 30, 79, 0.18);
             border-radius: 16px;
             background: #ffffff;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             font-family: variables.$is;
             font-size: 0.86rem;
             text-align: center;
             padding: 0.65rem 0.8rem;
 
             i {
-                color: map-get(variables.$colors, primary);
+                color: map.get(variables.$colors, primary);
             }
         }
 
@@ -370,7 +372,7 @@
             h3 {
                 font-family: variables.$ib;
                 font-size: 1.03rem;
-                color: map-get(variables.$colors, primary);
+                color: map.get(variables.$colors, primary);
                 margin-bottom: 0.55rem;
                 line-height: 1.35;
             }
@@ -385,7 +387,7 @@
 
             a {
                 font-family: variables.$is;
-                color: map-get(variables.$colors, primary);
+                color: map.get(variables.$colors, primary);
                 font-size: 0.9rem;
                 text-decoration: none;
 
@@ -430,15 +432,15 @@
             justify-content: center;
             font-family: variables.$ib;
             font-size: 0.8rem;
-            color: map-get(variables.$colors, white);
-            background: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, white);
+            background: map.get(variables.$colors, primary);
             margin-bottom: 0.7rem;
         }
 
         h3 {
             font-family: variables.$ib;
             font-size: 1rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.55rem;
         }
 
@@ -467,14 +469,14 @@
             font-size: 0.84rem;
             text-transform: uppercase;
             letter-spacing: 0.08rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.65rem;
         }
 
         h2 {
             font-family: variables.$pb;
             font-size: clamp(1.55rem, 3vw, 2rem);
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.75rem;
             max-width: 800px;
             margin-left: auto;
@@ -620,14 +622,14 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.08rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.5rem;
         }
 
         h2 {
             font-family: variables.$pb;
             font-size: clamp(1.75rem, 3vw, 2.6rem);
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.8rem;
         }
 
@@ -635,7 +637,7 @@
             font-family: variables.$ir;
             font-size: 1rem;
             line-height: 1.7;
-            color: map-get(variables.$colors, darkGray);
+            color: map.get(variables.$colors, darkGray);
             margin-bottom: 0;
         }
     }
@@ -664,8 +666,8 @@
             justify-content: center;
             margin-bottom: 0.85rem;
             background: linear-gradient(135deg,
-                    map-get(variables.$colors, primary),
-                    lighten(map-get(variables.$colors, primary), 8%));
+                    map.get(variables.$colors, primary),
+                    color.adjust(map.get(variables.$colors, primary), $lightness: 8%));
             color: #ffffff;
             font-size: 1.05rem;
             box-shadow: 0 8px 18px rgba(63, 30, 79, 0.25);
@@ -675,7 +677,7 @@
             font-family: variables.$ib;
             font-size: 1.1rem;
             line-height: 1.35;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.65rem;
         }
 
@@ -683,7 +685,7 @@
             font-family: variables.$ir;
             font-size: 0.96rem;
             line-height: 1.68;
-            color: map-get(variables.$colors, darkGray);
+            color: map.get(variables.$colors, darkGray);
             margin-bottom: 0;
             text-align: left;
         }
@@ -718,14 +720,14 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.08rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.5rem;
         }
 
         h2 {
             font-family: variables.$pb;
             font-size: clamp(1.75rem, 3vw, 2rem);
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.8rem;
             max-width: 800px;
             margin-left: auto;
@@ -738,7 +740,7 @@
             font-family: variables.$ir;
             font-size: 1rem;
             line-height: 1.7;
-            color: map-get(variables.$colors, darkGray);
+            color: map.get(variables.$colors, darkGray);
             margin-bottom: 0;
         }
     }
@@ -788,15 +790,15 @@
             color: #ffffff;
             margin-bottom: 0.9rem;
             background: linear-gradient(135deg,
-                    map-get(variables.$colors, primary),
-                    lighten(map-get(variables.$colors, primary), 8%));
+                    map.get(variables.$colors, primary),
+                    color.adjust(map.get(variables.$colors, primary), $lightness: 8%));
             box-shadow: 0 10px 20px rgba(63, 30, 79, 0.28);
         }
 
         h3 {
             font-family: variables.$ib;
             font-size: 1.05rem;
-            color: map-get(variables.$colors, primary);
+            color: map.get(variables.$colors, primary);
             margin-bottom: 0.6rem;
         }
 
@@ -804,7 +806,7 @@
             font-family: variables.$ir;
             font-size: 0.95rem;
             line-height: 1.65;
-            color: map-get(variables.$colors, darkGray);
+            color: map.get(variables.$colors, darkGray);
             margin-bottom: 0;
         }
 
@@ -908,8 +910,8 @@
             }
 
             .hero-btn-primary {
-                color: map-get(variables.$colors, primary);
-                background: map-get(variables.$colors, white);
+                color: map.get(variables.$colors, primary);
+                background: map.get(variables.$colors, white);
 
                 &:hover {
                     transform: translateY(-2px);
@@ -918,7 +920,7 @@
             }
 
             .hero-btn-ghost {
-                color: map-get(variables.$colors, white);
+                color: map.get(variables.$colors, white);
                 border: 1px solid rgba(255, 255, 255, 0.62);
                 background: rgba(255, 255, 255, 0.08);
 
@@ -1192,7 +1194,7 @@
         bottom: 1.35rem;
         transform: translateX(-50%);
         z-index: 2;
-        color: map-get(variables.$colors, white);
+        color: map.get(variables.$colors, white);
         font-size: 2rem;
         opacity: 0.85;
         text-decoration: none;
@@ -1212,7 +1214,7 @@
                 rgba(32, 22, 54, 0.48) 34%,
                 rgba(32, 22, 54, 0.14) 70%,
                 rgba(32, 22, 54, 0.08) 100%),
-            url("../../images/services/Ortho-header-img.jpg") center center / cover no-repeat;
+            url("../images/services/Ortho-header-img.jpg") center center / cover no-repeat;
         background-attachment: fixed;
     }
 }
@@ -1225,7 +1227,7 @@
                 rgba(32, 22, 54, 0.48) 34%,
                 rgba(32, 22, 54, 0.14) 70%,
                 rgba(32, 22, 54, 0.08) 100%),
-            url("../../images/services/Sports-header-img.jpg") center center / cover no-repeat;
+            url("../images/services/Sports-header-img.jpg") center center / cover no-repeat;
         background-attachment: fixed;
     }
 }
@@ -1238,8 +1240,128 @@
                 rgba(32, 22, 54, 0.48) 34%,
                 rgba(32, 22, 54, 0.14) 70%,
                 rgba(32, 22, 54, 0.08) 100%),
-            url("../../images/services/Neuro-header-img.jpg") center center / cover no-repeat;
+            url("../images/services/Neuro-header-img.jpg") center center / cover no-repeat;
         background-attachment: fixed;
+    }
+}
+
+.cardio-showcase {
+    .cardio-showcase-panel {
+        background:
+            linear-gradient(90deg,
+                rgba(32, 22, 54, 0.7) 0%,
+                rgba(32, 22, 54, 0.48) 34%,
+                rgba(32, 22, 54, 0.14) 70%,
+                rgba(32, 22, 54, 0.08) 100%),
+            url("../images/services/cardio.jpg") center center / cover no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+.neuro-coming-soon {
+    padding: 1rem 0 0;
+
+    &-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 2rem;
+        padding: clamp(2rem, 4vw, 3.2rem);
+        background:
+            radial-gradient(circle at top right,
+                rgba(212, 189, 238, 0.85),
+                rgba(212, 189, 238, 0) 30%),
+            linear-gradient(145deg,
+                rgba(255, 255, 255, 0.96),
+                rgba(244, 235, 250, 0.98));
+        border: 1px solid rgba(63, 30, 79, 0.12);
+        box-shadow:
+            0 24px 48px rgba(37, 20, 48, 0.1),
+            0 4px 14px rgba(37, 20, 48, 0.06);
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            pointer-events: none;
+        }
+
+        &::before {
+            top: -4.5rem;
+            right: -2rem;
+            width: 14rem;
+            height: 14rem;
+            background: rgba(120, 199, 255, 0.14);
+        }
+
+        &::after {
+            left: -3rem;
+            bottom: -4rem;
+            width: 12rem;
+            height: 12rem;
+            background: rgba(184, 139, 234, 0.18);
+        }
+    }
+
+    &-eyebrow {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.85rem;
+        color: map.get(variables.$colors, primary);
+        font-family: variables.$ib;
+        font-size: 0.85rem;
+        letter-spacing: 0.12rem;
+        text-transform: uppercase;
+
+        &::before {
+            content: "";
+            width: 0.7rem;
+            height: 0.7rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg,
+                    #8ed9ff,
+                    #b88bea);
+            box-shadow: 0 0 0 0.35rem rgba(184, 139, 234, 0.14);
+        }
+    }
+
+    h2 {
+        position: relative;
+        z-index: 1;
+        max-width: 760px;
+        margin-bottom: 0.9rem;
+        color: map.get(variables.$colors, primary);
+        font-family: variables.$pb;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.08;
+    }
+
+    &-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 760px;
+        margin-bottom: 0;
+        color: rgba(56, 40, 66, 0.92);
+        font-family: variables.$ir;
+        font-size: clamp(1rem, 1.45vw, 1.12rem);
+        line-height: 1.8;
+    }
+
+    &-actions {
+        position: relative;
+        z-index: 1;
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+
+        .showcase-btn {
+            min-width: 220px;
+            justify-content: center;
+        }
     }
 }
 
@@ -1340,6 +1462,24 @@
 
         &-image-card {
             min-height: 220px;
+        }
+    }
+
+    .neuro-coming-soon {
+        &-card {
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.2rem;
+        }
+
+        h2 {
+            font-size: clamp(1.7rem, 8vw, 2.3rem);
+        }
+
+        &-actions {
+            .showcase-btn {
+                width: 100%;
+                min-width: 0;
+            }
         }
     }
 }
