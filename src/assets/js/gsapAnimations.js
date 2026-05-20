@@ -16,6 +16,8 @@ export const initHeroHeaderAnimation = (gsap) => {
   const heroHighlight = heroTitle?.querySelector("span");
   const heroDescription = heroCopy.querySelector("p");
   const heroActions = heroCopy.querySelector(".hero-actions");
+  const heroImageWrap = document.querySelector(".header .hero-image-wrap");
+  const heroImage = heroImageWrap?.querySelector("img");
 
   const heroItems = [
     heroKicker,
@@ -35,55 +37,144 @@ export const initHeroHeaderAnimation = (gsap) => {
     if (heroHighlight) {
       gsap.set(heroHighlight, { clearProps: "all" });
     }
+    if (heroImageWrap) {
+      gsap.set(heroImageWrap, { clearProps: "all" });
+    }
     return;
   }
 
-  gsap.set(heroCopy, { perspective: 900 });
-  gsap.set(heroItems, {
-    autoAlpha: 0,
-    y: 34,
-    scale: 0.985,
-    willChange: "transform, opacity",
-  });
+  const waitForNextPaint = () =>
+    new Promise((resolve) => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(resolve);
+      });
+    });
 
-  if (heroHighlight) {
-    gsap.set(heroHighlight, {
+  const waitForFonts = async () => {
+    if (!document.fonts?.ready) return;
+
+    try {
+      await Promise.race([
+        document.fonts.ready,
+        new Promise((resolve) => window.setTimeout(resolve, 450)),
+      ]);
+    } catch {
+      // Ignore font readiness issues and continue animating.
+    }
+  };
+
+  const waitForHeroImage = async () => {
+    if (!heroImage) return;
+    if (heroImage.complete && heroImage.naturalWidth > 0) return;
+
+    try {
+      if (typeof heroImage.decode === "function") {
+        await Promise.race([
+          heroImage.decode(),
+          new Promise((resolve) => window.setTimeout(resolve, 450)),
+        ]);
+        return;
+      }
+    } catch {
+      // Fall back to the load event path below.
+    }
+
+    await new Promise((resolve) => {
+      const cleanup = () => {
+        heroImage.removeEventListener("load", cleanup);
+        heroImage.removeEventListener("error", cleanup);
+        resolve();
+      };
+
+      heroImage.addEventListener("load", cleanup, { once: true });
+      heroImage.addEventListener("error", cleanup, { once: true });
+      window.setTimeout(cleanup, 450);
+    });
+  };
+
+  const animateHero = async () => {
+    await Promise.all([waitForFonts(), waitForHeroImage()]);
+    await waitForNextPaint();
+
+    gsap.set(heroCopy, {
+      perspective: 900,
+      transformStyle: "preserve-3d",
+    });
+    gsap.set(heroItems, {
       autoAlpha: 0,
-      y: 16,
-      scale: 0.96,
+      y: 20,
+      force3D: true,
       willChange: "transform, opacity",
     });
-  }
 
-  const timeline = gsap.timeline({
-    defaults: {
-      ease: "expo.out",
-      duration: 1,
-    },
-  });
+    if (heroImageWrap) {
+      gsap.set(heroImageWrap, {
+        autoAlpha: 0,
+        x: 20,
+        scale: 1.015,
+        force3D: true,
+        willChange: "transform, opacity",
+      });
+    }
 
-  timeline.to(heroItems, {
-    autoAlpha: 1,
-    y: 0,
-    scale: 1,
-    stagger: 0.11,
-    clearProps: "willChange",
-  });
+    if (heroHighlight) {
+      gsap.set(heroHighlight, {
+        autoAlpha: 0.01,
+        y: 8,
+        force3D: true,
+        willChange: "transform, opacity",
+      });
+    }
 
-  if (heroHighlight) {
+    const timeline = gsap.timeline({
+      defaults: {
+        ease: "power3.out",
+        duration: 0.78,
+      },
+    });
+
+    if (heroImageWrap) {
+      timeline.to(
+        heroImageWrap,
+        {
+          autoAlpha: 1,
+          x: 0,
+          scale: 1,
+          duration: 0.95,
+          ease: "power2.out",
+          clearProps: "willChange",
+        },
+        0,
+      );
+    }
+
     timeline.to(
-      heroHighlight,
+      heroItems,
       {
         autoAlpha: 1,
         y: 0,
-        scale: 1,
-        duration: 0.7,
-        ease: "power2.out",
+        stagger: 0.08,
         clearProps: "willChange",
       },
-      "-=0.72",
+      0.08,
     );
-  }
+
+    if (heroHighlight) {
+      timeline.to(
+        heroHighlight,
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          clearProps: "willChange",
+        },
+        0.28,
+      );
+    }
+  };
+
+  void animateHero();
 };
 
 // About section scroll reveal:

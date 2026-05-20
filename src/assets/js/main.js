@@ -44,13 +44,18 @@ import {
 
 let lenisInstance = null;
 const pendingHomeHashKey = "amethyst:pending-home-hash";
-const pageTransitionDuration = 180;
 
 const getNormalizedPath = () => window.location.pathname.replace(/\\/g, "/");
 const isServicesPage = () => getNormalizedPath().includes("/services/");
 const isHomePage = () => !isServicesPage();
 const prefersReducedMotion = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const formspreeAjaxScriptUrl = new URL(
+  "./vendor/formspree-ajax.global.js",
+  import.meta.url,
+);
+
+let formspreeAjaxLoader = null;
 
 const consumePendingHomeHash = () => {
   const pendingHash = sessionStorage.getItem(pendingHomeHashKey);
@@ -80,6 +85,64 @@ const scrollToHashTarget = (hashValue = window.location.hash) => {
   }
 
   window.scrollTo({ top: Math.max(targetTop, 0), behavior: "smooth" });
+};
+
+const loadFormspreeAjax = () => {
+  if (typeof window.formspree === "function" && !window.formspree.q) {
+    return Promise.resolve(window.formspree);
+  }
+
+  if (formspreeAjaxLoader) {
+    return formspreeAjaxLoader;
+  }
+
+  formspreeAjaxLoader = new Promise((resolve, reject) => {
+    const existingScript = document.querySelector("[data-formspree-ajax-script]");
+
+    if (existingScript) {
+      existingScript.addEventListener(
+        "load",
+        () => resolve(window.formspree),
+        { once: true },
+      );
+      existingScript.addEventListener(
+        "error",
+        () => reject(new Error("Unable to load Formspree AJAX.")),
+        { once: true },
+      );
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = formspreeAjaxScriptUrl.href;
+    script.async = true;
+    script.dataset.formspreeAjaxScript = "true";
+    script.addEventListener(
+      "load",
+      () => {
+        if (typeof window.formspree === "function") {
+          resolve(window.formspree);
+          return;
+        }
+
+        reject(new Error("Formspree AJAX did not initialize correctly."));
+      },
+      { once: true },
+    );
+    script.addEventListener(
+      "error",
+      () => reject(new Error("Unable to load Formspree AJAX.")),
+      { once: true },
+    );
+    document.head.appendChild(script);
+  });
+
+  return formspreeAjaxLoader;
+};
+
+const getFormspreeFormId = (formAction = "") => {
+  const matchedFormId = formAction.match(/\/f\/([^/?#]+)/i);
+  return matchedFormId ? matchedFormId[1] : "";
 };
 
 const scheduleHashScroll = (hashValue) => {
@@ -115,29 +178,7 @@ const setupCrossPageHomeNavigation = () => {
 
       event.preventDefault();
       sessionStorage.setItem(pendingHomeHashKey, parsedUrl.hash);
-
-      if (prefersReducedMotion()) {
-        window.location.href = parsedUrl.pathname;
-        return;
-      }
-
-      document.body.classList.add("page-transition-leave");
-      window.setTimeout(() => {
-        window.location.href = parsedUrl.pathname;
-      }, pageTransitionDuration);
-    });
-  });
-};
-
-const initPageTransition = () => {
-  document.body.classList.add("page-transition-ready");
-
-  if (prefersReducedMotion()) return;
-
-  document.body.classList.add("page-transition-enter");
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      document.body.classList.remove("page-transition-enter");
+      window.location.href = parsedUrl.pathname;
     });
   });
 };
@@ -168,7 +209,6 @@ const initPageTransition = () => {
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
-  initPageTransition();
   gsap.registerPlugin(ScrollTrigger);
   initHeroHeaderAnimation(gsap);
   initAboutSectionAnimation(gsap, ScrollTrigger);
@@ -404,6 +444,7 @@ document.addEventListener("DOMContentLoaded", () => {
       field.setAttribute("aria-invalid", "true");
       if (errorEl) {
         errorEl.textContent = message;
+        errorEl.setAttribute("data-fs-active", "");
       }
       return false;
     }
@@ -413,6 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
     field.removeAttribute("aria-invalid");
     if (errorEl) {
       errorEl.textContent = "";
+      errorEl.removeAttribute("data-fs-active");
     }
     return true;
   };
@@ -461,22 +503,57 @@ document.addEventListener("DOMContentLoaded", () => {
     const formFields = Array.from(
       appointmentForm.querySelectorAll("input, select"),
     );
+    const submitButton = appointmentForm.querySelector('button[type="submit"]');
+    const formError = document.querySelector("#appointment-form-error");
+    const formSuccess = document.querySelector("#appointment-form-success");
+    const defaultSubmitLabel = submitButton ? submitButton.textContent : "";
+    const appointmentFormId = getFormspreeFormId(appointmentForm.action);
 
-    formFields.forEach((field) => {
-      field.addEventListener("blur", () => validateAppointmentField(field));
-      field.addEventListener("input", () => {
-        if (field.classList.contains("is-invalid")) {
-          validateAppointmentField(field);
-        }
-      });
-      field.addEventListener("change", () => {
-        if (field.classList.contains("is-invalid")) {
-          validateAppointmentField(field);
-        }
-      });
-    });
+    const setFormMessage = (element, message = "") => {
+      if (!element) return;
 
-    appointmentForm.addEventListener("submit", (event) => {
+      element.textContent = message;
+
+      if (message) {
+        element.setAttribute("data-fs-active", "");
+        return;
+      }
+
+      element.removeAttribute("data-fs-active");
+    };
+
+    const clearFormMessages = () => {
+      setFormMessage(formError, "");
+      setFormMessage(formSuccess, "");
+    };
+
+    const showFormError = (message) => {
+      setFormMessage(formSuccess, "");
+      setFormMessage(formError, message);
+    };
+
+    const showFormSuccess = (message) => {
+      setFormMessage(formError, "");
+      setFormMessage(formSuccess, message);
+    };
+
+    const clearFieldFeedback = (field, { preserveValidState = false } = {}) => {
+      if (!field) return;
+
+      const errorEl = document.querySelector(`#${field.id}-error`);
+      field.classList.remove("is-invalid");
+      if (!preserveValidState) {
+        field.classList.remove("is-valid");
+      }
+      field.removeAttribute("aria-invalid");
+
+      if (errorEl) {
+        errorEl.textContent = "";
+        errorEl.removeAttribute("data-fs-active");
+      }
+    };
+
+    const validateAppointmentForm = () => {
       let isValid = true;
 
       formFields.forEach((field) => {
@@ -485,14 +562,120 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      if (!isValid) {
+      return isValid;
+    };
+
+    formFields.forEach((field) => {
+      field.addEventListener("blur", () => validateAppointmentField(field));
+      field.addEventListener("input", () => {
+        if (
+          field.classList.contains("is-invalid") ||
+          field.getAttribute("aria-invalid") === "true"
+        ) {
+          validateAppointmentField(field);
+        }
+
+        clearFormMessages();
+      });
+      field.addEventListener("change", () => {
+        if (
+          field.classList.contains("is-invalid") ||
+          field.getAttribute("aria-invalid") === "true"
+        ) {
+          validateAppointmentField(field);
+        }
+
+        clearFormMessages();
+      });
+    });
+
+    appointmentForm.addEventListener(
+      "submit",
+      (event) => {
+        clearFormMessages();
+
+        if (validateAppointmentForm()) {
+          return;
+        }
+
         event.preventDefault();
+        event.stopImmediatePropagation();
         const firstInvalid = appointmentForm.querySelector(".is-invalid");
         if (firstInvalid) {
           firstInvalid.focus();
         }
-      }
-    });
+        showFormError("Please fix the highlighted fields and try again.");
+      },
+      true,
+    );
+
+    if (appointmentFormId) {
+      loadFormspreeAjax()
+        .then(() => {
+          window.formspree("initForm", {
+            formElement: appointmentForm,
+            formId: appointmentFormId,
+            useDefaultStyles: false,
+            disable: () => {
+              appointmentForm.setAttribute("aria-busy", "true");
+              if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = "Submitting...";
+              }
+            },
+            enable: () => {
+              appointmentForm.removeAttribute("aria-busy");
+              if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = defaultSubmitLabel;
+              }
+            },
+            renderFieldErrors: (_context, error) => {
+              formFields.forEach((field) => {
+                const fieldErrors =
+                  error && field.name ? error.getFieldErrors(field.name) : [];
+
+                if (fieldErrors.length) {
+                  setFieldState(field, fieldErrors[0].message);
+                  return;
+                }
+
+                clearFieldFeedback(field, { preserveValidState: true });
+              });
+            },
+            renderFormError: (_context, message) => {
+              if (!message) {
+                setFormMessage(formError, "");
+                return;
+              }
+
+              showFormError(message);
+            },
+            renderSuccess: (_context, message) => {
+              if (!message) {
+                setFormMessage(formSuccess, "");
+                return;
+              }
+
+              showFormSuccess(
+                "Thank you for booking an appointment with us. We will get back to you shorthly.",
+              );
+            },
+            onSuccess: () => {
+              appointmentForm.reset();
+              formFields.forEach((field) => clearFieldFeedback(field));
+            },
+            onFailure: () => {
+              showFormError(
+                "We couldn't send your request right now. Please try again in a moment.",
+              );
+            },
+          });
+        })
+        .catch(() => {
+          console.error("Formspree AJAX could not be initialized.");
+        });
+    }
   }
 
   // lenis config

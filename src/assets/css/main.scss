@@ -68,26 +68,6 @@ body {
         background-color: rgba(63, 30, 79, 0.16);
     }
 
-    &.page-transition-ready {
-        transition:
-            opacity 0.18s ease,
-            transform 0.18s ease,
-            filter 0.18s ease;
-    }
-
-    &.page-transition-enter {
-        opacity: 0;
-        transform: translateY(10px);
-        filter: blur(4px);
-    }
-
-    &.page-transition-leave {
-        opacity: 0;
-        transform: translateY(-8px);
-        filter: blur(4px);
-        pointer-events: none;
-    }
-
     &.loader-active {
         overflow: hidden;
         height: 100%;
@@ -963,7 +943,7 @@ body {
 
         .testimonial-quote {
             font-family: variables.$ir;
-            font-size: 1.05rem;
+            font-size: 0.9rem;
             line-height: 1.8;
             color: map.get(variables.$colors, darkGray);
             margin-bottom: 0;
@@ -1081,16 +1061,3 @@ body {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html,
-    body {
-        &.page-transition-ready,
-        &.page-transition-enter,
-        &.page-transition-leave {
-            transition: none;
-            transform: none;
-            filter: none;
-            opacity: 1;
-        }
-    }
-}

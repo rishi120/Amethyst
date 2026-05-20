@@ -14,6 +14,7 @@
         position: relative;
         border-radius: 2rem;
         overflow: hidden;
+        margin-bottom: 2.25rem;
 
         /* 👇 THIS CONTROLS HEIGHT */
         height: 550px;
@@ -46,14 +47,14 @@
     .cta-text {
         h2 {
             font-family: variables.$pb;
-            font-size: 2.6rem;
+            font-size: 2rem;
             color: #fff;
             margin-bottom: 1rem;
         }
 
         p {
             font-family: variables.$ir;
-            font-size: 1.15rem;
+            font-size: 1rem;
             color: rgba(255, 255, 255, 0.9);
             max-width: 520px;
             line-height: 1.6;
@@ -71,36 +72,89 @@
                 text-transform: none;
             }
 
-            ul {
-                list-style: none;
-                padding: 0;
+            .address-intro {
+                max-width: 38rem;
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+                color: rgba(255, 255, 255, 0.82);
+            }
+
+            .clinic-location-list {
                 margin: 0;
-                display: grid;
-                gap: 0.35rem;
+                row-gap: 1rem;
             }
 
-            li {
+            .clinic-location-card {
                 display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                font-family: variables.$ir;
-                font-size: 0.85rem;
-                color: map.get(variables.$colors, white);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 0.9rem;
+                min-height: 100%;
+                padding: 1rem;
+                border-radius: 1rem;
+                background: rgba(255, 255, 255, 0.96);
+                border: 1px solid rgba(33, 33, 33, 0.08);
+                box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+            }
+
+            .clinic-location-header {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.75rem;
+                min-width: 0;
+            }
+
+            .clinic-location-header i {
+                font-size: 1rem;
+                color: map.get(variables.$colors, primary);
+                margin-top: 0.15rem;
+            }
+
+            .clinic-location-label {
+                display: inline-block;
+                font-family: variables.$ib;
+                font-size: 0.88rem;
                 letter-spacing: 0.2px;
+                color: #181818;
+                margin-bottom: 0.25rem;
             }
 
-            i {
-                font-size: 0.9rem;
-                color: map.get(variables.$colors, white);
+            address {
+                margin: 0;
+                font-family: variables.$ir;
+                font-size: 0.86rem;
+                line-height: 1.55;
+                color: rgba(0, 0, 0, 0.78);
+                letter-spacing: 0.15px;
+                font-style: normal;
             }
 
-            a {
-                color: map.get(variables.$colors, white);
+            .clinic-location-link {
+                flex-shrink: 0;
+                align-self: flex-start;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 110px;
+                min-height: 38px;
+                padding: 0.5rem 0.9rem;
+                border-radius: 999px;
+                background: rgba(63, 30, 79, 0.08);
+                border: 1px solid rgba(63, 30, 79, 0.14);
+                color: map.get(variables.$colors, primary);
                 text-decoration: none;
-                transition: color 0.2s ease;
+                font-family: variables.$ib;
+                font-size: 0.8rem;
+                letter-spacing: 0.2px;
+                transition: background 0.2s ease, transform 0.2s ease,
+                    border-color 0.2s ease;
 
                 &:hover {
-                    color: #ffffff;
+                    color: map.get(variables.$colors, primary);
+                    background: rgba(63, 30, 79, 0.14);
+                    border-color: rgba(63, 30, 79, 0.22);
+                    transform: translateY(-1px);
                 }
             }
         }
@@ -134,7 +188,8 @@
         }
 
         .form-control.is-invalid,
-        .form-select.is-invalid {
+        .form-select.is-invalid,
+        [data-fs-field][aria-invalid="true"] {
             border-color: rgba(255, 92, 92, 0.9);
             background: rgba(255, 255, 255, 0.85);
             box-shadow:
@@ -158,6 +213,27 @@
             font-size: 0.75rem;
             color: rgba(255, 238, 238, 0.95);
             text-align: left;
+        }
+
+        .form-status {
+            display: none;
+            margin-top: 0.9rem;
+            font-family: variables.$ir;
+            font-size: 0.82rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.92);
+
+            &[data-fs-active] {
+                display: block;
+            }
+
+            &.form-status-success {
+                color: #d7ffe7;
+            }
+
+            &.form-status-error {
+                color: #ffe0e0;
+            }
         }
 
         .btn-primary-custom {
@@ -189,6 +265,13 @@
                 outline: none;
                 box-shadow:
                     0 0 0 0.25rem color.change(map.get(variables.$colors, primary), $alpha: 0.35);
+            }
+
+            &:disabled {
+                opacity: 0.75;
+                cursor: wait;
+                transform: none;
+                box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
             }
         }
 
@@ -330,6 +413,21 @@
 
             p {
                 margin: 0 auto;
+            }
+
+            .address-wrapper {
+                .address-intro {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .clinic-location-card {
+                    text-align: left;
+                }
+
+                .clinic-location-link {
+                    align-self: flex-start;
+                }
             }
         }
 

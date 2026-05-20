@@ -2310,6 +2310,7 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
+  margin-bottom: 2.25rem;
   /* 👇 THIS CONTROLS HEIGHT */
   height: 550px;
 }
@@ -2338,13 +2339,13 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
 }
 .footer .cta-text h2 {
   font-family: "Poppins-Bold";
-  font-size: 2.6rem;
+  font-size: 2rem;
   color: #fff;
   margin-bottom: 1rem;
 }
 .footer .cta-text p {
   font-family: "Inter-Regular";
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   max-width: 520px;
   line-height: 1.6;
@@ -2360,33 +2361,81 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
   margin-bottom: 0.5rem;
   text-transform: none;
 }
-.footer .cta-text .address-wrapper ul {
-  list-style: none;
-  padding: 0;
+.footer .cta-text .address-wrapper .address-intro {
+  max-width: 38rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+.footer .cta-text .address-wrapper .clinic-location-list {
   margin: 0;
-  display: grid;
-  gap: 0.35rem;
+  row-gap: 1rem;
 }
-.footer .cta-text .address-wrapper li {
+.footer .cta-text .address-wrapper .clinic-location-card {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: "Inter-Regular";
-  font-size: 0.85rem;
-  color: #fff;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.9rem;
+  min-height: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(33, 33, 33, 0.08);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+.footer .cta-text .address-wrapper .clinic-location-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-width: 0;
+}
+.footer .cta-text .address-wrapper .clinic-location-header i {
+  font-size: 1rem;
+  color: #371548;
+  margin-top: 0.15rem;
+}
+.footer .cta-text .address-wrapper .clinic-location-label {
+  display: inline-block;
+  font-family: "Inter-Bold";
+  font-size: 0.88rem;
   letter-spacing: 0.2px;
+  color: #181818;
+  margin-bottom: 0.25rem;
 }
-.footer .cta-text .address-wrapper i {
-  font-size: 0.9rem;
-  color: #fff;
+.footer .cta-text .address-wrapper address {
+  margin: 0;
+  font-family: "Inter-Regular";
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: rgba(0, 0, 0, 0.78);
+  letter-spacing: 0.15px;
+  font-style: normal;
 }
-.footer .cta-text .address-wrapper a {
-  color: #fff;
+.footer .cta-text .address-wrapper .clinic-location-link {
+  flex-shrink: 0;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  min-height: 38px;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(63, 30, 79, 0.08);
+  border: 1px solid rgba(63, 30, 79, 0.14);
+  color: #371548;
   text-decoration: none;
-  transition: color 0.2s ease;
+  font-family: "Inter-Bold";
+  font-size: 0.8rem;
+  letter-spacing: 0.2px;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
-.footer .cta-text .address-wrapper a:hover {
-  color: #ffffff;
+.footer .cta-text .address-wrapper .clinic-location-link:hover {
+  color: #371548;
+  background: rgba(63, 30, 79, 0.14);
+  border-color: rgba(63, 30, 79, 0.22);
+  transform: translateY(-1px);
 }
 .footer {
   /* Form */
@@ -2411,7 +2460,8 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .footer .cta-form .form-control.is-invalid,
-.footer .cta-form .form-select.is-invalid {
+.footer .cta-form .form-select.is-invalid,
+.footer .cta-form [data-fs-field][aria-invalid=true] {
   border-color: rgba(255, 92, 92, 0.9);
   background: rgba(255, 255, 255, 0.85);
   box-shadow: 0 0 0 0.2rem rgba(255, 92, 92, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.7);
@@ -2429,6 +2479,23 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
   font-size: 0.75rem;
   color: rgba(255, 238, 238, 0.95);
   text-align: left;
+}
+.footer .cta-form .form-status {
+  display: none;
+  margin-top: 0.9rem;
+  font-family: "Inter-Regular";
+  font-size: 0.82rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+}
+.footer .cta-form .form-status[data-fs-active] {
+  display: block;
+}
+.footer .cta-form .form-status.form-status-success {
+  color: #d7ffe7;
+}
+.footer .cta-form .form-status.form-status-error {
+  color: #ffe0e0;
 }
 .footer .cta-form .btn-primary-custom {
   background-color: #371548;
@@ -2454,6 +2521,12 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
 .footer .cta-form .btn-primary-custom:focus {
   outline: none;
   box-shadow: 0 0 0 0.25rem rgba(55, 21, 72, 0.35);
+}
+.footer .cta-form .btn-primary-custom:disabled {
+  opacity: 0.75;
+  cursor: wait;
+  transform: none;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
 }
 .footer .footer-bottom {
   position: relative;
@@ -2564,6 +2637,16 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
   .footer .cta-text p {
     margin: 0 auto;
   }
+  .footer .cta-text .address-wrapper .address-intro {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .footer .cta-text .address-wrapper .clinic-location-card {
+    text-align: left;
+  }
+  .footer .cta-text .address-wrapper .clinic-location-link {
+    align-self: flex-start;
+  }
   .footer .footer-bottom {
     text-align: center;
   }
@@ -2605,23 +2688,6 @@ body::-moz-scrollbar-thumb {
 html::-moz-scrollbar-track,
 body::-moz-scrollbar-track {
   background-color: rgba(63, 30, 79, 0.16);
-}
-html.page-transition-ready,
-body.page-transition-ready {
-  transition: opacity 0.18s ease, transform 0.18s ease, filter 0.18s ease;
-}
-html.page-transition-enter,
-body.page-transition-enter {
-  opacity: 0;
-  transform: translateY(10px);
-  filter: blur(4px);
-}
-html.page-transition-leave,
-body.page-transition-leave {
-  opacity: 0;
-  transform: translateY(-8px);
-  filter: blur(4px);
-  pointer-events: none;
 }
 html.loader-active,
 body.loader-active {
@@ -2743,17 +2809,6 @@ body .page-loader.is-hidden {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  html.page-transition-ready,
-  html.page-transition-enter,
-  html.page-transition-leave,
-  body.page-transition-ready,
-  body.page-transition-enter,
-  body.page-transition-leave {
-    transition: none;
-    transform: none;
-    filter: none;
-    opacity: 1;
-  }
   html .page-loader,
   body .page-loader {
     transition: none;
@@ -3456,7 +3511,7 @@ body .testimonials .testimonial-card {
 html .testimonials .testimonial-quote,
 body .testimonials .testimonial-quote {
   font-family: "Inter-Regular";
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   line-height: 1.8;
   margin-bottom: 0;
   position: relative;
