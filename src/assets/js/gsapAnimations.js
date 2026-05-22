@@ -16,6 +16,7 @@ export const initHeroHeaderAnimation = (gsap) => {
   const heroHighlight = heroTitle?.querySelector("span");
   const heroDescription = heroCopy.querySelector("p");
   const heroActions = heroCopy.querySelector(".hero-actions");
+  const heroPanel = document.querySelector(".header .hero-panel");
   const heroImageWrap = document.querySelector(".header .hero-image-wrap");
   const heroImage = heroImageWrap?.querySelector("img");
 
@@ -39,6 +40,9 @@ export const initHeroHeaderAnimation = (gsap) => {
     }
     if (heroImageWrap) {
       gsap.set(heroImageWrap, { clearProps: "all" });
+    }
+    if (heroPanel) {
+      gsap.set(heroPanel, { clearProps: "all" });
     }
     return;
   }
@@ -100,9 +104,19 @@ export const initHeroHeaderAnimation = (gsap) => {
       perspective: 900,
       transformStyle: "preserve-3d",
     });
+
+    if (heroPanel) {
+      gsap.set(heroPanel, {
+        autoAlpha: 0,
+        scale: 0.97,
+        force3D: true,
+        willChange: "transform, opacity",
+      });
+    }
+
     gsap.set(heroItems, {
       autoAlpha: 0,
-      y: 20,
+      y: 32,
       force3D: true,
       willChange: "transform, opacity",
     });
@@ -110,8 +124,8 @@ export const initHeroHeaderAnimation = (gsap) => {
     if (heroImageWrap) {
       gsap.set(heroImageWrap, {
         autoAlpha: 0,
-        x: 20,
-        scale: 1.015,
+        x: 30,
+        scale: 1.03,
         force3D: true,
         willChange: "transform, opacity",
       });
@@ -120,7 +134,7 @@ export const initHeroHeaderAnimation = (gsap) => {
     if (heroHighlight) {
       gsap.set(heroHighlight, {
         autoAlpha: 0.01,
-        y: 8,
+        y: 10,
         force3D: true,
         willChange: "transform, opacity",
       });
@@ -128,11 +142,27 @@ export const initHeroHeaderAnimation = (gsap) => {
 
     const timeline = gsap.timeline({
       defaults: {
-        ease: "power3.out",
-        duration: 0.78,
+        ease: "expo.out",
+        duration: 1.1,
       },
     });
 
+    // Panel scales up first as the backdrop
+    if (heroPanel) {
+      timeline.to(
+        heroPanel,
+        {
+          autoAlpha: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: "expo.out",
+          clearProps: "willChange",
+        },
+        0,
+      );
+    }
+
+    // Image slides in from right, overlapping with panel
     if (heroImageWrap) {
       timeline.to(
         heroImageWrap,
@@ -140,36 +170,38 @@ export const initHeroHeaderAnimation = (gsap) => {
           autoAlpha: 1,
           x: 0,
           scale: 1,
-          duration: 0.95,
-          ease: "power2.out",
+          duration: 1.3,
+          ease: "expo.out",
           clearProps: "willChange",
         },
-        0,
+        0.1,
       );
     }
 
+    // Text items cascade in with stagger
     timeline.to(
       heroItems,
       {
         autoAlpha: 1,
         y: 0,
-        stagger: 0.08,
+        stagger: 0.12,
         clearProps: "willChange",
       },
-      0.08,
+      0.18,
     );
 
+    // Highlight color word fades in after title
     if (heroHighlight) {
       timeline.to(
         heroHighlight,
         {
           autoAlpha: 1,
           y: 0,
-          duration: 0.5,
+          duration: 0.7,
           ease: "power2.out",
           clearProps: "willChange",
         },
-        0.28,
+        0.42,
       );
     }
   };
@@ -249,16 +281,20 @@ export const initAboutGridAnimation = (gsap, ScrollTrigger) => {
 
   gsap.set(aboutCards, {
     autoAlpha: 0,
-    y: 42,
+    y: 40,
+    scale: 0.95,
+    force3D: true,
+    willChange: "transform, opacity",
   });
 
   gsap.to(aboutCards, {
     autoAlpha: 1,
     y: 0,
     scale: 1,
-    duration: 0.4,
-    ease: "power2.out",
-    stagger: 0.1,
+    duration: 0.8,
+    ease: "expo.out",
+    stagger: 0.15,
+    clearProps: "willChange",
     scrollTrigger: {
       trigger: aboutGrid,
       start: "top 82%",

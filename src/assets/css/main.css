@@ -624,8 +624,8 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
   padding: clamp(0.5rem, 10vh, 8rem) 0 clamp(3rem, 7vh, 5rem);
   background-color: #f2e8df;
   /* =========================
-     HERO SECTION
-  ========================== */
+       HERO SECTION
+    ========================== */
 }
 .header .hero {
   position: relative;
@@ -634,7 +634,7 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
 }
 .header .hero .hero-shell {
   position: relative;
-  width: calc(100% - 14rem);
+  width: calc(100% - clamp(2rem, 8vw, 14rem));
   max-width: 1460px;
   min-height: 590px;
   margin: 2rem auto 0;
