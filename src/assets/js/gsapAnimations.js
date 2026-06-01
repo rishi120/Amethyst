@@ -328,3 +328,136 @@ export const initViewportVideoPlayback = (ScrollTrigger) => {
     onLeaveBack: () => video.pause(),
   });
 };
+
+const prefersReducedMotion = () =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const revealElements = (
+  gsap,
+  ScrollTrigger,
+  trigger,
+  elements,
+  {
+    start = "top 72%",
+    y = 28,
+    duration = 0.82,
+    stagger = 0.12,
+    scale = 1,
+  } = {},
+) => {
+  const items = elements.filter(Boolean);
+  if (!trigger || !items.length) return;
+
+  if (prefersReducedMotion()) {
+    gsap.set(items, { clearProps: "all" });
+    return;
+  }
+
+  const fromState = {
+    autoAlpha: 0,
+    y,
+    force3D: true,
+    willChange: "transform, opacity",
+  };
+
+  if (scale !== 1) {
+    fromState.scale = scale;
+  }
+
+  gsap.set(items, fromState);
+
+  gsap.to(items, {
+    autoAlpha: 1,
+    y: 0,
+    scale: 1,
+    duration,
+    stagger,
+    ease: "power3.out",
+    clearProps: "willChange",
+    scrollTrigger: {
+      trigger,
+      start,
+      once: true,
+    },
+  });
+};
+
+const revealSelector = (gsap, ScrollTrigger, triggerSelector, itemSelectors, options) => {
+  const trigger = document.querySelector(triggerSelector);
+  if (!trigger) return;
+
+  const elements = itemSelectors.flatMap((selector) =>
+    Array.from(trigger.querySelectorAll(selector)),
+  );
+
+  revealElements(gsap, ScrollTrigger, trigger, elements, options);
+};
+
+export const initHomepageSectionAnimations = (gsap, ScrollTrigger) => {
+  revealSelector(
+    gsap,
+    ScrollTrigger,
+    ".meet-our-team",
+    [
+      ".description-center > h2",
+      ".description-center > p",
+      ".team-member-image",
+      ".team-member-description",
+      ".our-story .story-img",
+      ".our-story .story > *",
+    ],
+    {
+      start: "top 70%",
+      y: 30,
+      duration: 0.84,
+      stagger: 0.11,
+      scale: 0.985,
+    },
+  );
+
+  revealSelector(
+    gsap,
+    ScrollTrigger,
+    ".faq-wrapper",
+    [
+      ".faq-heading-wrapper .text-style-tagline",
+      ".faq-heading-wrapper h2",
+      ".accordion-item",
+    ],
+    {
+      start: "top 72%",
+      y: 24,
+      duration: 0.78,
+      stagger: 0.1,
+      scale: 0.99,
+    },
+  );
+
+  revealSelector(
+    gsap,
+    ScrollTrigger,
+    ".expertise",
+    [".content-center > *", ".expertise-box"],
+    {
+      start: "top 71%",
+      y: 26,
+      duration: 0.8,
+      stagger: 0.1,
+      scale: 0.985,
+    },
+  );
+
+  revealSelector(
+    gsap,
+    ScrollTrigger,
+    ".testimonials",
+    [".content-center > *", ".testimonial-card", ".testimonial-controls"],
+    {
+      start: "top 72%",
+      y: 24,
+      duration: 0.76,
+      stagger: 0.09,
+      scale: 0.99,
+    },
+  );
+};

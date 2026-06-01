@@ -8,6 +8,7 @@ import {
   initAboutGridAnimation,
   initAboutSectionAnimation,
   initHeroHeaderAnimation,
+  initHomepageSectionAnimations,
   initViewportVideoPlayback,
 } from "./gsapAnimations.js";
 
@@ -213,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroHeaderAnimation(gsap);
   initAboutSectionAnimation(gsap, ScrollTrigger);
   initAboutGridAnimation(gsap, ScrollTrigger);
+  initHomepageSectionAnimations(gsap, ScrollTrigger);
   initViewportVideoPlayback(ScrollTrigger);
   navbar();
   renderFinalCta();
