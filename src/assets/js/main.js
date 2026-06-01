@@ -97,14 +97,14 @@ const loadFormspreeAjax = () => {
   }
 
   formspreeAjaxLoader = new Promise((resolve, reject) => {
-    const existingScript = document.querySelector("[data-formspree-ajax-script]");
+    const existingScript = document.querySelector(
+      "[data-formspree-ajax-script]",
+    );
 
     if (existingScript) {
-      existingScript.addEventListener(
-        "load",
-        () => resolve(window.formspree),
-        { once: true },
-      );
+      existingScript.addEventListener("load", () => resolve(window.formspree), {
+        once: true,
+      });
       existingScript.addEventListener(
         "error",
         () => reject(new Error("Unable to load Formspree AJAX.")),

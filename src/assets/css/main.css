@@ -2101,6 +2101,11 @@ nav.navbar-scrolled .custom-navbar-collapse ul li:last-child:hover a {
   background-attachment: fixed;
 }
 
+.pediatric-showcase .pediatric-showcase-panel {
+  background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../images/services/pediatric-service.jpg") center center/cover no-repeat;
+  background-attachment: fixed;
+}
+
 .cardio-showcase .cardio-showcase-panel {
   background: linear-gradient(90deg, rgba(32, 22, 54, 0.7) 0%, rgba(32, 22, 54, 0.48) 34%, rgba(32, 22, 54, 0.14) 70%, rgba(32, 22, 54, 0.08) 100%), url("../images/services/cardio.jpg") center center/cover no-repeat;
   background-attachment: fixed;
